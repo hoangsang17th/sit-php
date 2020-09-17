@@ -1,33 +1,8 @@
-<?php 
-    include("Connect.php");
-    session_start();
-    $LoginErr ="";
-    if (isset($_POST['username'])){
-        // $username = $_POST['username'];
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($conn,$username);
-        // $password = $_POST['password'];
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($conn,$password);
-        $query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
-        $result = mysqli_query($conn,$query) or die(mysql_error());
-        $rows = mysqli_num_rows($result);
-            if($rows==1){
-                $_SESSION['username'] = $username;
-                header("Location: index.php");
-                $LoginErr= $username;
-            }
-            else{
-                // $LoginErr ="Sai Tài khoản hoặc Mật Khẩu!";
-                // $LoginErr= $username;
-            }
-        }
-?>
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Login | User SIT</title>
+        <title>Register | SIT Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesbrand" name="author">
@@ -41,6 +16,24 @@
         <link href="assets\css\app.min.css" id="app-style" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <?php
+            include("Connect.php");
+            if (isset($_REQUEST['username'])){
+                $hovaten =  stripslashes($_REQUEST['hovaten']);
+                $hovaten =  mysqli_real_escape_string($conn,$hovaten);
+                $username = stripslashes($_REQUEST['username']);
+                $username = mysqli_real_escape_string($conn,$username);
+                $email = stripslashes($_REQUEST['useremail']);
+                $email = mysqli_real_escape_string($conn,$email);
+                $password = stripslashes($_REQUEST['userpassword']);
+                $password = mysqli_real_escape_string($conn,$password);
+                $query = "INSERT INTO `users` (username, password, email, name) VALUES ('$username', '$password', '$email', '$hovaten')";
+                $result = mysqli_query($conn,$query);
+                if($result){
+                    header("Location: login.php");
+                }
+            }
+        ?>
         <div class="home-btn d-none d-sm-block">
             <a href="index.html" class="text-dark"><i class="fas fa-home h2"></i></a>
         </div>
@@ -53,8 +46,8 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="text-primary p-4">
-                                            <h5 class="text-primary">Hệ Thống User SIT.</h5>
-                                            <p>Sign in to continue to SIT.</p>
+                                            <h5 class="text-primary">Đăng Ký Miễn Phí</h5>
+                                            <p>Trở Thành Một Phần Của Chúng Tôi</p>
                                         </div>
                                     </div>
                                     <div class="col-5 align-self-end">
@@ -73,26 +66,34 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form class="form-horizontal" action="" method="post" name="login">
-                                        <i class="text-danger mb-5"><?php echo $LoginErr;?></i>
-                                        <div class="form-group mt-1">
-                                            <label for="username">Tài Khoản</label>
-                                            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+                                    <form class="form-horizontal" action="" method="POST">
+                                        <div class="form-group">
+                                            <label for="userpassword">Họ và Tên</label>
+                                            <input type="text" class="form-control" name="hovaten" placeholder="Họ và Tên" required>        
                                         </div>
                                         <div class="form-group">
-                                            <label for="userpassword">Mật Khẩu</label>
-                                            <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
+                                            <label for="useremail">Email</label>
+                                            <input type="email" class="form-control" name="useremail" placeholder="Enter email" required>        
                                         </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                            <label class="custom-control-label" for="customControlInline">Ghi nhớ trạng thái đăng nhập</label>
+                
+                                        <div class="form-group">
+                                            <label for="username">ID Login</label>
+                                            <input type="text" class="form-control" name="username" placeholder="Enter ID Login" required>
+                                        </div>
+                
+                                        <div class="form-group">
+                                            <label for="userpassword">Password</label>
+                                            <input type="password" class="form-control" name="userpassword" placeholder="Enter password" required>        
                                         </div>
                                         
-                                        <div class="mt-3">
-                                            <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Đăng Nhập</button>
+                    
+                                        <div class="mt-4">
+                                            <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Register</button>
                                         </div>
+
                                         <!-- <div class="mt-4 text-center">
-                                            <h5 class="font-size-14 mb-3">Sign in with</h5>
+                                            <h5 class="font-size-14 mb-3">Sign up using</h5>
+            
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
                                                     <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
@@ -111,17 +112,20 @@
                                                 </li>
                                             </ul>
                                         </div> -->
+                
                                         <div class="mt-4 text-center">
-                                            <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Bạn Quên Mật Khẩu</a>
+                                            <p class="mb-0">SIT <a href="#" class="text-primary">Terms of Use</a></p>
                                         </div>
                                     </form>
                                 </div>
+            
                             </div>
                         </div>
                         <div class="mt-5 text-center">
+                            
                             <div>
-                                <p>Don't have an account ? <a href="register.php" class="font-weight-medium text-primary"> Đăng Ký </a> </p>
-                                <p>© <?php echo Date("Y");?> SIT. All Rights Reserved <i class="mdi mdi-heart text-danger"></i></p>
+                                <p>Already have an account ? <a href="login.php" class="font-weight-medium text-primary"> Login</a> </p>
+                                <p>© 2020 SIT. Crafted with <i class="mdi mdi-heart text-danger"></i> by Hoàng Sang</p>
                             </div>
                         </div>
 
@@ -129,12 +133,14 @@
                 </div>
             </div>
         </div>
+
         <!-- JAVASCRIPT -->
         <script src="assets\libs\jquery\jquery.min.js"></script>
         <script src="assets\libs\bootstrap\js\bootstrap.bundle.min.js"></script>
         <script src="assets\libs\metismenu\metisMenu.min.js"></script>
         <script src="assets\libs\simplebar\simplebar.min.js"></script>
         <script src="assets\libs\node-waves\waves.min.js"></script>
+        
         <!-- App js -->
         <script src="assets\js\app.js"></script>
     </body>

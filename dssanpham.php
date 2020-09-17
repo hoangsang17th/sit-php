@@ -70,8 +70,8 @@
                             echo "<td>".$row['tenmathang']."</td>";
                             echo "<td>".$row['soluong']."</td>";
                             echo "<td>".$row['dongia']."</td>";
-                            echo '<td><a href="xoahanghoa.php?id='.$row['id'].'">Xóa<a/></td>';
-                            echo '<td><a href="suahanghoa.php?id='.$row['id'].'">Sửa<a/></td>';
+                            echo '<td><a href="xoahanghoa.php?id='.$row['id'].'"><i class="far fa-edit"></i><a/></td>';
+                            echo '<td><a href="suahanghoa.php?id='.$row['id'].'"><i class="far fa-trash-alt"></i><a/></td>';
                             echo "</tr>";
                             $stt++;
                         }

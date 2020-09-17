@@ -406,11 +406,11 @@
                             </div>
                         </div>
 
-                        <div class="dropdown d-inline-block">
+                        <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                                 <i class="bx bx-cog bx-spin"></i>
                             </button>
-                        </div>
+                        </div> -->
             
                     </div>
                 </div>
@@ -427,6 +427,25 @@
                                 <a href="index-dashboard.php" class="waves-effect">
                                     <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right">SIT</span>
                                     <span>Trang Chủ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-dashboard.php" class=" waves-effect">
+                                <i class="fas fa-users"></i>
+                                    <span>Users SIT</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="dsdanhmuc.php" class=" waves-effect">
+                                <i class="fas fa-list-ol"></i>
+                                    <span>Danh Mục</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dssanpham.php" class=" waves-effect">
+                                    <i class="fas fa-list-ul"></i>
+                                    <span>Sản Phẩm</span>
                                 </a>
                             </li>
                             <!-- <li class="menu-title">Apps</li> -->
