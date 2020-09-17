@@ -42,7 +42,7 @@
     </head>
     <body>
         <div class="home-btn d-none d-sm-block">
-            <a href="index.html" class="text-dark"><i class="fas fa-home h2"></i></a>
+            <a href="index.php" class="text-dark"><i class="fas fa-home h2"></i></a>
         </div>
         <div class="account-pages my-5 pt-sm-5">
             <div class="container">
