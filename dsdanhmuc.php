@@ -2,7 +2,7 @@
 <html lang="en">
     <head>    
         <meta charset="utf-8">
-        <title>Data Tables | SIT Admin Dashboard</title>
+        <title>Danh sách danh mục | SIT Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesbrand" name="author">
@@ -32,7 +32,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Danh Sách Sản Phẩm</h4>
+                                        <h4 class="card-title">Danh Sách Danh Mục</h4>
                                         <p class="card-title-desc">SIT. Bạn tài giỏi, còn tôi thì không!</p>
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>

@@ -1,10 +1,8 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
-
-    <head>
-        
+    <head>       
         <meta charset="utf-8">
-        <title>Thay đổi thông tin sản phẩm | SIT Admin Dashboard</title>
+        <title>Thêm sản phẩm mới | SIT Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesbrand" name="author">
@@ -27,14 +25,8 @@
         $dongia = $_POST['dongia']; $idDanhmuc = $_POST['iddanhmuc'];
         $mota =$_POST['mota'];
         $id=$_GET['id'];
-        $sql = "UPDATE sanpham SET tenmathang='$tenmathang',iddanhmuc=$idDanhmuc,soluong=$soluong,dongia=$dongia, mota='$mota' WHERE id=$id";
-        $sll = "SELECT * FROM hanghoa WHERE tenmathang='$tenmathang' ";
+        $sql = "INSERT INTO sanpham(tenmathang, soluong, dongia, iddanhmuc, mota) VALUES ('$tenmathang','$soluong','$dongia','$idDanhmuc', '$mota')";
         $ketqua = mysqli_query($conn, $sql);
-        $ketqua2 = mysqli_query($conn, $sll);
-        $edit2 = mysqli_num_rows($ketqua2);
-        if($edit2==1){ 
-            header("Location: dssanpham.php"); 
-        }
     }
     ?>
     <?php
@@ -53,46 +45,44 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title mb-4">Thay đổi thông tin sản phẩm</h4>
+                                        <h4 class="card-title mb-4">Thêm sản phẩm</h4>
                                         <form action="" method="POST">
                                             <div class="form-group">
                                                 <label for="formrow-firstname-input">Tên Sản Phẩm</label>
-                                                <input type="text" class="form-control" name="tenmathang"value="<?php echo $mathang['tenmathang']; ?>">
+                                                <input type="text" class="form-control" name="tenmathang">
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="formrow-email-input">Số Lượng</label>
-                                                        <input type="number" class="form-control" name="soluong" value="<?php echo $mathang['soluong']; ?>">
+                                                        <input type="number" class="form-control" name="soluong">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="formrow-password-input">Đơn Giá</label>
-                                                        <input type="number" class="form-control" name="dongia" value="<?php echo $mathang['dongia']; ?>">
+                                                        <input type="number" class="form-control" name="dongia">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="formrow-inputState">Danh Mục</label>
-                                                        <select name="iddanhmuc" class="form-control" selected="<?php echo (isset($mathang))?$mathang['iddanhmuc']:'';?>">
+                                                        <select name="iddanhmuc" class="form-control">
                                                         <?php
-                                                            $sqlGetDanhMuc = "SELECT * FROM danhmuc";
-                                                            $ketquaGetDanhMuc = mysqli_query($conn,$sqlGetDanhMuc);
-                                                            while($row = mysqli_fetch_assoc($ketquaGetDanhMuc))
-                                                            {
-                                                                echo '<option value="'.$row['id'].'"';
-                                                                if ($row['id'] == $mathang['iddanhmuc']) echo 'selected="selected">'.$row['tendanhmuc'].'</option>';
-                                                                if ($row['id'] != $mathang['iddanhmuc']) echo '>'.$row['tendanhmuc'].'</option>';
+                                                            $sql = "SELECT * FROM danhmuc";
+                                                            
+                                                            $ketqua =mysqli_query($conn, $sql);
+                                                            while ($row = mysqli_fetch_assoc($ketqua)) {
+                                                                echo '<option value="'.$row['id'].'">'.$row['tendanhmuc'].'</option>';
                                                             }
-                                                            ?>
+                                                        ?>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <label>Mô tả sản phẩm</label>
-                                                <textarea id="textarea" name="mota" class="form-control" maxlength="1000" rows="5" placeholder="Không quá 1000 ký tự"><?php echo $mathang['mota']; ?></textarea>
+                                                <textarea id="textarea" name="mota" class="form-control" maxlength="1000" rows="5" placeholder="Không quá 1000 ký tự"></textarea>
                                             </div>
                                             <div>
                                                 <button type="submit" class="btn btn-primary w-md">Hoàn Thành</button>

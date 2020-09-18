@@ -2,7 +2,7 @@
 <html lang="en">
     <head>    
         <meta charset="utf-8">
-        <title>Data Tables | SIT Admin Dashboard</title>
+        <title>Thông tin sản phẩm | SIT Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesbrand" name="author">
@@ -34,6 +34,8 @@
                                     <div class="card-body">
                                         <h4 class="card-title">Danh Sách Sản Phẩm</h4>
                                         <p class="card-title-desc">SIT. Bạn tài giỏi, còn tôi thì không!</p>
+                                            <a href="AddSP.php" class="btn btn-primary mr-2 w-md mb-3">
+                                                <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Sản Phẩm</a>
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
