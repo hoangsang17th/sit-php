@@ -169,7 +169,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4 float-sm-left">Email Sent</h4>
+                        <h4 class="card-title mb-4 float-sm-left">Sản Phẩm Bán Chạy</h4>
                         <div class="float-sm-right">
                             <ul class="nav nav-pills">
                                 <li class="nav-item">
