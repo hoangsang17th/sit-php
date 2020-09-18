@@ -34,11 +34,14 @@
                                     <div class="card-body">
                                         <h4 class="card-title">Danh Sách Danh Mục</h4>
                                         <p class="card-title-desc">SIT. Bạn tài giỏi, còn tôi thì không!</p>
+                                        <a href="AddSP.php" class="btn btn-primary mr-2 w-md mb-3">
+                                                <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Danh Mục</a>
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
                                                 <th>STT</th>
                                                 <th>Tên Danh Mục</th>
+                                                <th>Sửa</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -52,7 +55,7 @@
                                                     echo '<td>'.$stt.'</td>';
                                                     // echo '<td>'.$row['tendanhmuc'].'</td>';
                                                     echo '<td><a href="dssanpham.php?iddanhmuc='.$row['id'].'">'.$row['tendanhmuc'].'<a/></td>';
-                                                    // echo '<td>'.$slsp.'</td>';
+                                                    echo '<td><a href="EditDM.php?id='.$row['id'].'"><i class="far fa-edit"></i><a/></td>';
                                                     echo "</tr>";
                                                     $stt++;
                                                 }
