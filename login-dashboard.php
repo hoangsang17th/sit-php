@@ -13,7 +13,7 @@
         $result = mysqli_query($conn,$query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
             if($rows==1){ //1 là đúng (Nếu rows tồn tại 1 giá trị thì thực hiện công việc tiếp theo)
-                $_SESSION['username'] = $username;
+                $_SESSION['adminname'] = $username;
                 header("Location: index-dashboard.php");
                 $LoginErr= $username;
             }

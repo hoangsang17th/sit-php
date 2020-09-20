@@ -28,13 +28,13 @@
         $mota =$_POST['mota'];
         $id=$_GET['id'];
         $sql = "UPDATE sanpham SET tenmathang='$tenmathang',iddanhmuc=$idDanhmuc,soluong=$soluong,dongia=$dongia, mota='$mota' WHERE id=$id";
-        $sll = "SELECT * FROM hanghoa WHERE tenmathang='$tenmathang' ";
+        $sll = "SELECT * FROM sanpham WHERE tenmathang='$tenmathang' ";
         $ketqua = mysqli_query($conn, $sql);
-        $ketqua2 = mysqli_query($conn, $sll);
-        $edit2 = mysqli_num_rows($ketqua2);
-        if($edit2==1){ 
-            header("Location: dssanpham.php"); 
-        }
+        // $ketqua2 = mysqli_query($conn, $sll);
+        // $edit2 = mysqli_num_rows($ketqua2);
+        // if($edit2==1){ 
+        //     header("Location: dssanpham.php"); 
+        // }
     }
     ?>
     <?php
@@ -107,15 +107,6 @@
             </div>
 
         </div>
-        <!-- END layout-wrapper -->
-        <!-- JAVASCRIPT -->
-        <script src="assets\libs\jquery\jquery.min.js"></script>
-        <script src="assets\libs\bootstrap\js\bootstrap.bundle.min.js"></script>
-        <script src="assets\libs\metismenu\metisMenu.min.js"></script>
-        <script src="assets\libs\simplebar\simplebar.min.js"></script>
-        <script src="assets\libs\node-waves\waves.min.js"></script>
-
-        <script src="assets\js\app.js"></script>
 
     </body>
 </html>

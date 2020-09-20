@@ -20,95 +20,57 @@
         <!-- App Css-->
         <link href="assets\css\app.min.css" id="app-style" rel="stylesheet" type="text/css">
     </head>
-    <body data-sidebar="dark">
+    <body>
     <?php 
     include("header-dashboard.php");
     ?>
-        <div id="layout-wrapper">
-            <div class="main-content">
-                <div class="page-content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Danh Sách Danh Mục</h4>
-                                        <p class="card-title-desc">SIT. Bạn tài giỏi, còn tôi thì không!</p>
-                                        <a href="AddSP.php" class="btn btn-primary mr-2 w-md mb-3">
-                                                <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Danh Mục</a>
-                                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                            <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Tên Danh Mục</th>
-                                                <th>Sửa</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php
-                                                $stt= 1;
-                                                $rsdanhmuc = "SELECT * FROM danhmuc";
-                                                $ketqua =mysqli_query($conn, $rsdanhmuc);
-                                                $slsp=0;
-                                                while ($row = mysqli_fetch_assoc($ketqua)){
-                                                    echo "<tr>";
-                                                    echo '<td>'.$stt.'</td>';
-                                                    // echo '<td>'.$row['tendanhmuc'].'</td>';
-                                                    echo '<td><a href="dssanpham.php?iddanhmuc='.$row['id'].'">'.$row['tendanhmuc'].'<a/></td>';
-                                                    echo '<td><a href="EditDM.php?id='.$row['id'].'"><i class="far fa-edit"></i><a/></td>';
-                                                    echo "</tr>";
-                                                    $stt++;
-                                                }
-                                            ?>
-                                            </tbody>
-                                        </table>
-        
-                                    </div>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Danh Sách Danh Mục</h4>
+                                    <p class="card-title-desc">SIT. Bạn tài giỏi, còn tôi thì không!</p>
+                                    <a href="AddDM.php" class="btn btn-primary mr-2 w-md mb-3">
+                                            <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Danh Mục</a>
+                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên Danh Mục</th>
+                                            <th>Sửa</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            $stt= 1;
+                                            $rsdanhmuc = "SELECT * FROM danhmuc";
+                                            $ketqua =mysqli_query($conn, $rsdanhmuc);
+                                            $slsp=0;
+                                            while ($row = mysqli_fetch_assoc($ketqua)){
+                                                echo "<tr>";
+                                                echo '<td>'.$stt.'</td>';
+                                                // echo '<td>'.$row['tendanhmuc'].'</td>';
+                                                echo '<td><a href="dssanpham.php?iddanhmuc='.$row['id'].'">'.$row['tendanhmuc'].'<a/></td>';
+                                                echo '<td><a href="EditDM.php?id='.$row['id'].'"><i class="far fa-edit"></i><a/></td>';
+                                                echo "</tr>";
+                                                $stt++;
+                                            }
+                                        ?>
+                                        </tbody>
+                                    </table>
+    
                                 </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
 
-                    </div> <!-- container-fluid -->
-                </div>
+                </div> <!-- container-fluid -->
             </div>
-            <!-- end main content-->
-
         </div>
-        <!-- END layout-wrapper -->
-
-        <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
-
-        <!-- JAVASCRIPT -->
-        <script src="assets\libs\jquery\jquery.min.js"></script>
-        <script src="assets\libs\bootstrap\js\bootstrap.bundle.min.js"></script>
-        <script src="assets\libs\metismenu\metisMenu.min.js"></script>
-        <script src="assets\libs\simplebar\simplebar.min.js"></script>
-        <script src="assets\libs\node-waves\waves.min.js"></script>
-
-        <!-- Required datatable js -->
-        <script src="assets\libs\datatables.net\js\jquery.dataTables.min.js"></script>
-        <script src="assets\libs\datatables.net-bs4\js\dataTables.bootstrap4.min.js"></script>
-        <!-- Buttons examples -->
-        <script src="assets\libs\datatables.net-buttons\js\dataTables.buttons.min.js"></script>
-        <script src="assets\libs\datatables.net-buttons-bs4\js\buttons.bootstrap4.min.js"></script>
-        <script src="assets\libs\jszip\jszip.min.js"></script>
-        <script src="assets\libs\pdfmake\build\pdfmake.min.js"></script>
-        <script src="assets\libs\pdfmake\build\vfs_fonts.js"></script>
-        <script src="assets\libs\datatables.net-buttons\js\buttons.html5.min.js"></script>
-        <script src="assets\libs\datatables.net-buttons\js\buttons.print.min.js"></script>
-        <script src="assets\libs\datatables.net-buttons\js\buttons.colVis.min.js"></script>
         
-        <!-- Responsive examples -->
-        <script src="assets\libs\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
-        <script src="assets\libs\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
-
-        <!-- Datatable init js -->
-        <script src="assets\js\pages\datatables.init.js"></script>    
-
-        <script src="assets\js\app.js"></script>
 
     </body>
 </html>
