@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
-
     <head>
-        
         <meta charset="utf-8">
         <title>Chi tiết công việc | SIT</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +21,9 @@
     <?php 
     include("header.php");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $tenmathang = $_POST['tenmathang']; $soluong = $_POST['soluong'];
-        $dongia = $_POST['dongia']; $idDanhmuc = $_POST['iddanhmuc'];
-        $mota =$_POST['mota'];
-        $id=$_GET['id'];
-        $sql = "SELECT * FROM sanpham WHERE idm=$idm";
+        $mission =$_POST['mission'];
+        $description =$_POST['description'];
+        $sql = "UPDATE todolist SET mission='$mission', description= '$description' WHERE idm=".$_GET['idm'];
         $ketqua = mysqli_query($conn, $sql);
     }
     ?>
@@ -37,6 +33,7 @@
             $ketQuaToDo = mysqli_query($conn, $sqlGetToDo);
             $dtodo = mysqli_fetch_assoc($ketQuaToDo);
         }
+        
     ?>
         <!-- Begin page -->
         <div id="layout-wrapper">
@@ -51,13 +48,22 @@
                                         <form action="" method="POST">
                                             <div class="form-group">
                                                 <label for="formrow-firstname-input">Tên Nhiệm Vụ</label>
-                                                <input type="text" class="form-control" name="mission" value="<?php echo $dtodo['mission']; ?>">
+                                                <input type="text" class="form-control" name="mission" value="<?php 
+                                                if ($dtodo['id']== $profile['id']){
+                                                    echo $dtodo['mission']; 
+                                                }
+                                                else echo "Manipulation URL là gì?";
+                                                ?>">
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="formrow-email-input">Thời Gian Bắt Đầu</label>
-                                                        <input type="text" class="form-control" name="startdate" value="<?php echo $dtodo['startdate'];?>" disabled>
+                                                        <input type="text" class="form-control" name="startdate" value="<?php
+                                                        if ($dtodo['id']== $profile['id']){
+                                                            echo $dtodo['startdate']; 
+                                                        }
+                                                        else echo "Admin sinh ngày 4/9/2001 nhé!";?>" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -73,14 +79,30 @@
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <label>Mô tả nhiệm vụ</label>
-                                                <textarea id="textarea" name="description" class="form-control" maxlength="5000" rows="7" placeholder="Không quá 5000 ký tự"><?php echo $dtodo['description']; ?></textarea>
+                                                <textarea id="textarea" name="description" class="form-control" maxlength="5000" rows="7" placeholder="Không quá 5000 ký tự"><?php 
+                                                if ($dtodo['id']== $profile['id']){
+                                                    echo $dtodo['description']; 
+                                                }
+                                                else echo "Một số ứng dụng web giao tiếp thông tin giữa máy khách (trình duyệt) và máy chủ trong URL. Thay đổi một số thông tin trong URL đôi khi có thể dẫn đến hành vi ngoài ý muốn của máy chủ và điều này được gọi là Thao tác URL."; 
+                                                ?></textarea>
                                             </div>
                                             <div>
-                                                <button type="submit" class="btn btn-warning mr-2"><i class="far fa-edit"> </i> Lưu </button>
-                                                <button type="submi" class="btn btn-success w-md mr-2"><i class="bx bx-check-double"> </i> Đánh dấu đã hoàn thành</button>
-                                                <button type="submi" class="btn btn-danger mr-2"><i class="far fa-trash-alt"> </i> Xóa Nhiệm Vụ</button>
+                                            <?php 
+                                            if ($dtodo['id']== $profile['id']){
+                                                echo '<button type="submit" class="btn btn-warning mr-2"><i class="far fa-edit"> </i> Lưu </button>';
+                                                echo '<button type="submi" class="btn btn-success w-md mr-2"><i class="bx bx-check-double"> </i> Đánh dấu đã hoàn thành</button>';
+                                                echo '<button type="submi" class="btn btn-danger mr-2"><i class="far fa-trash-alt"> </i> Xóa Nhiệm Vụ</button>';
+                                            }
+                                            else echo '<a href="index.php" class="btn btn-primary mr-2 w-md mb-3"> 
+                                            <i class="fas fa-chevron-left"></i> Quay lại </a>';
+                                            ?>
+                                            
+                                                
+                                                
+                                                
                                             </div>
                                         </form>
+                                        
                                     </div>
                                 </div>
                             </div>
