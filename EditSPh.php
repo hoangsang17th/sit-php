@@ -30,11 +30,6 @@
         $sql = "UPDATE sanpham SET tenmathang='$tenmathang',iddanhmuc=$idDanhmuc,soluong=$soluong,dongia=$dongia, mota='$mota' WHERE id=$id";
         $sll = "SELECT * FROM sanpham WHERE tenmathang='$tenmathang' ";
         $ketqua = mysqli_query($conn, $sql);
-        // $ketqua2 = mysqli_query($conn, $sll);
-        // $edit2 = mysqli_num_rows($ketqua2);
-        // if($edit2==1){ 
-        //     header("Location: dssanpham.php"); 
-        // }
     }
     ?>
     <?php

@@ -35,7 +35,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">Danh Sách Các Công Việc Cần Phải Làm</h4>
                                         <p class="card-title-desc">SIT. Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề!</p>
-                                            <a href="AddSP.php" class="btn btn-primary mr-2 w-md mb-3">
+                                            <a href="AddToDo.php" class="btn btn-primary mr-2 w-md mb-3">
                                                 <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Công Việc</a>
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
@@ -47,19 +47,15 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                                // if (isset($_GET['iddanhmuc'])) {
-                                                //     $sql = "SELECT * FROM sanpham WHERE iddanhmuc=" .$_GET['iddanhmuc'];
-                                                // } else {                
-                                                //     $sql = "SELECT * FROM sanpham";
-                                                // }
-                                                $sql = "SELECT * FROM todolist WHERE id =".$_GET['id'];
+                                                
+                                                $sql = "SELECT * FROM todolist WHERE id =".$profile['id'];
                                                 $ketqua =mysqli_query($conn, $sql);
                                                 $stt= 1;
                                                 while ($row = mysqli_fetch_assoc($ketqua)){
                                                     echo "<tr>";
                                                     echo '<td>'.$stt.'</td>';
                                                     echo "<td>".$row['mission']."</td>";
-                                                    echo "<td><a href=''><i class='fas fa-info-circle'></i></a></td>";
+                                                    echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'"><i class="fas fa-info-circle"></i></a></td>';
                                                     echo "</tr>";
                                                     $stt++;
                                                 }
