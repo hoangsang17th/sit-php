@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.header-top-menu{
+    background-color: #222222;
+    color: #fff;
+    padding: 1px 0;
+}
+.data-time span{
+    font-size: 14px;
+}
+.social a{
+    text-decoration: none;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 12px;
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.social a:hover{
+    color: #fff;
+}
+@media only screen and (max-width:335px){
+    .social{
+        display: none;
+    }
+}
+@media only screen and (min-width:768px){
+    .data-time{
+        padding-left: 50px;
+    }
+    .social{
+        padding-right: 50px;
+    }
+}
+@media only screen and (min-width:992px){
+    .data-time{
+        padding-left: 100px;
+    }
+    .social{
+        padding-right: 100px;
+    }
+}

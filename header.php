@@ -20,9 +20,15 @@
         <link href="assets\css\bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
         <!-- Icons Css -->
         <link href="assets\css\icons.min.css" rel="stylesheet" type="text/css">
+        <link href="assets\css" rel="stylesheet" type="text/css">
         <!-- App Css-->
         <link href="assets\css\app.min.css" id="app-style" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+        <link href="assets\css\main.css" id="app-style" rel="stylesheet" type="text/css">
+    <style>
+        .header-top-menu{
+            font-family: none;
+        }
+    </style>
     </head>
     <body data-sidebar="dark">
         <!-- Loader -->
@@ -40,8 +46,27 @@
         </div>
         <!-- Begin page -->
         <div id="layout-wrapper">
-            <header id="page-topbar">
+                <header id="page-topbar">
+                <div class="header-top-menu container-fluid" id="header-top-menu">
+                    <div class="row">
+                        <div class="col">
+                            <div class="data-time">
+                                <span id="Time"></span>
+                            </div>
+                        </div>
+                        <div class="col text-right social">
+                            <div class="social">
+                                <a target="_blank" href="https://www.facebook.com/HoangSang17TH"><i class="fab fa-facebook-f"></i></a>
+                                <a target="_blank" href="https://www.instagram.com/hoangsang17th/"><i class="fab fa-instagram"></i></a>
+                                <a target="_blank" href="mailto: phsang49@gmail.com"><i class="fas fa-envelope"></i></a>
+                                <a target="_blank" href="https://twitter.com/HoangSang17Th"><i class="fab fa-twitter"></i></a>
+                                <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="navbar-header">
+                    
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
@@ -272,8 +297,22 @@
         <!-- Responsive examples -->
         <script src="assets\libs\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
         <script src="assets\libs\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
-
         <!-- Datatable init js -->
         <script src="assets\js\pages\datatables.init.js"></script>   
+        <script>
+        function GetClock(){
+            var datatime= new Date();
+            var min= datatime.getMinutes(); //Phút
+            var hour= datatime.getHours(); //Giờ
+            var date= datatime.getDate(); //Ngày
+            var month= datatime.getMonth(); //Tháng
+            var year= datatime.getFullYear(); //Năm
+            if(min<=9) min="0"+min
+            var clocktext= +hour+':'+min+" Ngày "+date+"/ "+(month+1)+"/ "+year;
+            document.getElementById('Time').innerHTML=clocktext;
+        }
+        GetClock();
+        setInterval(GetClock,1000);
+        </script>
     </body>
 </html>

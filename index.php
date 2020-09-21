@@ -37,12 +37,14 @@
                                         <p class="card-title-desc">SIT. Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề!</p>
                                             <a href="AddToDo.php" class="btn btn-primary mr-2 w-md mb-3">
                                                 <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Công Việc</a>
-                                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <div class="table-responsive">
+                                                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
                                                 <th>STT</th>
+                                                <th>Ngày Bắt Đầu</th>
                                                 <th>Nhiệm Vụ</th>
-                                                <th><i class="far fa-folder-open"></i></th>
+                                                <th>Actions</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -54,14 +56,16 @@
                                                 while ($row = mysqli_fetch_assoc($ketqua)){
                                                     echo "<tr>";
                                                     echo '<td>'.$stt.'</td>';
+                                                    echo "<td>".$row['startdate']."</td>";
                                                     echo "<td>".$row['mission']."</td>";
-                                                    echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'"><i class="fas fa-info-circle"></i></a></td>';
+                                                    echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
                                                     echo "</tr>";
                                                     $stt++;
                                                 }
                                             ?>
                                             </tbody>
-                                        </table>
+                                        </table></div>
+                                            
                                     </div>
                                 </div>
                             </div> <!-- end col -->

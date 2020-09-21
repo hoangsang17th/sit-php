@@ -6,9 +6,31 @@
     <link rel="stylesheet" href="assets/css/todolist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./Css/main.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script>
+      
+  </script>
   </head>
   <body>
-
+    <div class="header-top-menu container-fluid" id="header-top-menu">
+      <div class="row">
+          <div class="col">
+              <div class="data-time">
+                  <span id="Time"></span>
+              </div>
+          </div>
+          <div class="col text-right social">
+              <div class="social">
+                  <a target="_blank" href="https://www.facebook.com/HoangSang17TH"><i class="fab fa-facebook-f"></i></a>
+                  <a target="_blank" href="https://www.instagram.com/hoangsang17th/"><i class="fab fa-instagram"></i></a>
+                  <a target="_blank" href="mailto: phsang49@gmail.com"><i class="fas fa-envelope"></i></a>
+                  <a target="_blank" href="https://twitter.com/HoangSang17Th"><i class="fab fa-twitter"></i></a>
+                  <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA"><i class="fab fa-youtube"></i></a>
+              </div>
+          </div>
+      </div>
+  </div>
     <div class="container">
       <input type="text" class="txtb" placeholder="Add a task">
       <div class="notcomp">
@@ -52,6 +74,19 @@
           $(".txtb").val("");
         }
       });
+      function GetClock(){
+      var datatime= new Date();
+      var min= datatime.getMinutes(); //Phút
+      var hour= datatime.getHours(); //Giờ
+      var date= datatime.getDate(); //Ngày
+      var month= datatime.getMonth(); //Tháng
+      var year= datatime.getFullYear(); //Năm
+      if(min<=9) min="0"+min
+      var clocktext= +hour+':'+min+" Ngày "+date+"/ "+(month+1)+"/ "+year;
+      document.getElementById('Time').innerHTML=clocktext;
+  }
+  GetClock();
+  setInterval(GetClock,1000);
     </script>
 
   </body>
