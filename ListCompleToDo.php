@@ -33,12 +33,10 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Danh Sách Các Công Việc Cần Phải Làm</h4>
-                                        <p class="card-title-desc">SIT. Chỉ cần bạn không dừng lại thì việc bạn tiến chậm cũng không là vấn đề!</p>
-                                            <a href="AddToDo.php" class="btn btn-primary mr-2 w-md mb-3">
-                                                <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Công Việc</a>
-                                            <a href="ListCompleToDo.php" class="btn btn-primary mr-2 w-md mb-3">
-                                            <i class="far fa-check-square font-size-16 align-middle mr-2"></i> Đã Hoàn Thành</a>
+                                        <h4 class="card-title">Danh Sách Các Công Việc Đã Thực Hiện</h4>
+                                        <p class="card-title-desc">SIT. Bạn thật tuyệt vời! Hãy cố gắng thêm nhé!</p>
+                                            <a href="index.php" class="btn btn-primary mr-2 w-md mb-3">
+                                                <i class="fas fa-chevron-left font-size-16 align-middle mr-2"></i> Quay lại </a>
                                                 <div class="table-responsive">
                                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
@@ -56,7 +54,7 @@
                                                 $ketqua =mysqli_query($conn, $sql);
                                                 $stt= 1;
                                                 while ($row = mysqli_fetch_assoc($ketqua)){
-                                                    if ($row['completiondate']==''){
+                                                    if ($row['completiondate']!=''){
                                                         echo "<tr>";
                                                         echo '<td>'.$stt.'</td>';
                                                         echo "<td>".$row['startdate']."</td>";

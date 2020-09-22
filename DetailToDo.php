@@ -89,6 +89,10 @@
                                             <div>
                                             <?php 
                                             if ($dtodo['id']== $profile['id']){
+                                                if($dtodo['completiondate']!=""){
+                                                    echo '<td><a href="index.php" class="btn btn-primary mr-2 mt-2"><i class="fas fa-chevron-left"></i> Quay lại </a></td>';
+                                                    
+                                                }
                                                 echo '<button type="submit" class="btn btn-warning mr-2 mt-2"><i class="far fa-edit"> </i> Lưu </button>';
                                                 if($dtodo['completiondate']==""){
                                                     echo '<td><a href="CompleToDo.php?idm='.$dtodo['idm'].'" class="btn btn-success w-md mr-2 mt-2"><i class="bx bx-check-double"></i> Đánh dấu đã hoàn thành<a/></td>';
