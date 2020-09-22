@@ -18,6 +18,7 @@
     <body>
         <?php
             include("Connect.php");
+            $userErr = "";
             if (isset($_REQUEST['username'])){
                 $hovaten =  stripslashes($_REQUEST['hovaten']);
                 $hovaten =  mysqli_real_escape_string($conn,$hovaten);
@@ -27,10 +28,17 @@
                 $email = mysqli_real_escape_string($conn,$email);
                 $password = stripslashes($_REQUEST['userpassword']);
                 $password = mysqli_real_escape_string($conn,$password);
-                $query = "INSERT INTO `users` (username, password, email, name) VALUES ('$username', '$password', '$email', '$hovaten')";
-                $result = mysqli_query($conn,$query);
-                if($result){
-                    header("Location: login.php");
+                $atest = "SELECT username FROM users WHERE username='$username'";
+                $test = mysqli_query($conn, $atest);
+                if (mysqli_num_rows($test) > 0){
+                    $userErr = "Tên đăng nhập đã tồn tại!";
+                }
+                else{
+                    $query = "INSERT INTO `users` (username, password, email, name) VALUES ('$username', '$password', '$email', '$hovaten')";
+                    $result = mysqli_query($conn,$query);
+                    if($result){
+                        header("Location: login.php");
+                    }
                 }
             }
         ?>
@@ -79,6 +87,7 @@
                                         <div class="form-group">
                                             <label for="username">ID Login</label>
                                             <input type="text" class="form-control" name="username" placeholder="Enter ID Login" required>
+                                            <span><i class="text-danger"><?php echo $userErr;?></i></span>
                                         </div>
                 
                                         <div class="form-group">

@@ -19,6 +19,7 @@
     </head>
     <body data-sidebar="dark">
     <?php 
+    $dtodo['id'] = $dtodo['completiondate'] = "";
     include("header.php");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mission =$_POST['mission'];
@@ -31,6 +32,11 @@
         if (isset($_GET['idm'])){
             $sqlGetToDo = "SELECT * FROM todolist WHERE idm=".$_GET['idm'];        
             $ketQuaToDo = mysqli_query($conn, $sqlGetToDo);
+            // if (mysqli_num_rows($ketQuaToDo)==0){
+                // $dtodo['id'] = $dtodo['completiondate'] = "";
+                
+            // }
+            // else 
             $dtodo = mysqli_fetch_assoc($ketQuaToDo);
         }
         

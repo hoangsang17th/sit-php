@@ -231,7 +231,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="profileuser.php" class="waves-effect">
+                                <a href="Profileuser.php" class="waves-effect">
                                     <i class="fas fa-user-cog"></i>
                                     <span>Thông tin tài khoản</span>
                                 </a>

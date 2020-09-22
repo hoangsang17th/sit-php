@@ -15,10 +15,10 @@
             if($rows==1){
                 $_SESSION['username'] = $username;
                 header("Location: index.php");
-                $LoginErr= $username;
+                // $LoginErr= $username;
             }
             else{
-                // $LoginErr ="Sai Tài khoản hoặc Mật Khẩu!";
+                $LoginErr ="* Sai Tài khoản hoặc Mật Khẩu!";
                 // $LoginErr= $username;
             }
         }
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="p-2">
                                     <form class="form-horizontal" action="" method="post" name="login">
-                                        <i class="text-danger mb-5"><?php echo $LoginErr;?></i>
+                                        
                                         <div class="form-group mt-1">
                                             <label for="username">Tài Khoản</label>
                                             <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
@@ -82,6 +82,10 @@
                                         <div class="form-group">
                                             <label for="userpassword">Mật Khẩu</label>
                                             <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
+                                        
+                                        </div>
+                                        <div class="form-group">
+                                        <span><i class="text-danger mt-5"><?php echo $LoginErr;?></i></span>
                                         </div>
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customControlInline">
