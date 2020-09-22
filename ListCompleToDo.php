@@ -42,7 +42,7 @@
                                             <thead>
                                             <tr>
                                                 <th>STT</th>
-                                                <th>Ngày Bắt Đầu</th>
+                                                <th>Ngày Hoàn Thành</th>
                                                 <th>Nhiệm Vụ</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -57,7 +57,7 @@
                                                     if ($row['completiondate']!=''){
                                                         echo "<tr>";
                                                         echo '<td>'.$stt.'</td>';
-                                                        echo "<td>".$row['startdate']."</td>";
+                                                        echo "<td>".$row['completiondate']."</td>";
                                                         echo "<td>".$row['mission']."</td>";
                                                         echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
                                                         echo "</tr>";
