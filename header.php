@@ -81,11 +81,9 @@
                                 </span>
                             </a>
                         </div>
-
                         <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
-
                         <!-- App Search-->
                         <form class="app-search d-none d-lg-block">
                             <div class="position-relative">
@@ -272,6 +270,20 @@
                 </div>
             </div>
         </div>
+        <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © SIT.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-right d-none d-sm-block">
+                                    Phạm Hoàng Sang
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
         <script src="assets\libs\jquery\jquery.min.js"></script>
         <script src="assets\libs\bootstrap\js\bootstrap.bundle.min.js"></script>
         <script src="assets\libs\metismenu\metisMenu.min.js"></script>

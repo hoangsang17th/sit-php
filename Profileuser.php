@@ -26,7 +26,6 @@
         $name =$_POST['name'];
         $phone =$_POST['phone'];
         $address =$_POST['address'];
-
         $sql = "UPDATE users SET  email= '$email', name= '$name', phone='$phone', address='$address' WHERE id=".$profile['id'];
         $ketqua = mysqli_query($conn, $sql);
     }
@@ -35,7 +34,6 @@
         $sqlGet = "SELECT * FROM users WHERE id=".$profile['id'];      
         $ketQua = mysqli_query($conn, $sqlGet);
         $file = mysqli_fetch_assoc($ketQua);
-        
     ?>
         <!-- Begin page -->
         <div id="layout-wrapper">

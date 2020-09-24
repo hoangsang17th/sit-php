@@ -717,7 +717,20 @@
                 </div>
             </div>
             <!-- Left Sidebar End -->
-
+            <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © SIT.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-right d-none d-sm-block">
+                                    Phạm Hoàng Sang
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
@@ -754,5 +767,15 @@
 
         <!-- Datatable init js -->
         <script src="assets\js\pages\datatables.init.js"></script>    
+        <script src="assets\libs\metismenu\metisMenu.min.js"></script>
+
+        <!-- select 2 plugin -->
+        <script src="assets\libs\select2\js\select2.min.js"></script>
+
+        <!-- dropzone plugin -->
+        <script src="assets\libs\dropzone\min\dropzone.min.js"></script>
+
+        <!-- init js -->
+        <script src="assets\js\pages\ecommerce-select2.init.js"></script>
     </body>
 </html>
