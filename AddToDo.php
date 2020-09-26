@@ -24,7 +24,9 @@
         $mission =$_POST['mission'];
         $description =$_POST['description'];
         $id=$profile['id'];
-        $sql = "INSERT INTO todolist(id, mission, description) VALUES ('$id','$mission','$description')";
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = date("Y-m-d H:i:s");
+        $sql = "INSERT INTO todolist(id, mission, description, startdate) VALUES ('$id','$mission','$description','$date')";
         $ketqua = mysqli_query($conn, $sql);
     }
     ?>

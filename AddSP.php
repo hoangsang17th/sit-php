@@ -49,7 +49,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Thông tin cơ bản</h4>
                                     <p class="card-title-desc">Điền tất cả thông tin bên dưới</p>
-                                    <form action="AddSP.php" method="post">
+                                    <form action="AddSP.php" method="post" name="form1" >
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -100,7 +100,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
-                                    <form action="/" method="post" class="dropzone">
+                                    <form action="AddSP.php" method="post" class="dropzone" name="form2">
                                     <!-- <textarea id="textarea" name="mota" class="form-control pb-2" maxlength="1000" rows="9" placeholder="Không quá 1000 ký tự"></textarea> -->
 
                                         <div class="fallback">
@@ -120,7 +120,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Tăng SEO</h4>
-                                    <form>
+                                    <form action="NewPages.php" method="POST" name="form3">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -140,8 +140,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary mr-1 waves-effect waves-light">Lưu và hiển thị</button>
-                                        <button type="submit" class="btn btn-danger waves-effect px-5">Hủy</button>
+                                        <input type="button" class="btn btn-primary mr-1 waves-effect waves-light" onclick="submitForm();" value="Lưu và hiển thị">
+                                        <button type="sbmit" class="btn btn-danger waves-effect px-5">Hủy</button>
                                     </form>
     
                                 </div>
@@ -153,6 +153,13 @@
             
         </div>
     </div>
+    <script>
+    submitForm = function(){
+        document.forms["form2"].submit();
+        document.forms["form3"].submit();
+        // document.forms["form1"].submit();
+    }
+    </script>
         <script src="assets\libs\select2\js\select2.min.js"></script>
 
         <!-- dropzone plugin -->

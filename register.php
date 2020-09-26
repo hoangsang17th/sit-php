@@ -29,12 +29,14 @@
                 $password = stripslashes($_REQUEST['userpassword']);
                 $password = mysqli_real_escape_string($conn,$password);
                 $atest = "SELECT username FROM users WHERE username='$username'";
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $date = date("Y-m-d H:i:s");
                 $test = mysqli_query($conn, $atest);
                 if (mysqli_num_rows($test) > 0){
                     $userErr = "Tên đăng nhập đã tồn tại!";
                 }
                 else{
-                    $query = "INSERT INTO `users` (username, password, email, name) VALUES ('$username', '$password', '$email', '$hovaten')";
+                    $query = "INSERT INTO `users` (username, password, email, name, date) VALUES ('$username', '$password', '$email', '$hovaten', '$date')";
                     $result = mysqli_query($conn,$query);
                     if($result){
                         header("Location: login.php");
