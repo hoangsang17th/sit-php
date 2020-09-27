@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+* {
+  -webkit-font-smoothing: antialiased;
+}
+.searchtop{
+  margin-top: 20%;
+  text-align: center;
+}
+.searchtop input{
+  padding: 6px 10px;
+  border-radius: 7px;
+  border: 1px solid #95a5a6;
+}
+.searchtop input:focus {
+  outline: none;
+  border-color: #7f8c8d;
+}
+.imgsearch img{
+  max-width: 247px;
+}

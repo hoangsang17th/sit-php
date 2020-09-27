@@ -49,7 +49,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Thông tin cơ bản</h4>
                                     <p class="card-title-desc">Điền tất cả thông tin bên dưới</p>
-                                    <form action="AddSP.php" method="post" name="form1" >
+                                    <form action="/" method="post" name="form1" id="form1">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -140,7 +140,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="button" class="btn btn-primary mr-1 waves-effect waves-light" onclick="submitForm();" value="Lưu và hiển thị">
+                                        <input type="button" class="btn btn-primary mr-1 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị">
                                         <button type="sbmit" class="btn btn-danger waves-effect px-5">Hủy</button>
                                     </form>
     
@@ -153,11 +153,20 @@
             
         </div>
     </div>
-    <script>
-    submitForm = function(){
-        document.forms["form2"].submit();
-        document.forms["form3"].submit();
-        // document.forms["form1"].submit();
+    <iframe src="" frameborder="0"></iframe>
+    <script language=javascript>
+    
+    function SubmitForm()
+    {
+        document.forms['form1'].action='NewPages.php';
+        // document.forms['form1'].target='frame_result1';
+        document.forms['form1'].submit();
+        document.forms['form1'].action='AddSP.php';
+        // document.forms['form1'].target='frame_result2';
+        document.forms['form1'].submit();
+        document.forms['form2'].submit();
+        document.forms['form3'].submit();
+        return true;
     }
     </script>
         <script src="assets\libs\select2\js\select2.min.js"></script>
