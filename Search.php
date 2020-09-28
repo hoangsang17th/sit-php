@@ -1,43 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Search SIT</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
 <?php
     include("Connect.php");
     $search = $_REQUEST['search'];
     mysqli_select_db($conn,"sanpham");
     $sql = "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$search."%'";
     $result = mysqli_query($conn,$sql);
-
-echo "
-<table class='table'>
-    <thead class='thead-dark'>
-        <tr>
-            <th scope='col'>STT</th>
-            <th scope='col'>Tên Sản Phẩm</th>
-            <th scope='col'>Đơn Giá</th>
-        </tr>
-    </thead>
-    <tbody>";
-    $stt= 1;
+    $quanlity=mysqli_num_rows($result);
+    echo "<div class='col-12 text-center'><h3><i>Có sản ".$quanlity." phẩm khớp với từ khóa cần tìm</i></h3></div>";
 while($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo '<td>'.$stt.'</td>';
-    echo "<td>".$row['tenmathang']."</td>";
-    echo "<td>".$row['dongia']."</td>";
-    echo "</tr>";
-    $stt++;
+    echo "
+    <div class='col-12 col-sm-6 col-md-4 col-lg-3 my-3'>
+        <div class='card mb-3'>
+            <img src='./Product/ImgPro/Producttest.svg' alt='' class='my-3 px-4 w-100 card-img-top'>
+            <div class='card-body'>
+                <h5 class='card-title'>".$row['tenmathang']."</h5>
+                <p class='card-text'><small class='text-muted'>".$row['dongia']."VNĐ</small></p>
+            </div>
+        </div>
+    </div>
+    ";
 }
-echo "
-    </tbody>
-</table>";
 mysqli_close($conn);
 ?>
-</body>
-</html>

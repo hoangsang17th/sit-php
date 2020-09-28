@@ -1,5 +1,5 @@
 <?php
-include("Connect.php");
+include("Connect.php"); 
 include("SSAdmin.php");
 $productname = $_POST['productname'];
 $idpage= rand();
