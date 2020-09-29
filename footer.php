@@ -1,10 +1,10 @@
 <?php
 include("Connect.php");
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $email = $_GET["email"];
-    $sql = "INSERT INTO subcribe(email) VALUES ('$email')";
-    $ketqua = mysqli_query($conn, $sql);
-}
+// if ($_SERVER["REQUEST_METHOD"] == "GET") {
+//     $email = $_GET["email"];
+//     $sql = "INSERT INTO subcribe(email) VALUES ('$email')";
+//     $ketqua = mysqli_query($conn, $sql);
+// }
 ?>
 <!-- Footer Start -->
 <footer class="footer">
@@ -111,6 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 <script src="https://unicons.iconscout.com/release/v2.1.9/script/monochrome/bundle.js"></script>
 <!-- Main Js -->
 <script src="js/app.js"></script>
-
+<!-- javascript -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific.init.js"></script>
 </body>
 </html>

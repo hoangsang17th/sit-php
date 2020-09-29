@@ -1,6 +1,8 @@
+
 <?php 
 include("navigation.html");
 ?>
+<title>Introduction SIT- ToDo List</title>
         <!-- Hero Start -->
         <section class="bg-home d-flex align-items-center" style="background: url('images/saas/home-shape.png') center center; height: auto;" id="home">
             <div class="container">
