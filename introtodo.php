@@ -1,6 +1,6 @@
 
 <?php 
-include("navigation.html");
+include("navigation.php");
 ?>
 <title>Introduction SIT- ToDo List</title>
         <!-- Hero Start -->

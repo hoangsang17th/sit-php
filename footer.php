@@ -114,5 +114,6 @@ include("Connect.php");
 <!-- javascript -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/magnific.init.js"></script>
+
 </body>
 </html>

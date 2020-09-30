@@ -1,5 +1,5 @@
 <?php
-include("navigation.html");
+include("navigation.php");
 ?>
 <title>Search Everything - SIT</title>
 <link rel="stylesheet" href="./assets/css/search.css">

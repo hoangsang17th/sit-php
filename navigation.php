@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    $profile['username']='';
+    $profile['name']='';
+    if(isset($_SESSION["username"])){
+        include("Connect.php");
+        $users = $_SESSION['username'];
+        $rsname = "SELECT * FROM `users` WHERE username= '$users'";
+        $resname =mysqli_query($conn, $rsname);
+        $profile = mysqli_fetch_assoc($resname);
+        
+    } 
+?>
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -44,7 +57,14 @@
                     </a>
                 </div>                 
                 <div class="buy-button">
-                    <a href="login.php" class="btn btn-primary">Đăng Nhập</a>
+                    <?php
+                    if ($profile['username']==''){
+                        echo "<a href='login.php' class='btn btn-primary'>Đăng Nhập</a>";
+                    }
+                    else if($profile['name']==''){
+                        echo "<a href='Profileuser.php' class='btn btn-primary'>Hoàn Thiện</a>";
+                    }
+                    else echo "<a href='Profileuser.php' class='btn btn-primary'>".$profile['name']."</a>"; ?>
                 </div><!--end login button-->
                 <!-- End Logo container-->
                 <div class="menu-extras">
