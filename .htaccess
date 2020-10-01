@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
 
-#RewriteEngine On
+RewriteEngine On
 
-#RewriteRule ^EditSPh/([^/\.]+)/?.html$ EditSPh.php?id=$1 
+RewriteRule ^EditSPh/([^/\.]+)/?.php$ EditSPh.php?id=$1 
 
 #RewriteRule ^EditSPh?.html$ EditSPh.php
 

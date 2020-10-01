@@ -1,11 +1,3 @@
-<?php
-include("Connect.php");
-// if ($_SERVER["REQUEST_METHOD"] == "GET") {
-//     $email = $_GET["email"];
-//     $sql = "INSERT INTO subcribe(email) VALUES ('$email')";
-//     $ketqua = mysqli_query($conn, $sql);
-// }
-?>
 <!-- Footer Start -->
 <footer class="footer">
     <div class="container">
@@ -51,9 +43,8 @@ include("Connect.php");
             <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <h4 class="text-light footer-head">Newsletter</h4>
                 <p class="mt-4">Sign up and receive the latest tips via email.</p>
-                <form>
                     <div class="row">
-                        <form action="" method="GET">
+                        <form action="WellcomeSIT.php" method="GET" target="_blank">
                         <div class="col-lg-12">
                             <div class="foot-subscribe form-group position-relative">
                                 <label>Write your email <span class="text-danger">*</span></label>
@@ -66,7 +57,6 @@ include("Connect.php");
                         </div>
                         </form>
                     </div>
-                </form>
             </div><!--end col-->
         </div><!--end row-->
     </div><!--end container-->

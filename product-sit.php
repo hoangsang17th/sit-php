@@ -3,7 +3,6 @@ include("navigation.php");
 ?> 
 <link rel="stylesheet" href="css/slick.css"/> 
 <link rel="stylesheet" href="css/slick-theme.css"/>
-        
         <!-- Hero Start -->
         <section class="bg-half bg-light d-table w-100">
             <div class="container">
