@@ -1,46 +1,36 @@
-
 <?php
 include("navigation.php");
 ?>
 <title>About Us - SIT</title>
-        <link href="css/magnific-popup.css" rel="stylesheet" type="text/css" />
-
-<!-- Hero Start -->
-<section class="bg-half bg-light d-table w-100">
+<link href="css/magnific-popup.css" rel="stylesheet" type="text/css" />
+<section class="bg-half-170 d-table w-100">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 text-center">
-                <div class="page-next-level">
-                    <h4 class="title"> About us </h4>
-                    <div class="page-next">
-                        <nav aria-label="breadcrumb" class="d-inline-block">
-                            <ul class="breadcrumb bg-white rounded shadow mb-0">
-                                <li class="breadcrumb-item"><a href="index.html">SIT</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                            </ul>
-                        </nav>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="title-heading mt-4">
+                    <h1 class="display-4 font-weight-bold mb-3">Nhận mã Khuyến mãi</h1>
+                    <p class="para-desc text-muted">Giảm 10% giá với mọi sản phẩm do chúng tôi cung cấp</p>
+                    
+                    <div class="subcribe-form mt-4 pt-2">
+                        <form action="WellcomeSIT.php" method="GET" target="_blank">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="border bg-white rounded-pill" required placeholder="Email Address">
+                                <button type="submit" class="btn btn-pills btn-primary">Nhận Ngay</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>  <!--end col-->
+            </div>
+            <div class="col-md-6">
+                <img src="images/illustrator/Creativity-bro.svg" alt="">
+            </div><!--end col-->
         </div><!--end row-->
-    </div> <!--end container-->
-</section><!--end section-->
-<!-- Hero End -->
-
-<!-- Shape Start -->
-<div class="position-relative">
-    <div class="shape overflow-hidden text-white">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-        </svg>
-    </div>
-</div>
-<!--Shape End-->
-<!-- About Start -->
+    </div><!--end container-->
+</section>
 <section class="section">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
+            <div class="col-lg-5 col-md-5 pt-2 mt-sm-0 pt-sm-0">
                 <div class="position-relative">
                     <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t1.0-9/p960x960/59350536_392606351338647_4337495752927346688_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=XB_tHc0_IsgAX_qtx4i&_nc_ht=scontent.fdad1-1.fna&tp=6&oh=dd84b828a4370888f5a8539265890b2e&oe=5F9A1C47" class="rounded img-fluid mx-auto d-block" alt="">
                     <div class="play-icon">
@@ -166,10 +156,7 @@ include("navigation.php");
             </div><!--end col-->
         </div><!--end row-->
     </div><!--end container-->
-</section><!--end section-->
-<!-- About End -->
-
-<!-- Team Start -->
+</section>
 <section class="section bg-light">
     <div class="container">
         <div class="row">
@@ -279,8 +266,7 @@ include("navigation.php");
             </div><!--end col-->
         </div><!--end row-->
     </div><!--end container-->
-</section><!--end section-->
-<!-- Team End -->
+</section>
 <?php
 include("footer.php");
 ?>

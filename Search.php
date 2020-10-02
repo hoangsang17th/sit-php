@@ -32,7 +32,7 @@ include("navigation.php");
         </div>
         <div class="row justify-content-center mt-3 mb-5" id="txtHint">
                 <div class="col-12 imgsearch text-center">
-                    <img src="./assets/images/layouts/speedtest.svg">
+                    <img src="./assets/images/speedtest.svg">
                 </div>
         </div>
     </div>
