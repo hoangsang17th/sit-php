@@ -104,6 +104,20 @@
 <!-- javascript -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/magnific.init.js"></script>
-
+<script>
+        function GetClock(){
+            var datatime= new Date();
+            var min= datatime.getMinutes(); //Phút
+            var hour= datatime.getHours(); //Giờ
+            var date= datatime.getDate(); //Ngày
+            var month= datatime.getMonth(); //Tháng
+            var year= datatime.getFullYear(); //Năm
+            if(min<=9) min="0"+min
+            var clocktext= +hour+':'+min+" Ngày "+date+"/ "+(month+1)+"/ "+year;
+            document.getElementById('Time').innerHTML=clocktext;
+        }
+        GetClock();
+        setInterval(GetClock,1000);
+        </script>
 </body>
 </html>

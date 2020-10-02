@@ -12,10 +12,10 @@
         <meta charset="utf-8">
         <title>SIT | Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
-        <meta content="Themesbrand" name="author">
+        <meta content="SIT Thỏa Trí Đam Mê" name="description">
+        <meta content="Hoàng Sang" name="author">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets\images\favicon.ico">
+        <!-- <link rel="shortcut icon" href="favicon.ico"> -->
         <!-- Bootstrap Css -->
         <link href="assets\css\bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
         <!-- Icons Css -->
@@ -23,12 +23,6 @@
         <link href="assets\css" rel="stylesheet" type="text/css">
         <!-- App Css-->
         <link href="assets\css\app.min.css" id="app-style" rel="stylesheet" type="text/css">
-        <link href="assets\css\main.css" id="app-style" rel="stylesheet" type="text/css">
-    <style>
-        .header-top-menu{
-            font-family: none;
-        }
-    </style>
     </head>
     <body data-sidebar="dark">
         <!-- Loader -->
@@ -47,24 +41,7 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
                 <header id="page-topbar">
-                <div class="header-top-menu container-fluid" id="header-top-menu">
-                    <div class="row">
-                        <div class="col">
-                            <div class="data-time">
-                                <span id="Time"></span>
-                            </div>
-                        </div>
-                        <div class="col text-right social">
-                            <div class="social">
-                                <a target="_blank" href="https://www.facebook.com/HoangSang17TH"><i class="fab fa-facebook-f"></i></a>
-                                <a target="_blank" href="https://www.instagram.com/hoangsang17th/"><i class="fab fa-instagram"></i></a>
-                                <a target="_blank" href="mailto: phsang49@gmail.com"><i class="fas fa-envelope"></i></a>
-                                <a target="_blank" href="https://twitter.com/HoangSang17Th"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="navbar-header">
                     
                     <div class="d-flex">
@@ -72,10 +49,10 @@
                         <div class="navbar-brand-box">
                             <a href="index.php" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets\images\logo-light.svg" alt="" height="25">
+                                    <img src="Logo.png" alt="" height="25">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets\images\logo-light.svg" alt="" height="50">
+                                <img src="Logo.png" alt="" height="50">
                                     <!-- <h2 style="font-style: italic;
                                     font-weight: bold; font-height: 10px; margin-right: 20px;">SIT</h2> -->
                                 </span>
@@ -310,21 +287,6 @@
         <script src="assets\libs\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
         <script src="assets\libs\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
         <!-- Datatable init js -->
-        <script src="assets\js\pages\datatables.init.js"></script>   
-        <script>
-        function GetClock(){
-            var datatime= new Date();
-            var min= datatime.getMinutes(); //Phút
-            var hour= datatime.getHours(); //Giờ
-            var date= datatime.getDate(); //Ngày
-            var month= datatime.getMonth(); //Tháng
-            var year= datatime.getFullYear(); //Năm
-            if(min<=9) min="0"+min
-            var clocktext= +hour+':'+min+" Ngày "+date+"/ "+(month+1)+"/ "+year;
-            document.getElementById('Time').innerHTML=clocktext;
-        }
-        GetClock();
-        setInterval(GetClock,1000);
-        </script>
+        <script src="assets\js\pages\datatables.init.js"></script>
     </body>
 </html>

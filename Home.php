@@ -1,7 +1,7 @@
 <?php
 include("navigation.php");
 ?>
-<title>Home - SIT</title>
+<title>SIT Thăng Hoa Cuộc Sống Từ Đây!</title>
 <section class="bg-half-170 bg-primary d-table w-100 mt-2" style="background: url('images/software/bg.png') center center;">
     <div class="bg-overlay"></div>
     <div class="container">
@@ -35,7 +35,6 @@ include("navigation.php");
                 </div>
             </div><!--end col-->
         </div><!--end row-->
-
         <div class="row">
             <div class="col-md-4 col-12 mt-5">
                 <div class="features text-center">
@@ -107,7 +106,6 @@ include("navigation.php");
                     <div class="image position-relative d-inline-block">
                         <img src="images/icon/sand-clock.svg" class="avatar avatar-small" alt="">
                     </div>
-
                     <div class="content mt-4">
                         <h4 class="title-2">Giáo dục</h4>
                         <p class="text-muted mb-0">Buổi học trở nên thật là hấp dẫn đối với mỗi người.</p>

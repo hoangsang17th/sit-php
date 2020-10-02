@@ -21,18 +21,17 @@
     <meta name="author" content="Hoàng Sang" />
     <meta name="email" content="phsang49@gmail.com" />
     <meta name="website" content="http://www.sit.vn" />
-    <meta name="Version" content="v2.5.1" />
-    <!-- Bootstrap -->
+    <meta name="Version" content="v7.3.1" />
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Icons -->
     <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
-    <!-- Slider -->               
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">           
     <link rel="stylesheet" href="css/owl.carousel.min.css"/> 
     <link rel="stylesheet" href="css/owl.theme.default.min.css"/> 
-    <!-- Main Css -->
     <link href="css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
     <link href="css/colors/default.css" rel="stylesheet" id="color-opt">
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="preloader">
@@ -43,7 +42,26 @@
             </div>
         </div>
     </div>
+
     <header id="topnav" class="defaultscroll sticky bg-white">
+        <div class="header-top-menu container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="data-time">
+                        <span id="Time"></span>
+                    </div>
+                </div>
+                <div class="col text-right social">
+                    <div class="social">
+                        <a target="_blank" href="https://www.facebook.com/HoangSang17TH"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/hoangsang17th/"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="mailto: phsang49@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a target="_blank" href="https://twitter.com/HoangSang17Th"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div>
                 <a class="logo" href="index.html">
@@ -74,7 +92,7 @@
             <div id="navigation">
                 <ul class="navigation-menu">
                     <li><a href="Home.php">Home</a></li>
-                    <li><a href="index.html">Shop</a></li>
+                    <li><a href="Shop.php">Shop</a></li>
                     <li><a href="introtodo.php">To Do</a></li>
                     <li><a href="aboutus.php">About Us</a></li>  
                     <li><a href="Search.php">Search</a></li>  
