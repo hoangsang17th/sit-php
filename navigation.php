@@ -23,13 +23,13 @@
     <meta name="website" content="http://www.sit.vn" />
     <meta name="Version" content="v7.3.1" />
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap.home.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">           
-    <link rel="stylesheet" href="css/owl.carousel.min.css"/> 
-    <link rel="stylesheet" href="css/owl.theme.default.min.css"/> 
-    <link href="css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
-    <link href="css/colors/default.css" rel="stylesheet" id="color-opt">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css"/> 
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css"/> 
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="assets/css/colors/default.css" rel="stylesheet" id="color-opt">
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/main.css" rel="stylesheet" type="text/css">
 </head>

@@ -119,70 +119,36 @@ include("navigation.php");
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-6 order-2 order-md-1 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <div class="section-title">
-                    <h4 class="title mb-4">Speed up your development <br> with <span class="text-primary">Landrick.</span></h4>
-                    <p class="text-muted">Using Landrick to build your site means never worrying about designing another page or cross browser compatibility. Our ever-growing library of components and pre-designed layouts will make your life easier.</p>
+                    <h4 class="title mb-4"><span class="text-primary">SIT </span>To Do</h4>
+                    <p class="text-muted">Bạn đang bận tâm về điều gì đó? Hãy sử dụng SIT To Do. Dù bạn muốn tăng năng suất, giảm mức độ căng thẳng hay chỉ là giải phóng bớt gánh nặng trong tâm trí, SIT To Do đều có thể dễ dàng giúp bạn lập kế hoạch trong ngày và quản lý cuộc sống của bạn.</p>
                     <ul class="list-unstyled text-muted">
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Digital Marketing Solutions for Tomorrow</li>
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Our Talented & Experienced Marketing Agency</li>
-                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Create your own skin to match your brand</li>
+                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Duy trì tập trung với Ngày của tôi, một trình lập kế hoạch hàng ngày cá nhân hóa với các nhiệm vụ được đề xuất</li>
+                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Xem danh sách của bạn ở mọi nơi, trên mọi thiết bị</li>
+                        <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Thêm ghi chú cho nhiệm vụ bất kỳ</li>
                     </ul>
-                    <a href="javascript:void(0)" class="mt-3 h6 text-primary">Find Out More <i class="mdi mdi-chevron-right"></i></a>
+                    <a href="introtodo.php" class="mt-3 h6 text-primary">Tìm Hiểu Thêm <i class="mdi mdi-chevron-right"></i></a>
                 </div>
             </div><!--end col-->
 
             <div class="col-lg-5 col-md-6 order-1 order-md-2">
-                <div class="card rounded border-0 shadow ml-lg-5">
-                    <div class="card-body">
+                <div class="rounded border-0  ml-lg-5">
+                    <div class="my-4">
                         <img src="images/illustrator/Mobile_notification_SVG.svg" alt="">
-
-                        <div class="content mt-4 pt-2">
-                            <form>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group position-relative">
-                                            <label>Name : <span class="text-danger">*</span></label>
-                                            <i data-feather="user" class="fea icon-sm icons"></i>
-                                            <input type="text" class="form-control pl-5" placeholder="Name" name="name" required="">
-                                        </div>
-                                    </div><!--end col-->
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group position-relative">
-                                            <label>Email : <span class="text-danger">*</span></label>
-                                            <i data-feather="mail" class="fea icon-sm icons"></i>
-                                            <input type="email" class="form-control pl-5" placeholder="Email" name="email" required="">
-                                        </div>
-                                    </div><!--end col-->
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group position-relative">
-                                            <label>Password : <span class="text-danger">*</span></label>
-                                            <i data-feather="key" class="fea icon-sm icons"></i>
-                                            <input type="password" class="form-control pl-5" placeholder="Password" required="">
-                                        </div>
-                                    </div><!--end col-->
-
-                                    <div class="col-lg-12 mt-2 mb-0">
-                                        <button class="btn btn-primary btn-block">Download</button>
-                                    </div><!--end col-->
-                                </div>
-                            </form>                                    
-                        </div>
                     </div>
                 </div>
             </div><!--end col-->
         </div><!--end row-->
     </div><!--end container-->
 </section>
-<section class="section" style="background: url('images/3.jpg') center center;">
+<section class="section" style="background:url('images/software/partner1.svg');">
     <div class="bg-overlay"></div>
     <div class="container">
         <div class="row py-5 justify-content-center">
             <div class="col-lg-8 text-center">
                 <div id="owl-fade" class="owl-carousel owl-theme">
                     <div class="customer-testi text-center mx-4">
-                        <img src="images/client/01.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
+                        <img src="https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/120459535_709537279915239_5188818910957577201_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=jWWfTD33Mk8AX-ZThcn&_nc_tp=19&oh=8e54742f6506503d787c1682d2db3ce6&oe=5FA03393" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" Ứng dụng tuyệt vời và hữu ích! Nhưng vẫn còn thiếu tính năng thiết lập tác vụ theo mức ưu tiên khác nhau (Có 4 mức ưu tiên) và theo dõi tiến trình hoàn thành của project!. "</p>
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -190,12 +156,12 @@ include("navigation.php");
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                         </ul>
-                        <h6 class="text-light title-dark"> Thomas Israel </h6>
+                        <h6 class="text-light title-dark"> PHÚC NGUYÊN TRƯƠNG </h6>
                     </div><!--end customer testi-->
                     
                     <div class="customer-testi text-center mx-4">
-                        <img src="images/client/02.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout. "</p>
+                        <img src="https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/120339060_2777089842557993_9014946352528820439_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=bbArrXS2GNcAX_ybs7X&oh=6d23179fecdd0c133068e5b68d36fe22&oe=5FA06EFF" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" Tiện lợi vô cùng, vừa sử dụng chung với PC và điện thoại luôn, có thể tạo list và có nhắc nhở giờ giấc và ngày tháng.. "</p>
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -203,12 +169,12 @@ include("navigation.php");
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                         </ul>
-                        <h6 class="text-light title-dark"> Carl Oliver </h6>
+                        <h6 class="text-light title-dark"> Lạc Trần </h6>
                     </div><!--end customer testi-->
                     
                     <div class="customer-testi text-center mx-4">
-                        <img src="images/client/03.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or nonsensical stories. "</p>
+                        <img src="https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/120740342_157392709363536_6682600453927945912_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=wxR61Y1FPTAAX9KDAN8&_nc_tp=19&oh=56694f28130fcaeabfb9b9a5c19960d5&oe=5FA30970" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">"Ứng dụng đơn giản, đẹp, đồng bộ ngon. Nói chung là yêu. "</p>
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -216,12 +182,12 @@ include("navigation.php");
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                         </ul>
-                        <h6 class="text-light title-dark"> Barbara McIntosh </h6>
+                        <h6 class="text-light title-dark"> Minh Nguyễn </h6>
                     </div><!--end customer testi-->
                     
                     <div class="customer-testi text-center mx-4">
-                        <img src="images/client/04.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero in 45 BC. Allegedly, a Latin scholar established the origin of the text by compiling all the instances of the unusual word 'consectetur' he could find "</p>
+                        <img src="https://instagram.fdad2-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s750x750/120336957_2491542857810960_7347779970525781929_n.jpg?_nc_ht=instagram.fdad2-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=tIObtRUjhQ0AX97-yrN&oh=488e75eadcb9ed78add08e9d98923f51&oe=5FA3491C" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" App rất tuyệt. Đơn giản, dễ sử dụng, đáp ứng đúng nhu cầu cần thiết. Cảm ơn. "</p>
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -229,12 +195,12 @@ include("navigation.php");
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                         </ul>
-                        <h6 class="text-light title-dark"> Christa Smith </h6>
+                        <h6 class="text-light title-dark"> Long Nguyễn Nghĩa </h6>
                     </div><!--end customer testi-->
                     
                     <div class="customer-testi text-center mx-4">
-                        <img src="images/client/05.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
+                        <img src="https://instagram.fdad2-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/120539112_729532531243474_7538132093741593041_n.jpg?_nc_ht=instagram.fdad2-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=b_4SHDgWsQUAX_1JqYs&_nc_tp=19&oh=0003c773b6e897abadd31b542bff4548&oe=5FA050CB" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" The best app, some time it hard to find a paper when we working, but with to do, i can remember all task and ideas for work, thanks microsoft team, hope you all have health! "</p>
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -242,12 +208,12 @@ include("navigation.php");
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                         </ul>
-                        <h6 class="text-light title-dark"> Dean Tolle </h6>
+                        <h6 class="text-light title-dark"> Do Xu </h6>
                     </div><!--end customer testi-->
                     
                     <div class="customer-testi text-center mx-4">
-                        <img src="images/client/06.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. One may speculate that over the course of time certain letters were added or deleted at various positions within the text. "</p>
+                        <img src="https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s750x750/120413938_337619590800603_1933693377047244286_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=rzpIX-FCuv8AX_eFF2O&oh=226e51c6deba09d42dccf3a2cb5403b7&oe=5FA19FE0" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
+                        <p class="text-light para-dark h5 font-weight-normal font-italic mt-4">" Rất nhiều thứ của tôi đã hoàn thành hoặc sắp hoàn thành đều nằm ngay ngắn trong ứng dụng này 5 sao là cảm nhận của tôi. "</p>
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -255,7 +221,7 @@ include("navigation.php");
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                         </ul>
-                        <h6 class="text-light title-dark"> Jill Webb </h6>
+                        <h6 class="text-light title-dark"> Định Hà </h6>
                     </div><!--end customer testi-->
                 </div><!--end owl carousel-->
             </div><!--end col-->
@@ -274,8 +240,8 @@ include("navigation.php");
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Charge your creative inspiration</h4>
-                    <p class="text-muted para-desc mb-0 mx-auto">Start working with <span class="text-primary font-weight-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <h4 class="title mb-4">Thay đổi cách sáng tạo của bạn</h4>
+                    <p class="text-muted para-desc mb-0 mx-auto">Bắt đầu ngay với <span class="text-primary font-weight-bold">SIT Create Edu</span></p>
                 </div>
             </div><!--end col-->
         </div><!--end row-->
@@ -292,10 +258,10 @@ include("navigation.php");
                         </div>
                         
                         <ul class="list-unstyled mb-0 pl-0">
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Full Access</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Source Files</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SIT To Do</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>1 Bài học/ ngày</li>
                         </ul>
-                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Buy Now</a>
+                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Mua Ngay</a>
                     </div>
                 </div>
             </div><!--end col-->
@@ -311,11 +277,11 @@ include("navigation.php");
                         </div>
 
                         <ul class="list-unstyled mb-0 pl-0">
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Full Access</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Source Files</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Free Appointments</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SIT To Do</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>10 Bài học/ ngày</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Hỗ trợ miễn phí</li>
                         </ul>
-                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Get Started</a>
+                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Bắt Đầu</a>
                     </div>
                 </div>
             </div><!--end col-->
@@ -331,12 +297,12 @@ include("navigation.php");
                         </div>
                         
                         <ul class="list-unstyled mb-0 pl-0">
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Full Access</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Source Files</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>1 Domain Free</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Enhanced Security</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SIT To Do</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>25 Bài học/ ngày</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Hỗ trợ miễn phí</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Bản tin đặc biệt</li>
                         </ul>
-                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Try It Now</a>
+                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Thử Ngay</a>
                     </div>
                 </div>
             </div><!--end col-->
@@ -352,13 +318,13 @@ include("navigation.php");
                         </div>
                         
                         <ul class="list-unstyled mb-0 pl-0">
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Full Access</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Enhanced Security</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Source Files</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>1 Domain Free</li>
-                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Free Installment</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>SIT To Do</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>100 Bài học/ ngày</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Hỗ trợ miễn phí</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Bản tin đặc biệt</li>
+                            <li class="h6 text-muted mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Phần mềm bảo mật</li>
                         </ul>
-                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Started Now</a>
+                        <a href="javascript:void(0)" class="btn btn-primary mt-4">Tư Vấn</a>
                     </div>
                 </div>
             </div><!--end col-->
@@ -369,8 +335,8 @@ include("navigation.php");
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Latest News</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary font-weight-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <h4 class="title mb-4">Tin Tức Mới Nhất</h4>
+                    <p class="text-muted para-desc mx-auto mb-0">Đừng bỏ lớp bất kì bản tin nào từ <span class="text-primary font-weight-bold">SIT</span>, chúng tôi sẽ thay đổi cuộc sống của bạn.</p>
                 </div>
             </div><!--end col-->
         </div><!--end row-->
@@ -379,22 +345,22 @@ include("navigation.php");
             <div class="col-lg-4 col-md-6 mt-4 pt-2">
                 <div class="card blog rounded border-0 shadow">
                     <div class="position-relative">
-                        <img src="images/blog/01.jpg" class="card-img-top rounded-top" alt="...">
+                        <img src="assets/images/BlogEdu.jpg" class="card-img-top rounded-top" alt="...">
                     <div class="overlay rounded-top bg-dark"></div>
                     </div>
                     <div class="card-body content">
-                        <h5><a href="javascript:void(0)" class="card-title title text-dark">Design your apps in your own way</a></h5>
+                        <h5><a href="javascript:void(0)" class="card-title title text-dark">Mệt mỏi với cuộc sống hiện tại</a></h5>
                         <div class="post-meta d-flex justify-content-between mt-3">
                             <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>33</a></li>
+                                <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>247</a></li>
                                 <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>08</a></li>
                             </ul>
-                            <a href="page-blog-detail.html" class="text-muted readmore">Read More <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="page-blog-detail.html" class="text-muted readmore">Xem thêm <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="author">
-                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> Calvin Carlo</small>
-                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th August, 2019</small>
+                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> Hoàng Sang</small>
+                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th October, 2020</small>
                     </div>
                 </div>
             </div><!--end col-->
@@ -402,22 +368,22 @@ include("navigation.php");
             <div class="col-lg-4 col-md-6 mt-4 pt-2">
                 <div class="card blog rounded border-0 shadow">
                     <div class="position-relative">
-                        <img src="images/blog/02.jpg" class="card-img-top rounded-top" alt="...">
+                        <img src="assets/images/BlogToDo.jpg" class="card-img-top rounded-top" alt="...">
                     <div class="overlay rounded-top bg-dark"></div>
                     </div>
                     <div class="card-body content">
-                        <h5><a href="javascript:void(0)" class="card-title title text-dark">How apps is changing the IT world</a></h5>
+                        <h5><a href="javascript:void(0)" class="card-title title text-dark">Tốt hơn mỗi ngày</a></h5>
                         <div class="post-meta d-flex justify-content-between mt-3">
                             <ul class="list-unstyled mb-0">
                                 <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>33</a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>16</a></li>
                             </ul>
-                            <a href="page-blog-detail.html" class="text-muted readmore">Read More <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="page-blog-detail.html" class="text-muted readmore">Xem thêm <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="author">
-                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> Calvin Carlo</small>
-                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th August, 2019</small>
+                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> Hoàng Sang</small>
+                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th October, 2020</small>
                     </div>
                 </div>
             </div><!--end col-->
@@ -425,22 +391,22 @@ include("navigation.php");
             <div class="col-lg-4 col-md-6 mt-4 pt-2">
                 <div class="card blog rounded border-0 shadow">
                     <div class="position-relative">
-                        <img src="images/blog/03.jpg" class="card-img-top rounded-top" alt="...">
+                        <img src="assets/images/BlogCK.jpg" class="card-img-top rounded-top" alt="...">
                     <div class="overlay rounded-top bg-dark"></div>
                     </div>
                     <div class="card-body content">
-                        <h5><a href="javascript:void(0)" class="card-title title text-dark">Smartest Applications for Business</a></h5>
+                        <h5><a href="javascript:void(0)" class="card-title title text-dark">Phân tích chúng khoáng</a></h5>
                         <div class="post-meta d-flex justify-content-between mt-3">
                             <ul class="list-unstyled mb-0">
-                                <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>33</a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                                <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>334</a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>98</a></li>
                             </ul>
-                            <a href="page-blog-detail.html" class="text-muted readmore">Read More <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="page-blog-detail.html" class="text-muted readmore">Xem thêm <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="author">
-                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> Calvin Carlo</small>
-                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th August, 2019</small>
+                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> Hoàng Sang</small>
+                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th October, 2020</small>
                     </div>
                 </div>
             </div><!--end col-->
@@ -451,20 +417,20 @@ include("navigation.php");
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Schedule a demo with us</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary font-weight-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <h4 class="title mb-4">Trở thành một diễn giả của chúng tôi</h4>
+                    <p class="text-muted para-desc mx-auto mb-0">Các lớp học phi lợi nhuận của <span class="text-primary font-weight-bold">SIT</span> làm thay đổi cuộc sống của hàng triệu con người.</p>
                 </div>
             </div><!--end col-->
         </div><!--end row-->
 
         <div class="row justify-content-center mt-4">
             <div class="col-lg-7 col-md-10">
-                <form>
+                <form action="WellcomeSIT.php" method="GET">
                     <div class="form-group">
                         <div class="input-group mb-3">
                             <input name="email" id="email" type="email" class="form-control" placeholder="Your email :" required="" aria-describedby="newssubscribebtn">
                             <div class="input-group-append">
-                                <button class="btn btn-primary submitBnt" type="submit" id="newssubscribebtn">Subscribe</button>
+                                <button class="btn btn-primary submitBnt" type="submit" id="newssubscribebtn">Đăng Ký</button>
                             </div>
                         </div>
                     </div>

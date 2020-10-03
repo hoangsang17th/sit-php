@@ -1,7 +1,7 @@
 <?php
 include("navigation.php");
 ?>
-<link href="css/flexslider.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/flexslider.css" rel="stylesheet" type="text/css" />
 <title>Shop SIT - Mua mọi thứ với mọi giá!</title>
 <section class="main-slider">
     <ul class="slides"> 

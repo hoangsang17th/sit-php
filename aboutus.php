@@ -2,7 +2,7 @@
 include("navigation.php");
 ?>
 <title>About Us - SIT</title>
-<link href="css/magnific-popup.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/magnific-popup.css" rel="stylesheet" type="text/css" />
 <section class="bg-half-170 d-table w-100">
     <div class="container">
         <div class="row align-items-center">
