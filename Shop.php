@@ -696,5 +696,5 @@ include("navigation.php");
 <?php
 include("footer.php");
 ?>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/flexslider.init.js"></script>
+<script src="assets/js/jquery.flexslider-min.js"></script>
+<script src="assets/js/flexslider.init.js"></script>

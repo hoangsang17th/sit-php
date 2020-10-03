@@ -89,21 +89,21 @@
 <!-- Back to top -->
 
 <!-- javascript -->
-<script src="js/jquery-3.5.1.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrollspy.min.js"></script>
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.easing.min.js"></script>
+<script src="assets/js/scrollspy.min.js"></script>
 <!-- SLIDER -->
-<script src="js/owl.carousel.min.js "></script>
-<script src="js/owl.init.js "></script>
+<script src="assets/js/owl.carousel.min.js "></script>
+<script src="assets/js/owl.init.js "></script>
 <!-- Icons -->
-<script src="js/feather.min.js"></script>
+<script src="assets/js/feather.min.js"></script>
 <script src="https://unicons.iconscout.com/release/v2.1.9/script/monochrome/bundle.js"></script>
 <!-- Main Js -->
-<script src="js/app.js"></script>
+<script src="assets/js/apphome.js"></script>
 <!-- javascript -->
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific.init.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/magnific.init.js"></script>
 <script>
         function GetClock(){
             var datatime= new Date();

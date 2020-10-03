@@ -8,7 +8,6 @@
         $rsname = "SELECT * FROM `users` WHERE username= '$users'";
         $resname =mysqli_query($conn, $rsname);
         $profile = mysqli_fetch_assoc($resname);
-        
     } 
 ?>
 <!DOCTYPE html>
