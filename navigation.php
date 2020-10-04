@@ -15,12 +15,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="1 Giải pháp mang tính cách mạng" />
-    <meta name="keywords" content="ToDo List"/>
+    <meta name="description" content="SIT To Do Giải pháp mang tính cách mạng" />
+    <meta name="keywords" content="ToDo List, Hoàng Sang, Hoang Sang 17Th, HoangSang17TH HoangSang 17Th, 17Team.Work, 17team.work, 17, 17teamwork, 17 work, Shop SoftWare"/>
     <meta name="author" content="Hoàng Sang" />
     <meta name="email" content="phsang49@gmail.com" />
     <meta name="website" content="http://www.sit.vn" />
-    <meta name="Version" content="v7.3.1" />
+    <meta name="Version" content="v1.0.0" />
     <link rel="shortcut icon" href="favicon.ico">
     <link href="assets/css/bootstrap.home.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />

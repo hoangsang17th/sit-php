@@ -19,9 +19,9 @@ include("navigation.php");
                         </nav>
                     </div>
                 </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div> <!--end container-->
+            </div>
+        </div>
+    </div> 
 </section>
 <div class="position-relative">
     <div class="shape overflow-hidden text-white">
@@ -50,8 +50,7 @@ include("navigation.php");
                     <div><img src="https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/e35/120372783_196335051869772_2783085559868641830_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=Q7c8j7GYgj4AX8B8bUL&_nc_tp=18&oh=4704c32892d7da67247a7f8c55a939a5&oe=5F9FCF44" class="img-fluid" alt=""></div>
                     <div><img src="https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/120293096_1036388480117788_7804050709179311478_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=7B6R7h1ANekAX8uh1xx&_nc_tp=19&oh=d78d0768b901e767e85019cb77c2abc2&oe=5F9E8354" class="img-fluid" alt=""></div>
                 </div>
-            </div><!--end col-->
-
+            </div>
             <div class="col-md-7 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <div class="section-title ml-md-4">
                     <h4 class="title">Branded T-Shirts</h4>
@@ -63,16 +62,13 @@ include("navigation.php");
                         <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
                         <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
                     </ul>
-                    
                     <h5 class="mt-4 py-2">Overview :</h5>
                     <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero exercitationem, unde molestiae sint quae inventore atque minima natus fugiat nihil quisquam voluptates ea omnis. Modi laborum soluta tempore unde accusantium.</p>
-                
                     <ul class="list-unstyled text-muted">
                         <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span> Digital Marketing Solutions for Tomorrow</li>
                         <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span> Our Talented &amp; Experienced Marketing Agency</li>
                         <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span> Create your own skin to match your brand</li>
                     </ul>
-
                     <div class="row mt-4 pt-2">
                         <div class="col-lg-6 col-12">
                             <div class="d-flex align-items-center">
@@ -84,8 +80,7 @@ include("navigation.php");
                                     <li class="list-inline-item ml-1"><a href="javascript:void(0)" class="btn btn-icon btn-soft-primary">XL</a></li>
                                 </ul>
                             </div>
-                        </div><!--end col-->
-
+                        </div>
                         <div class="col-lg-6 col-12 mt-4 mt-lg-0">
                             <div class="d-flex shop-list align-items-center">
                                 <h6 class="mb-0">Quantity:</h6>
@@ -95,24 +90,21 @@ include("navigation.php");
                                     <input type="button" value="+" class="plus btn btn-icon btn-soft-primary font-weight-bold">
                                 </div>
                             </div>
-                        </div><!--end col-->
-                    </div><!--end row-->
-
+                        </div>
+                    </div>
                     <div class="mt-4 pt-2">
                         <a href="javascript:void(0)" class="btn btn-primary">Shop Now</a>
                         <a href="shop-cart.html" class="btn btn-soft-primary ml-2">Add to Cart</a>
                     </div>
                 </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-
+            </div>
+        </div>
+    </div>
     <div class="container mt-100 mt-60">
         <div class="row">
             <div class="col-12">
                 <h5 class="mb-0">Related Products</h5>
-            </div><!--end col-->
-
+            </div>
             <div class="col-12 mt-4">
                 <div id="client-four" class="owl-carousel owl-theme">
                     <div class="card shop-list border-0 position-relative overflow-hidden m-2">
@@ -141,7 +133,6 @@ include("navigation.php");
                             </div>
                         </div>
                     </div>
-
                     <div class="card shop-list border-0 position-relative overflow-hidden m-2">
                         <div class="shop-image position-relative overflow-hidden rounded shadow">
                             <a href="shop-product-detail.html"><img src="images/shop/product/s3.jpg" class="img-fluid" alt=""></a>
@@ -168,7 +159,6 @@ include("navigation.php");
                             </div>
                         </div>
                     </div>
-
                     <div class="card shop-list border-0 position-relative overflow-hidden m-2">
                         <div class="shop-image position-relative overflow-hidden rounded shadow">
                             <a href="shop-product-detail.html"><img src="images/shop/product/s6.jpg" class="img-fluid" alt=""></a>
@@ -195,7 +185,6 @@ include("navigation.php");
                             </div>
                         </div>
                     </div>
-
                     <div class="card shop-list border-0 position-relative overflow-hidden m-2">
                         <div class="shop-image position-relative overflow-hidden rounded shadow">
                             <a href="shop-product-detail.html"><img src="images/shop/product/s8.jpg" class="img-fluid" alt=""></a>
@@ -222,7 +211,6 @@ include("navigation.php");
                             </div>
                         </div>
                     </div>
-
                     <div class="card shop-list border-0 position-relative overflow-hidden m-2">
                         <div class="shop-image position-relative overflow-hidden rounded shadow">
                             <a href="shop-product-detail.html"><img src="images/shop/product/s14.jpg" class="img-fluid" alt=""></a>
@@ -250,9 +238,9 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
+            </div>
+        </div>
+    </div>
 </section>
 <?php
 include("footer.php");

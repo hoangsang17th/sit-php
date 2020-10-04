@@ -1,81 +1,57 @@
-
-<!doctype html>
-<html lang="en">
-    <head>    
-        <meta charset="utf-8">
-        <title>To Do List | SIT</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
-        <meta content="Themesbrand" name="author">
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets\images\favicon.ico">
-        <!-- DataTables -->
-        <link href="assets\libs\datatables.net-bs4\css\dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
-        <link href="assets\libs\datatables.net-buttons-bs4\css\buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
-        <!-- Responsive datatable examples -->
-        <link href="assets\libs\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css" rel="stylesheet" type="text/css">     
-        <!-- Bootstrap Css -->
-        <link href="assets\css\bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
-        <!-- Icons Css -->
-        <link href="assets\css\icons.min.css" rel="stylesheet" type="text/css">
-        <!-- App Css-->
-        <link href="assets\css\app.min.css" id="app-style" rel="stylesheet" type="text/css">
-    </head>
-    <body data-sidebar="dark">
-    <?php 
-    include("header.php");
-    ?>
-        <div id="layout-wrapper">
-            <div class="main-content">
-                <div class="page-content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Danh Sách Các Công Việc Đã Thực Hiện</h4>
-                                        <p class="card-title-desc">SIT. Bạn thật tuyệt vời! Hãy cố gắng thêm nhé!</p>
-                                            <a href="index.php" class="btn btn-primary mr-2 w-md mb-3">
-                                                <i class="fas fa-chevron-left font-size-16 align-middle mr-2"></i> Quay lại </a>
-                                                <div class="table-responsive">
-                                                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                            <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Ngày Hoàn Thành</th>
-                                                <th>Nhiệm Vụ</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <?php
-                                                
-                                                $sql = "SELECT * FROM todolist WHERE id =".$profile['id'];
-                                                $ketqua =mysqli_query($conn, $sql);
-                                                $stt= 1;
-                                                while ($row = mysqli_fetch_assoc($ketqua)){
-                                                    if ($row['completiondate']!=''){
-                                                        echo "<tr>";
-                                                        echo '<td>'.$stt.'</td>';
-                                                        echo "<td>".$row['completiondate']."</td>";
-                                                        echo "<td>".$row['mission']."</td>";
-                                                        echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
-                                                        echo "</tr>";
-                                                        $stt++;
-                                                    }
+<?php 
+include("header.php");
+?>
+<title>Nhiệm Vụ Đã Hoàn Thành - SIT To Do</title>
+    <div id="layout-wrapper">
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Danh Sách Các Công Việc Đã Thực Hiện</h4>
+                                    <p class="card-title-desc">SIT. Bạn thật tuyệt vời! Hãy cố gắng thêm nhé!</p>
+                                        <a href="index.php" class="btn btn-primary mr-2 w-md mb-3">
+                                            <i class="fas fa-chevron-left font-size-16 align-middle mr-2"></i> Quay lại </a>
+                                            <div class="table-responsive">
+                                            <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Ngày Hoàn Thành</th>
+                                            <th>Nhiệm Vụ</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            $sql = "SELECT * FROM todolist WHERE id =".$profile['id'];
+                                            $ketqua =mysqli_query($conn, $sql);
+                                            $stt= 1;
+                                            while ($row = mysqli_fetch_assoc($ketqua)){
+                                                if ($row['completiondate']!=''){
+                                                    echo "<tr>";
+                                                    echo '<td>'.$stt.'</td>';
+                                                    echo "<td>".$row['completiondate']."</td>";
+                                                    echo "<td>".$row['mission']."</td>";
+                                                    echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
+                                                    echo "</tr>";
+                                                    $stt++;
                                                 }
-                                            ?>
-                                            </tbody>
-                                        </table></div>
-                                            
+                                            }
+                                        ?>
+                                        </tbody>
+                                    </table>
                                     </div>
                                 </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
-                    </div> <!-- container-fluid -->
+                            </div>
+                        </div> 
+                    </div>
                 </div>
             </div>
-            <!-- end main content-->
         </div>
-    </body>
-</html>
+    </div>
+<?php 
+include("footeruser.php");
+?>
