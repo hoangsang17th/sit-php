@@ -39,7 +39,7 @@ include("header-dashboard.php");
                                                 echo "<td>".$row['tenmathang']."</td>";
                                                 echo "<td>".$row['thuonghieu']."</td>";
                                                 echo "<td>".$row['dongia']."</td>";
-                                                echo '<td><a href="EditSPh.php?id='.$row['id'].'" class="px-2"><i class="far fa-edit"></i><a/>';
+                                                echo '<td><a href="EditPro.php?id='.$row['id'].'" class="px-2"><i class="far fa-edit"></i><a/>';
                                                 echo '<a href="DeleteSP.php?id='.$row['id'].'" class="px-2"><i class="far fa-trash-alt"></i><a/></td>';
                                                 echo "</tr>";
                                                 $stt++;
