@@ -1,12 +1,28 @@
 <?php
-include("navigation.php");
+    include("Connect.php");
+    include("navigation.php");
+?>
+<?php
+session_start();
+if(isset($_POST['submit'])){
+    foreach($_POST['qty'] as $key=>$value){
+        if( ($value == 0) and (is_numeric($value))){
+            unset ($_SESSION['cart'][$key]);
+        }
+        else 
+        if(($value > 0) and (is_numeric($value))){
+            $_SESSION['cart'][$key]=$value;
+        }
+    }
+    header("location: Shop-cart.php");
+}
 ?>
 <title>Giỏ Hàng của Bạn - SIT </title>
-<section class="d-table w-100 my-5" style="background:url('images/software/partner1.svg');">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 text-center">
-                <div class="page-next-level">
+<section class="d-table w-100 py-5" style="background:url('images/software/partner1.svg');">
+    <div class="container pt-5">
+        <div class="row justify-content-center pt-5">
+            <div class="col-lg-12 text-center pt-5">
+                <div class="page-next-level pt-5">
                     <h4 class="title"> Shopping Cart </h4>
                     <div class="page-next">
                         <nav aria-label="breadcrumb" class="d-inline-block">
@@ -31,6 +47,18 @@ include("navigation.php");
 </div>
 <section class="section">
     <div class="container">
+    <?php
+    $count=0; 
+    // Biến đếm
+    if(isset($_SESSION['cart'])){
+        foreach($_SESSION['cart'] as $key => $value){
+            if(isset($key)){
+                $count=1;
+            }
+        }
+    }
+    if($count == 1){
+        echo '<form action="Shop-Cart.php" method="POST">
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive bg-white shadow">
@@ -43,115 +71,100 @@ include("navigation.php");
                                 <th class="text-center py-3" style="min-width: 160px;">Tổng</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/shop/product/s1.jpg" class="img-fluid avatar avatar-small rounded shadow" style="height:auto;" alt="">
-                                        <h6 class="mb-0 ml-3">T-Shirt</h6>
-                                    </div>
-                                </td>
-                                <td class="text-center">$ 255.00</td>
-                                <td class="text-center">
-                                    <input type="button" value="-" class="minus btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="text" step="1" min="1" name="quantity" value="2" title="Qty" class="btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="button" value="+" class="plus btn btn-icon btn-soft-primary font-weight-bold">
-                                </td>
-                                <td class="text-center font-weight-bold">$510.00</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/shop/product/s3.jpg" class="img-fluid avatar avatar-small rounded shadow" style="height:auto;" alt="">
-                                        <h6 class="mb-0 ml-3">Branded Watch</h6>
-                                    </div>
-                                </td>
-                                <td class="text-center">$ 520.00</td>
-                                <td class="text-center">
-                                    <input type="button" value="-" class="minus btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="button" value="+" class="plus btn btn-icon btn-soft-primary font-weight-bold">
-                                </td>
-                                <td class="text-center font-weight-bold">$520.00</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/shop/product/s6.jpg" class="img-fluid avatar avatar-small rounded shadow" style="height:auto;" alt="">
-                                        <h6 class="mb-0 ml-3">T-Shirt</h6>
-                                    </div>
-                                </td>
-                                <td class="text-center">$ 160.00</td>
-                                <td class="text-center">
-                                    <input type="button" value="-" class="minus btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="text" step="1" min="1" name="quantity" value="4" title="Qty" class="btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="button" value="+" class="plus btn btn-icon btn-soft-primary font-weight-bold">
-                                </td>
-                                <td class="text-center font-weight-bold">$640.00</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <img src="images/shop/product/s10.jpg" class="img-fluid avatar avatar-small rounded shadow" style="height:auto;" alt="">
-                                        <h6 class="mb-0 ml-3">Sunglasses</h6>
-                                    </div>
-                                </td>
-                                <td class="text-center">$ 260.00</td>
-                                <td class="text-center">
-                                    <input type="button" value="-" class="minus btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="text" step="1" min="1" name="quantity" value="2" title="Qty" class="btn btn-icon btn-soft-primary font-weight-bold">
-                                    <input type="button" value="+" class="plus btn btn-icon btn-soft-primary font-weight-bold">
-                                </td>
-                                <td class="text-center font-weight-bold">$520.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                        <tbody>';
+        foreach($_SESSION['cart'] as $key=>$value){
+            $item[]=$key;
+        }
+        $str=implode(",",$item);
+        $sql = "SELECT * FROM sanpham WHERE id IN ($str)";
+        $query = mysqli_query($conn, $sql);
+        $total = 0;
+        while ($row = mysqli_fetch_assoc($query)){
+            echo "<tr>";
+            echo   "<td>
+                        <div class='d-flex align-items-center'>
+                            <img src='images/shop/product/s1.jpg' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
+                            <div class='mb-0 ml-3'>
+                            <h6>$row[tenmathang]</h6>
+                            <a href='DeleteCart.php?id=$row[id]'>Xóa</a>
+                            </div>
+                        </div>
+                        
+                    </td>";
+            echo    "<td class='text-center'>".number_format($row['dongia'],3)."VNĐ</td>";
+            echo    "<td class='text-center'>
+                        <input type='button' value='-' class='minus btn btn-icon btn-soft-primary font-weight-bold'>
+                        <input type='text' step='1' min='1' name='qty[$row[id]]' value='{$_SESSION['cart'][$row['id']]}' title='Qty' class='btn btn-icon btn-soft-primary font-weight-bold'>
+                        <input type='button' value='+' class='plus btn btn-icon btn-soft-primary font-weight-bold'>
+                    </td>";
+            echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$row['id']]*$row['dongia'],3)." VND</td>";
+            echo "</tr>";
+            $total += $_SESSION['cart'][$row['id']]*$row['dongia'];
+        }
+        $totals = $total + ($total/10);
+        echo    "</tbody>
+            </table>
         </div>
-        <div class="row">
-            <div class="col-lg-8 col-md-6 mt-4 pt-2">
-                <a href="javascript:void(0)" class="btn btn-primary">Shop More</a>
-                <a href="javascript:void(0)" class="btn btn-soft-primary ml-2">Update Cart</a>
-            </div>
-            <div class="col-lg-4 col-md-6 ml-auto mt-4 pt-2">
-                <div class="table-responsive bg-white rounded shadow">
-                    <table class="table table-center table-padding mb-0">
-                        <tbody>
-                            <tr>
-                                <td class="h6">Subtotal</td>
-                                <td class="text-center font-weight-bold">$ 2190</td>
-                            </tr>
-                            <tr>
-                                <td class="h6">Taxes</td>
-                                <td class="text-center font-weight-bold">$ 219</td>
-                            </tr>
-                            <tr class="bg-light">
-                                <td class="h6">Total</td>
-                                <td class="text-center font-weight-bold">$ 2409</td>
-                            </tr>
-                        </tbody>
-                    </table>
+    </div>
+</div>
+<div class='row'>
+<div class='col-lg-8 col-md-6 mt-4 pt-2'>
+    <a href='Shop.php' class='btn btn-primary'>Shop More</a>
+    <input type='submit' name='submit' value='Update Cart' class='btn btn-soft-primary ml-2'>
+</div>
+</form>
+<div class='col-lg-4 col-md-6 ml-auto mt-4 pt-2'>
+    <div class='table-responsive bg-white rounded shadow'>
+        <table class='table table-center table-padding mb-0'>
+            <tbody>
+                <tr>
+                    <td class='h6'>Tạm Tính</td>
+                    <td class='text-center font-weight-bold'>".number_format($total,3)." VND</td>
+                </tr>
+                <tr>
+                    <td class='h6'>VAT</td>
+                    <td class='text-center font-weight-bold'>".number_format($total/10,3)." VND</td>
+                </tr>
+                <tr class='bg-light'>
+                    <td class='h6'>Total</td>
+                    <td class='text-center font-weight-bold'>".number_format($totals,3)." VND</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='mt-4 pt-2 text-right'>
+        <a href='shop-checkouts.html' class='btn btn-primary'>Tiến hành đặt hàng</a>
+    </div>
+</div>
+</div>";
+}
+else
+{
+    echo    "<div class='row justify-content-center mt-4'>
+                <div class='col-12 col-md-4 text-center'>
+                    <img src='Assets/images/Noproducts.svg' class='w-100'>
+                    <p class='mt-4 mb-3'>Không có sản phẩm nào trong giỏ hàng của bạn.
+                    <div class='mt-4 pt-2'>
+                        <a href='Shop.php' class='btn btn-warning'>Tiếp tục mua sắm</a>
+                    </div>
                 </div>
-                <div class="mt-4 pt-2 text-right">
-                    <a href="shop-checkouts.html" class="btn btn-primary">Proceed to checkout</a>
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
+            </div>";
+}
+?>       
+    </div>
 </section>
 <?php
 include("footer.php");
 ?>
 <script>
-// $('.plus').click(function () {
-//     if ($(this).prev().val() < 999) {
-//         $(this).prev().val(+$(this).prev().val() + 1);
-//     }
-// });
-// $('.minus').click(function () {
-//     if ($(this).next().val() > 1) {
-//         if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-//     }
-// });
+$('.plus').click(function () {
+    if ($(this).prev().val() < 999) {
+        $(this).prev().val(+$(this).prev().val() + 1);
+    }
+});
+$('.minus').click(function () {
+    if ($(this).next().val() > 1) {
+        if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+    }
+});
 </script>

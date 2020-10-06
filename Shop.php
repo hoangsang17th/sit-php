@@ -2,6 +2,9 @@
 include("navigation.php");
 ?>
 <link href="assets/css/flexslider.css" rel="stylesheet" type="text/css" />
+<?php
+session_start();
+?>
 <title>Shop SIT - Mua mọi thứ với mọi giá!</title>
 <section class="main-slider">
     <ul class="slides"> 
@@ -83,13 +86,12 @@ include("navigation.php");
     </div><!--end row-->
 </div>
 <section class="section">
-    <!-- Start Most Viewed Products -->
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h5 class="mb-0">Most Viewed Products</h5>
-            </div><!--end col-->
-        </div><!--end row-->
+                <h5 class="mb-0">DÀNH RIÊNG CHO BẠN</h5>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
@@ -293,7 +295,7 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
+            </div>
             
             <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                 <div class="card shop-list border-0 position-relative overflow-hidden">
@@ -322,19 +324,15 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-    <!-- End Most Viewed Product -->
-
-    <!-- Start Catagories -->
-    <div class="container mt-100 mt-60">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container mt-100 mt-60">
         <div class="row">
             <div class="col-12">
                 <h5 class="mb-0">Top Categories</h5>
-            </div><!--end col-->
-        </div><!--end row-->
-
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                 <div class="card explore-feature border-0 rounded text-center bg-white">
@@ -347,8 +345,7 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-            
+            </div>
             <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                 <div class="card explore-feature border-0 rounded text-center bg-white">
                     <div class="card-body">
@@ -360,8 +357,7 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-            
+            </div>
             <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                 <div class="card explore-feature border-0 rounded text-center bg-white">
                     <div class="card-body">
@@ -373,8 +369,7 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-            
+            </div>
             <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                 <div class="card explore-feature border-0 rounded text-center bg-white">
                     <div class="card-body">
@@ -386,8 +381,7 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-            
+            </div>
             <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                 <div class="card explore-feature border-0 rounded text-center bg-white">
                     <div class="card-body">
@@ -399,7 +393,7 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
+            </div>
             
             <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                 <div class="card explore-feature border-0 rounded text-center bg-white">
@@ -412,140 +406,10 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-    <!-- Start Catagories -->
+            </div>
+        </div>
+    </div> -->
 
-    <!-- Start Popular -->
-    <div class="container mt-100 mt-60">
-        <div class="row">
-            <div class="col-12">
-                <h5 class="mb-0">Popular Products</h5>
-            </div><!--end col-->
-        </div><!--end row-->
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s9.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-9.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Coffee Cup / Mug</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$16.00 <del class="text-danger ml-2">$21.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s10.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-10.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Sunglasses</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$21.00 <del class="text-danger ml-2">$25.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s11.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-11.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Loafer Shoes</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$5.00 <span class="text-success ml-1">30% off</span> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s12.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-12.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">T-Shirts</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$18.00 <del class="text-danger ml-2">$22.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-    <!-- End Popular -->
-
-    <!-- Start CTA -->
     <div class="container-fluid mt-100 mt-60">
         <div class="rounded py-5" style="background: url('images/shop/cta.jpg') fixed;">
             <div class="container">
@@ -558,141 +422,13 @@ include("navigation.php");
                                 <a href="javascript:void(0)" class="btn btn-primary">Shop Now</a>
                             </div>
                         </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div><!--end container-->
-    <!-- End CTA -->
-
-    <!-- Start Recent -->
-    <div class="container mt-100 mt-60">
-        <div class="row">
-            <div class="col-12">
-                <h5 class="mb-0">Recent Products</h5>
-            </div><!--end col-->
-        </div><!--end row-->
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s13.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-13.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Wooden Chair</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$16.00 <del class="text-danger ml-2">$21.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s14.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-14.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Women Block Heels</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$21.00 <del class="text-danger ml-2">$25.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s15.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-15.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">T-Shirts</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$5.00 <span class="text-success ml-1">30% off</span> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s16.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-16.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Clock</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$18.00 <del class="text-danger ml-2">$22.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-    <!-- End Recent -->
+    </div>
 </section>
+<a href="#" class="btn btn-icon btn-soft-primary basket"><i class="fas fa-shopping-basket"></i></a>
 <?php
 include("footer.php");
 ?>

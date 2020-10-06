@@ -66,16 +66,6 @@
                 <a class="logo" href="index.html">
                     <img src="Logo.png" height="50" alt="">
                 </a>
-            </div>                 
-            <div class="buy-button">
-                <?php
-                if ($profile['username']==''){
-                    echo "<a href='login.php' class='btn btn-primary'>Đăng Nhập</a>";
-                }
-                else if($profile['name']==''){
-                    echo "<a href='Profileuser.php' class='btn btn-primary'>Hoàn Thiện</a>";
-                }
-                else echo "<a href='Profileuser.php' class='btn btn-primary'>".$profile['name']."</a>"; ?>
             </div>
             <div class="menu-extras">
                 <div class="menu-item">
@@ -87,7 +77,18 @@
                         </div>
                     </a>
                 </div>
+            </div>                 
+            <div class="buy-button">
+                <?php
+                if ($profile['username']==''){
+                    echo "<a href='login.php' class='btn btn-primary'>Đăng Nhập</a>";
+                }
+                else if($profile['name']==''){
+                    echo "<a href='Profileuser.php' class='btn btn-primary'>Hoàn Thiện</a>";
+                }
+                else echo "<a href='Profileuser.php' class='btn btn-primary'>".$profile['name']."</a>"; ?>
             </div>
+            
             <div id="navigation">
                 <ul class="navigation-menu">
                     <li><a href="Home.php">Home</a></li>
