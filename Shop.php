@@ -55,7 +55,19 @@ session_start();
         </li>
     </ul>
 </section>
-<div class="container-fluid mt-5 pt-2">
+<div class="container-fluid mt-3 pt-2">
+    <div class="row mb-3">
+        <div class="col-12 text-center">
+        <?php
+            $counts = 0;
+            if(isset($_SESSION['cart'])){
+                $items = $_SESSION['cart'];
+                $counts = count($items);
+            }
+            echo "<a href='Shop-Cart.php' class='btn btn-outline-primary'><i class='fas fa-shopping-basket'> </i> ".$counts." Sản Phẩm</a>";
+        ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <div class="py-5 rounded shadow" style="background: url('images/shop/fea1.jpg') top center;">
@@ -428,7 +440,6 @@ session_start();
         </div>
     </div>
 </section>
-<a href="#" class="btn btn-icon btn-soft-primary basket"><i class="fas fa-shopping-basket"></i></a>
 <?php
 include("footer.php");
 ?>
