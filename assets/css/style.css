@@ -1851,15 +1851,6 @@ button:not(:disabled) {
   color: #adb5bd;
   border-color: #adb5bd;
 }
-.basket{
-  z-index: 999;
-  position: absolute;
-  bottom: 60px;
-  right: 30px;
-  display: none;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
 .back-to-top {
   z-index: 99;
   position: fixed;

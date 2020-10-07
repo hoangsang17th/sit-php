@@ -1,9 +1,9 @@
 <?php
-    include("Connect.php");
     include("navigation.php");
 ?>
+<title>Giỏ Hàng của Bạn - SIT </title>
 <?php
-session_start();
+// session_start();
 if(isset($_POST['submit'])){
     foreach($_POST['qty'] as $key=>$value){
         if( ($value == 0) and (is_numeric($value))){
@@ -14,10 +14,9 @@ if(isset($_POST['submit'])){
             $_SESSION['cart'][$key]=$value;
         }
     }
-    header("location: Shop-cart.php");
+    header("Location:Shop-Cart.php");
 }
 ?>
-<title>Giỏ Hàng của Bạn - SIT </title>
 <section class="d-table w-100 py-5" style="background:url('images/software/partner1.svg');">
     <div class="container pt-5">
         <div class="row justify-content-center pt-5">
@@ -48,6 +47,7 @@ if(isset($_POST['submit'])){
 <section class="section">
     <div class="container">
     <?php
+    include("Connect.php");
     $count=0; 
     // Biến đếm
     if(isset($_SESSION['cart'])){

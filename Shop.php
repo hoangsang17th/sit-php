@@ -1,5 +1,6 @@
 <?php
-include("navigation.php");
+    include("Connect.php");
+    include("navigation.php");
 ?>
 <link href="assets/css/flexslider.css" rel="stylesheet" type="text/css" />
 <?php
@@ -68,34 +69,32 @@ session_start();
         ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="py-5 rounded shadow" style="background: url('images/shop/fea1.jpg') top center;">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-4 pt-2">
+            <div class="py-5 rounded shadow" style="background: url('images/shop/Sittodo.png') top center;background-size: cover;">
                 <div class="p-4">
-                    <h3>Summer <br> Collection</h3>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Shop Now</a>
+                    <h3>To Do <br>SIT </h3>
+                    <a href="index.php" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
                 </div>
             </div>
-        </div><!--end col-->
-        
-        <div class="col-md-4 mt-4 pt-2 mt-sm-0 pt-sm-0">
-            <div class="py-5 rounded shadow" style="background: url('images/shop/fea2.jpg') top center;">
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-4 pt-2">
+            <div class="py-5 rounded shadow" style="background: url('images/shop/Fixbug.png') top center;background-size: cover;">
                 <div class="p-4">
-                    <h3>Summer <br> Collection</h3>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Shop Now</a>
+                    <h3>Fix Bug <br> HTML</h3>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
                 </div>
             </div>
-        </div><!--end col-->
-        
-        <div class="col-md-4 mt-4 pt-2 mt-sm-0 pt-sm-0">
-            <div class="py-5 rounded shadow" style="background: url('images/shop/fea3.jpg') top center;">
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-4 pt-2">
+            <div class="py-5 rounded shadow" style="background: url('images/shop/Fixbug.png') top center;background-size: cover;">
                 <div class="p-4">
-                    <h3>Summer <br> Collection</h3>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Shop Now</a>
+                    <h3>Fix Bug <br> PHP</h3>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
                 </div>
             </div>
-        </div><!--end col-->
-    </div><!--end row-->
+        </div>
+    </div>
 </div>
 <section class="section">
     <div class="container">
@@ -104,67 +103,47 @@ session_start();
                 <h5 class="mb-0">DÀNH RIÊNG CHO BẠN</h5>
             </div>
         </div>
-
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s1.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-1.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Branded T-Shirt</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$16.00 <del class="text-danger ml-2">$21.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
+        <?php
+        $sql2 = "SELECT * FROM sanpham";
+        $query = mysqli_query($conn, $sql2);
+        while ($row = mysqli_fetch_assoc($query)){
+            if ($row['dongia']!=0){
+                $price = number_format($row['dongia'],3);
+            }
+            else $price = 0;
+            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
+            <div class='card shop-list border-0 position-relative overflow-hidden'>
+                <div class='shop-image position-relative overflow-hidden rounded shadow'>
+                    <a href='shop-product-detail.html'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
+                    <a href='shop-product-detail.html' class='overlay-work'>
+                        <img src='images/shop/product/s-1.jpg' class='img-fluid' alt=''>
+                    </a>
+                    <ul class='list-unstyled shop-icons'>
+                        <li><a href='javascript:void(0)' class='btn btn-icon btn-pills btn-soft-danger'><i data-feather='heart' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='shop-product-detail.html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
+                    </ul>
+                </div>
+                <div class='card-body content pt-4 p-2'>
+                    <a href='shop-product-detail.html' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <div class='d-flex justify-content-between mt-1'>
+                        <h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ</h6>
                     </div>
                 </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s2.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-2.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Shopping Bag</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$21.00 <del class="text-danger ml-2">$25.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+            </div>
+        </div>";
+        // echo "<div>";
+        // echo "<h3>$row[title]</h3>";
+        // echo "Tac Gia: $row[author] - Gia: ".number_format($row['price'],3)."
+        // VND<br />";
+        // echo "<p align='right'><a href='addcart.php?item=$row[id]'>Mua Sach
+        // Nay</a></p>";
+        // echo "</div>";
+        }
+        ?>
+            <!-- <del class='text-danger ml-2'>$21.00</del>  -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2">
                 <div class="card shop-list border-0 position-relative overflow-hidden">
                     <div class="shop-image position-relative overflow-hidden rounded shadow">
                         <a href="shop-product-detail.html"><img src="images/shop/product/s3.jpg" class="img-fluid" alt=""></a>
@@ -181,158 +160,6 @@ session_start();
                         <a href="shop-product-detail.html" class="text-dark product-name h6">Elegent Watch</a>
                         <div class="d-flex justify-content-between mt-1">
                             <h6 class="text-muted small font-italic mb-0 mt-1">$5.00 <span class="text-success ml-1">30% off</span> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s4.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-4.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Casual Shoes</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$18.00 <del class="text-danger ml-2">$22.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s5.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-5.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Earphones</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$3.00</h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s6.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-6.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Elegent Mug</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$4.50 <del class="text-danger ml-2">$6.50</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s7.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-7.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Sony Headphones</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$9.99 <span class="text-success ml-2">20% off</span> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s8.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-8.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Wooden Stools</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$22.00 <del class="text-danger ml-2">$25.00</del> </h6>
-                            <ul class="list-unstyled text-warning mb-0">
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item"><i class="mdi mdi-star"></i></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -421,17 +248,16 @@ session_start();
             </div>
         </div>
     </div> -->
-
     <div class="container-fluid mt-100 mt-60">
-        <div class="rounded py-5" style="background: url('images/shop/cta.jpg') fixed;">
-            <div class="container">
-                <div class="row">
+        <div class="rounded py-5" style="background: url('images/shop/simple.jpg') fixed;background-size: cover;">
+            <div class="container py-5">
+                <div class="row py-5">
                     <div class="col-12">
                         <div class="section-title">
-                            <h2 class="font-weight-bold mb-4">End of Season Clearance <br> Sale upto 30%</h2>
-                            <p class="para-desc para-white text-muted mb-0">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap4 html page.</p>
+                            <h2 class="font-weight-bold mb-4 text-light">Hình Ảnh Tối Giản <br> Miễn Phí</h2>
+                            <p class="para-desc para-white text-muted mb-0">Minimalism là phong cách ảnh tối giản đã có một chỗ đứng rất đặc biệt trong xã hội hiện đại.</p>
                             <div class="mt-4">
-                                <a href="javascript:void(0)" class="btn btn-primary">Shop Now</a>
+                                <a href="images/shop/simple.jpg" class="btn btn-success" download="SIT_Simple"><i class="fa fa-download mr-3"> </i> Tải Ngay</a>
                             </div>
                         </div>
                     </div>
