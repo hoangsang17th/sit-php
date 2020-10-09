@@ -10,6 +10,7 @@ else{
     $qty = 1;
 }
 $_SESSION['cart'][$id] = $qty;
-header("Location: Shop.php");
+// header("Location: Shop.php");
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit();
 ?>

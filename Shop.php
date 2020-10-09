@@ -56,19 +56,10 @@ session_start();
         </li>
     </ul>
 </section>
+<?php
+    include("Basket.php");
+?>
 <div class="container-fluid mt-3 pt-2">
-    <div class="row mb-3">
-        <div class="col-12 text-center">
-        <?php
-            $counts = 0;
-            if(isset($_SESSION['cart'])){
-                $items = $_SESSION['cart'];
-                $counts = count($items);
-            }
-            echo "<a href='Shop-Cart.php' class='btn btn-outline-primary'><i class='fas fa-shopping-basket'> </i> ".$counts." Sản Phẩm</a>";
-        ?>
-        </div>
-    </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 mt-4 pt-2">
             <div class="py-5 rounded shadow" style="background: url('images/shop/Sittodo.png') top center;background-size: cover;">
@@ -110,8 +101,9 @@ session_start();
         while ($row = mysqli_fetch_assoc($query)){
             if ($row['dongia']!=0){
                 $price = number_format($row['dongia'],3);
+                $del = $row['dongia']*1.1*1000;
             }
-            else $price = 0;
+            else $price =$del = 0;
             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
@@ -127,43 +119,22 @@ session_start();
                 </div>
                 <div class='card-body content pt-4 p-2'>
                     <a href='shop-product-detail.html' class='text-dark product-name h6'>$row[tenmathang]</a>
-                    <div class='d-flex justify-content-between mt-1'>
-                        <h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ</h6>
-                    </div>
+                    <div class='d-flex justify-content-between mt-1'>";
+                    if ($price !=0){
+                        echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";
+                        if(rand(0,1)==0){
+                            if ($del!=0) echo "<span class='text-danger ml-1'>(".$del.")</span>";
+                        }  
+                        echo  "     </h6>";
+                    }
+                    else   echo "<h6 class=' small font-italic mb-0 mt-1 text-success'>FREE</h6>";
+                    
+            echo"   </div>
                 </div>
             </div>
         </div>";
-        // echo "<div>";
-        // echo "<h3>$row[title]</h3>";
-        // echo "Tac Gia: $row[author] - Gia: ".number_format($row['price'],3)."
-        // VND<br />";
-        // echo "<p align='right'><a href='addcart.php?item=$row[id]'>Mua Sach
-        // Nay</a></p>";
-        // echo "</div>";
         }
         ?>
-            <!-- <del class='text-danger ml-2'>$21.00</del>  -->
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2">
-                <div class="card shop-list border-0 position-relative overflow-hidden">
-                    <div class="shop-image position-relative overflow-hidden rounded shadow">
-                        <a href="shop-product-detail.html"><img src="images/shop/product/s3.jpg" class="img-fluid" alt=""></a>
-                        <a href="shop-product-detail.html" class="overlay-work">
-                            <img src="images/shop/product/s-3.jpg" class="img-fluid" alt="">
-                        </a>
-                        <ul class="list-unstyled shop-icons">
-                            <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-product-detail.html" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="eye" class="icons"></i></a></li>
-                            <li class="mt-2"><a href="shop-cart.html" class="btn btn-icon btn-pills btn-soft-warning"><i data-feather="shopping-cart" class="icons"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body content pt-4 p-2">
-                        <a href="shop-product-detail.html" class="text-dark product-name h6">Elegent Watch</a>
-                        <div class="d-flex justify-content-between mt-1">
-                            <h6 class="text-muted small font-italic mb-0 mt-1">$5.00 <span class="text-success ml-1">30% off</span> </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- <div class="container mt-100 mt-60">

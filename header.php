@@ -127,6 +127,7 @@
                             <span class="d-none d-xl-inline-block ml-1"><?php echo $profile['name']; ?></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="Home.php"><img src="Logo.png" width="20px"> Trang Chủ</a>
                             <a class="dropdown-item text-danger" href="logout.php"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
                         </div>
                     </div>            

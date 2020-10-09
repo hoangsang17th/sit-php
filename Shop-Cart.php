@@ -91,7 +91,12 @@ if(isset($_POST['submit'])){
                         </div>
                         
                     </td>";
-            echo    "<td class='text-center'>".number_format($row['dongia'],3)."VNĐ</td>";
+            if ($row['dongia']==0){
+                echo    "<td class='text-center'><i class='text-success'>FREE</i></td>";
+            }
+            else {
+                echo    "<td class='text-center'>".number_format($row['dongia'],3)."VNĐ</td>";
+            }
             echo    "<td class='text-center'>
                         <input type='button' value='-' class='minus btn btn-icon btn-soft-primary font-weight-bold'>
                         <input type='text' step='1' min='1' name='qty[$row[id]]' value='{$_SESSION['cart'][$row['id']]}' title='Qty' class='btn btn-icon btn-soft-primary font-weight-bold'>

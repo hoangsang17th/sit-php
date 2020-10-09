@@ -1,6 +1,7 @@
 <?php 
 include("header-dashboard.php");
 ?>
+<title>Thay đổi thông tin sản phẩm SIT</title>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tenmathang = $_POST['tenmathang']; 
@@ -14,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id=$_GET['id'];
     $sql = "UPDATE sanpham SET tenmathang='$tenmathang',iddanhmuc=$idDanhmuc,thuonghieu='$thuonghieu',dongia=$dongia, mota='$mota', title='$title', keywords='$keywords', motatrang='$motatrang' WHERE id=$id";
     $sll = "SELECT * FROM sanpham WHERE tenmathang='$tenmathang' ";
-    $ketqua = mysqli_query($conn, $sql);
+    $ketqua = mysqli_query($conn, $sql);    
 }
 ?>
 <?php
@@ -23,9 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ketQuaGetHangHoa = mysqli_query($conn, $sqlGetHangHoa);
         $mathang = mysqli_fetch_assoc($ketQuaGetHangHoa);
     }
+    else {
+        $mathang['tenmathang'] = $mathang['thuonghieu'] = $mathang['dongia']
+        = $mathang['iddanhmuc'] = $mathang['mota'] = $mathang['title']
+        = $mathang['keywords'] = $mathang['motatrang'] =
+        "Lỗi GET, vui lòng thử lại bằng cách chọn 1 sản phẩm khác";
+    }
 ?>
-<title>Thay đổi thông tin sản phẩm SIT</title>
-
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
