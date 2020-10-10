@@ -1,11 +1,34 @@
 <?php
 include("navigation.php");
-?> 
-<title>Sản Phẩm 001 - SIT</title>
+?>
+<?php
+    $check = 0;
+    if (isset($_GET['id'])){
+        $filter = "SELECT * FROM sanpham WHERE id=".$_GET['id'];        
+        $refilter = mysqli_query($conn, $filter);
+        $qafilter = mysqli_num_rows($refilter);
+        $mathang = mysqli_fetch_assoc($refilter);
+        if($qafilter==1){
+            $check = 1;
+        }
+        else{        
+            $check = 0;
+        }
+    }
+?>
+<?php
+    if($check == 1){
+        if ($mathang['title'] ==''){
+            echo "<title>".$mathang['tenmathang']." - SIT</title>";
+        }
+        else echo "<title>".$mathang['title']."</title>";
+    }
+    else echo "<title>Không tìm thấy trang yêu cầu | 404 Error | SIT </title>";
+?>
 <link rel="stylesheet" href="assets/css/slick.css"/> 
 <link rel="stylesheet" href="assets/css/slick-theme.css"/>
 <?php
-    if (!isset($_GET['id'])){
+    if ($check == 0){
         echo "
         <div class='container my-5'>
             <div class='row mt-5 justify-content-center'>
@@ -23,8 +46,12 @@ include("navigation.php");
         ";
     }
     else{
+        $sqlGetHangHoa = "SELECT * FROM sanpham WHERE id=".$_GET['id'];        
+        $ketQuaGetHangHoa = mysqli_query($conn, $sqlGetHangHoa);
+        $mathang = mysqli_fetch_assoc($ketQuaGetHangHoa);
         echo "<section class='section'>";
-        echo    "<div class='container'>
+        include("Basket.php");
+        echo    "<div class='container mt-5'>
                     <div class='row align-items-center'>
                         <div class='col-md-5'>
                             <div class='slider slider-for'>
@@ -44,10 +71,10 @@ include("navigation.php");
                                 <div><img src='https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p640x640/117972614_1213839532325656_268353430210084517_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=G12ks3yAFl0AX9vPLeU&oh=f4b1d6e70cf4afc2c115071237ce9970&oe=5FA52555' class='img-fluid' alt=''></div>
                             </div>
                         </div>
-                        <div class='col-md-7 mt-4 mt-sm-0 pt-2 pt-sm-0'>
+                        <div class='col-md-7 mt-sm-0 pt-2 pt-sm-0'>
                             <div class='section-title ml-md-4'>
-                                <h4 class='title'>Branded T-Shirts</h4>
-                                <h5 class='text-muted'>$21.00 <del class='text-danger ml-2'>$25.00</del> </h5>
+                                <h4 class='title'>".$mathang['tenmathang']."</h4>
+                                <h6 class='text-muted font-italic'>".number_format($mathang['dongia'],3)." VNĐ</h6>
                                 <ul class='list-unstyled text-warning h5 mb-0'>
                                     <li class='list-inline-item'><i class='mdi mdi-star'></i></li>
                                     <li class='list-inline-item'><i class='mdi mdi-star'></i></li>
@@ -55,90 +82,68 @@ include("navigation.php");
                                     <li class='list-inline-item'><i class='mdi mdi-star'></i></li>
                                     <li class='list-inline-item'><i class='mdi mdi-star'></i></li>
                                 </ul>
-                                <h5 class='mt-4 py-2'>Overview :</h5>
-                                <p class='text-muted'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero exercitationem, unde molestiae sint quae inventore atque minima natus fugiat nihil quisquam voluptates ea omnis. Modi laborum soluta tempore unde accusantium.</p>
+                                <h5 class='mt-4 py-2'>MÔ TẢ SẢN PHẨM:</h5>
+                                <p class='text-muted'>".$mathang['mota']."</p>
                                 <ul class='list-unstyled text-muted'>
-                                    <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Digital Marketing Solutions for Tomorrow</li>
-                                    <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Our Talented &amp; Experienced Marketing Agency</li>
-                                    <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Create your own skin to match your brand</li>
+                                    <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Miễn Phí Vận Chuyển</li>
+                                    <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Cam kết chính hiệu 100%</li>
+                                    <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Ở đâu rẻ hơn, SIT hoàn tiền</li>
                                 </ul>
-                                <div class='row mt-4 pt-2'>
-                                    <div class='col-lg-6 col-12'>
-                                        <div class='d-flex align-items-center'>
-                                            <h6 class='mb-0'>Your Size:</h6>
-                                            <ul class='list-unstyled mb-0 ml-3'>
-                                                <li class='list-inline-item'><a href='javascript:void(0)' class='btn btn-icon btn-soft-primary'>S</a></li>
-                                                <li class='list-inline-item ml-1'><a href='javascript:void(0)' class='btn btn-icon btn-soft-primary'>M</a></li>
-                                                <li class='list-inline-item ml-1'><a href='javascript:void(0)' class='btn btn-icon btn-soft-primary'>L</a></li>
-                                                <li class='list-inline-item ml-1'><a href='javascript:void(0)' class='btn btn-icon btn-soft-primary'>XL</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class='col-lg-6 col-12 mt-4 mt-lg-0'>
-                                        <div class='d-flex shop-list align-items-center'>
-                                            <h6 class='mb-0'>Quantity:</h6>
-                                            <div class='ml-3'>
-                                                <input type='button' value='-' class='minus btn btn-icon btn-soft-primary font-weight-bold'>
-                                                <input type='text' step='1' min='1' name='quantity' value='1' title='Qty' class='btn btn-icon btn-soft-primary font-weight-bold'>
-                                                <input type='button' value='+' class='plus btn btn-icon btn-soft-primary font-weight-bold'>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class='mt-4 pt-2'>
-                                    <a href='javascript:void(0)' class='btn btn-primary'>Shop Now</a>
-                                    <a href='shop-cart.html' class='btn btn-soft-primary ml-2'>Add to Cart</a>
+                                    <a href='AddToShop.php?item=$mathang[id]' class='btn btn-soft-primary ml-2'>Thêm Vào Giỏ Hàng</a>
+                                    <a href='AddToShopNow.php?item=$mathang[id]' class='btn btn-primary'>Mua Ngay</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>";
         // Sản phẩm tương tự
-        echo "<div class='container mt-100 mt-60'>
-                <div class='row'>
-                    <div class='col-12'>
-                        <h5 class='mb-0'>Sản phẩm tương tự</h5>
-                    </div>
-                    <div class='col-12 mt-4'>
-                        <div id='client-four' class='owl-carousel owl-theme'>";
-        $id = $_GET["id"];
-        $iddanhmuc = 1;
-        $sql = "SELECT * FROM sanpham WHERE id =".$id;
-        $query1 = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_assoc($query1)){
-            $iddanhmuc = $row['iddanhmuc'];
-        }
-        $sql2 = "SELECT * FROM sanpham WHERE iddanhmuc= ".$iddanhmuc;
-        $query2 = mysqli_query($conn, $sql2);
-        while ($row2 = mysqli_fetch_assoc($query2)){
-            echo "
-                    <div class='card shop-list border-0 position-relative overflow-hidden m-2'>
-                        <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                            <a href='product-sit.php?id=".$row2['id']."'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
-                            <a href='product-sit.php?id=".$row2['id']."' class='overlay-work'>
-                                <img src='images/shop/product/s-1.jpg' class='img-fluid' alt=''>
-                            </a>
-                            <ul class='list-unstyled shop-icons'>
-                                <li class='mt-2'><a href='product-sit.php?id=".$row2['id']."' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
-                                <li class='mt-2'><a href='AddToShop.php?item=$row2[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
-                            </ul>
-                        </div>
-                        <div class='card-body content pt-4 p-2'>
-                        <a href='product-sit.php?id=".$row2['id']."' class='text-dark product-name h6'>$row2[tenmathang]</a>
-                        <div class='d-flex justify-content-between mt-1'>
-                        <h6 class=' small font-italic mb-0 mt-1 text-success'>FREE</h6>
-                            </div>
-                        </div>
-                    </div>";
-        }
-        echo "
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>";
+        echo "</section>";
     }
 ?>
+<div class="container">
+    <div class="row">
+    <?php
+        $sql2 = "SELECT * FROM sanpham";
+        $query = mysqli_query($conn, $sql2);
+        while ($row = mysqli_fetch_assoc($query)){
+            if ($row['dongia']!=0){
+                $price = number_format($row['dongia'],3);
+                $del = $row['dongia']*1.1*1000;
+            }
+            else $price =$del = 0;
+            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
+            <div class='card shop-list border-0 position-relative overflow-hidden'>
+                <div class='shop-image position-relative overflow-hidden rounded shadow'>
+                    <a href='product-sit.php?id=$row[id]'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
+                    <a href='product-sit.php?id=$row[id]' class='overlay-work'>
+                        <img src='images/shop/product/s-1.jpg' class='img-fluid' alt=''>
+                    </a>
+                    <ul class='list-unstyled shop-icons'>
+                        <li class='mt-2'><a href='product-sit.php?id=$row[id]' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
+                    </ul>
+                </div>
+                <div class='card-body content pt-4 p-2'>
+                    <a href='product-sit.php?id=$row[id]' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <div class='d-flex justify-content-between mt-1'>";
+                    if ($price !=0){
+                        echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";
+                        if(rand(0,1)==0){
+                            if ($del!=0) echo "<span class='text-danger ml-1'>(".$del.")</span>";
+                        }  
+                        echo  "     </h6>";
+                    }
+                    else   echo "<h6 class=' small font-italic mb-0 mt-1 text-success'>FREE</h6>";
+                    
+            echo"   </div>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+    </div>
+</div>
 
 <!-- <section class="bg-half bg-light d-table w-100">
     <div class="container">

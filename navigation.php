@@ -1,9 +1,9 @@
 <?php
+    include("Connect.php");
     session_start();
     $profile['username']='';
     $profile['name']='';
     if(isset($_SESSION["username"])){
-        include("Connect.php");
         $users = $_SESSION['username'];
         $rsname = "SELECT * FROM `users` WHERE username= '$users'";
         $resname =mysqli_query($conn, $rsname);

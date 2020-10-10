@@ -138,7 +138,7 @@ if(isset($_POST['submit'])){
         </table>
     </div>
     <div class='mt-4 pt-2 text-right'>
-        <a href='shop-checkouts.html' class='btn btn-primary'>Tiến hành đặt hàng</a>
+        <a href='' class='btn btn-primary'>Tiến hành đặt hàng</a>
     </div>
 </div>
 </div>";
