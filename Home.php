@@ -219,7 +219,7 @@ include("navigation.php");
     </div>
 </div>
 <section class="section">
-    <div class="container">
+    <div class="container" id="price">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
@@ -393,7 +393,7 @@ include("navigation.php");
                     <p class="text-muted para-desc mx-auto mb-0">Các lớp học phi lợi nhuận của <span class="text-primary font-weight-bold">SIT</span> làm thay đổi cuộc sống của hàng triệu con người.</p>
                 </div>
             </div>
-        </div><
+        </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-7 col-md-10">
                 <form action="WellcomeSIT.php" method="GET">

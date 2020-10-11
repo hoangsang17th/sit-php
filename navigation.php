@@ -52,11 +52,11 @@
                 </div>
                 <div class="col text-right social">
                     <div class="social">
-                        <a target="_blank" href="https://www.facebook.com/HoangSang17TH"><i class="fab fa-facebook-f"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/hoangsang17th/"><i class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="mailto: phsang49@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a target="_blank" href="https://twitter.com/HoangSang17Th"><i class="fab fa-twitter"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA"><i class="fab fa-youtube"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/HoangSang17TH" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/hoangsang17th/" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="mailto: phsang49@gmail.com" data-toggle="tooltip" data-placement="bottom" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a target="_blank" href="https://twitter.com/HoangSang17Th" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>

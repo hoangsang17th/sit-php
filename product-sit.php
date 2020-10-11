@@ -101,8 +101,13 @@ include("navigation.php");
         echo "</section>";
     }
 ?>
-<div class="container">
+<div class="container mb-4">
     <div class="row">
+        <div class='col-12'>
+            <h5 class='mb-0'>Sản phẩm tương tự</h5>
+        </div>
+        <div class='col-12 mt-4'>
+            <div id='client-four' class='owl-carousel owl-theme'>
     <?php
         $sql2 = "SELECT * FROM sanpham";
         $query = mysqli_query($conn, $sql2);
@@ -112,14 +117,14 @@ include("navigation.php");
                 $del = $row['dongia']*1.1*1000;
             }
             else $price =$del = 0;
-            echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
+            echo "<div class='col-12 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
                     <a href='product-sit.php?id=$row[id]'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
                     <a href='product-sit.php?id=$row[id]' class='overlay-work'>
                         <img src='images/shop/product/s-1.jpg' class='img-fluid' alt=''>
                     </a>
-                    <ul class='list-unstyled shop-icons'>
+                    <ul class='list-unstyled shop-icons pr-3'>
                         <li class='mt-2'><a href='product-sit.php?id=$row[id]' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
                         <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
                     </ul>
@@ -141,38 +146,11 @@ include("navigation.php");
             </div>
         </div>";
         }
-        ?>
-    </div>
-</div>
-
-<!-- <section class="bg-half bg-light d-table w-100">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 text-center">
-                <div class="page-next-level">
-                    <h4 class="title"> Branded T-Shirts </h4>
-                    <div class="page-next">
-                        <nav aria-label="breadcrumb" class="d-inline-block">
-                            <ul class="breadcrumb bg-white rounded shadow mb-0">
-                                <li class="breadcrumb-item"><a href="index.html">SIT</a></li>
-                                <li class="breadcrumb-item"><a href="index-shop.html">Shop</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Product Details</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+    ?>
             </div>
         </div>
-    </div> 
-</section> -->
-<!-- <div class="position-relative">
-    <div class="shape overflow-hidden text-white">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-        </svg>
     </div>
-</div> -->
-
+</div>
 <?php
 include("footer.php");
 ?>
