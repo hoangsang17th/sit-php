@@ -1,10 +1,26 @@
 <?php
 include("navigation.php");
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("$sendcm").click(function(){
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var idpro = url.searchParams.get("id");
+            var content = $("#comments").val();
+
+            $.POST("CommentProcess.php", {idpro: idpro, content: content}, function (result){
+    //             $(".listcomment").append("<div class='rounded shadow my-3'><div class='p-4'><div class='d-flex justify-content-between'><div class='media align-items-center'><div class='pr-3'><img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'></div><div class='commentor-detail'><h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>"+profile[name]+"</a></h6></div></div><small class='text-muted'> 12/ 10/ 2020</small></div><div class='mt-3'><p class='mb-0'>"+content+"</p></div></div></div>" );
+            });
+        });
+    });
+</script>
 <?php
     $check = 0;
     if (isset($_GET['id'])){
-        $filter = "SELECT * FROM sanpham WHERE id=".$_GET['id'];        
+        $id = $_GET['id'];
+        $filter = "SELECT * FROM sanpham WHERE id=".$_GET['id'];      
         $refilter = mysqli_query($conn, $filter);
         $qafilter = mysqli_num_rows($refilter);
         $mathang = mysqli_fetch_assoc($refilter);
@@ -160,12 +176,14 @@ include("navigation.php");
         </div>
     </div>
 </div>
+
 <div class="container my-5">
     <h4 >KHÁCH HÀNG NHẬN XÉT</h4>
-    <form method="post" action="">
+    <!-- <form method="post" action=""> -->
         <div class="row mt-3">
             <div class="col-md-12">
                 <div class="form-group position-relative">
+                <label>Comments</label>
                     <i data-feather="message-circle" class="fea icon-sm icons"></i>
                     <textarea name="comments" id="comments" rows="4" class="form-control pl-5" placeholder="Mời bạn để lại bình luận..."></textarea>
                 </div>
@@ -173,36 +191,42 @@ include("navigation.php");
         </div>
         <div class="row justify-content-end">
             <div class="col-5 col-sm-4 col-md-3 col-lg-2">
-                <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary btn-block">
-                <div id="simple-msg"></div>
+                <input type="submit" id="sendcm" name="send" value="Gửi" class="btn btn-primary btn-block">
             </div>
         </div>
-    </form>
+    <!-- </form> -->
 </div>
     <div class="container mb-5">
         <div class="row mb-5">
-            <div class="col-12 mb-5">
-            <label>100 Bình Luận</label>
-            
-                <div class="rounded shadow my-3">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between">
-                            <div class="media align-items-center">
-                                <div class="pr-3">
-                                <img src="assets/images/users/avatar.jpg" class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+            <div class="col-12 mb-5" id="listcomment">
+            <?php
+                $sql3 = "SELECT * FROM comment WHERE idpro = $id";
+                $ketqua3 = mysqli_query($conn, $sql3);
+                $quanlity = mysqli_num_rows($ketqua3);
+                echo "<label>$quanlity Bình Luận</label>";
+                while ($row3 = mysqli_fetch_assoc($ketqua3)){
+                    echo "<div class='rounded shadow my-3'>
+                    <div class='p-4'>
+                        <div class='d-flex justify-content-between'>
+                            <div class='media align-items-center'>
+                                <div class='pr-3'>
+                                <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
                             </div>
-                                <div class="commentor-detail">
-                                    <h6 class="mb-0"><a href="javascript:void(0)" class="media-heading text-dark">Hoàng Sang</a></h6>
-                                    <small class="text-muted">Chủ Tịch</small>
+                                <div class='commentor-detail'>
+                                    <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>$row3[username]</a></h6>
+                                    <small class='text-muted'>Chủ Tịch</small>
                                 </div>
                             </div>
-                            <small class="text-muted"> 12/ 10/ 2020</small>
+                            <small class='text-muted'>$row3[date]</small>
                         </div>
-                        <div class="mt-3">
-                            <p class="mb-0">LEADERSHIP - TINH THẦN TỰ CHỦ Là thứ tư duy giúp chúng ta tự mình làm chủ mọi vấn đề, mọi việc và chủ động giải quyết công việc của mình. Làm chủ bản thân, chủ động giải quyết những vấn đề của mình là thái độ đúng đắn.</p>
+                        <div class='mt-3'>
+                            <p class='mb-0'>$row3[comment]</p>
                         </div>
                     </div>
-                </div>
+                </div>";
+                }
+            ?>
+                
 
             </div>
         </div>
