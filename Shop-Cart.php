@@ -26,8 +26,8 @@ if(isset($_POST['submit'])){
                     <div class="page-next">
                         <nav aria-label="breadcrumb" class="d-inline-block">
                             <ul class="breadcrumb bg-white rounded shadow mb-0">
-                                <li class="breadcrumb-item"><a href="index.html">SIT</a></li>
-                                <li class="breadcrumb-item"><a href="index-shop.html">Shop</a></li>
+                                <li class="breadcrumb-item"><a href="Home.php">SIT</a></li>
+                                <li class="breadcrumb-item"><a href="Shop.php">Shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Cart</li>
                             </ul>
                         </nav>
