@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 28, 2020 lúc 10:31 AM
+-- Thời gian đã tạo: Th10 13, 2020 lúc 04:20 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.3
 
@@ -45,6 +45,42 @@ INSERT INTO `admin` (`user`, `password`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `idpro` int(11) NOT NULL,
+  `username` varchar(70) NOT NULL,
+  `comment` text NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`id`, `idpro`, `username`, `comment`, `date`) VALUES
+(25, 3, '2', '324', '2020-10-13'),
+(26, 3, '2', '324', '2020-10-13'),
+(27, 3, '2', '123', '2020-10-13'),
+(28, 3, '2', 'tr', '2020-10-13'),
+(29, 3, '2', 'tr', '2020-10-13'),
+(30, 3, '2', 'tr', '2020-10-13'),
+(31, 3, '2', 'tr', '2020-10-13'),
+(32, 3, '2', 'tr', '2020-10-13'),
+(33, 3, '2', '32', '2020-10-13'),
+(34, 0, '2', '1', '2020-10-13'),
+(35, 0, '2', 'ewrew', '2020-10-13'),
+(36, 3, '2', '3ee32', '2020-10-13'),
+(37, 3, '2', 're', '2020-10-13'),
+(38, 0, '2', 'ew', '2020-10-13'),
+(39, 5, '2', '3ee32', '2020-10-13'),
+(41, 5, '13', '324324', '2020-10-13');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `danhmuc`
 --
 
@@ -58,28 +94,38 @@ CREATE TABLE `danhmuc` (
 --
 
 INSERT INTO `danhmuc` (`id`, `tendanhmuc`) VALUES
-(1, 'Thực Phẩm Tươi Sống 2'),
-(2, 'Mẹ và Bé Gái'),
-(3, 'Điện Thoại'),
-(4, 'Làm Đẹp'),
-(5, 'Sức Khỏe'),
-(6, 'Thời Trang'),
-(7, 'Giáo Dục'),
-(8, 'Thể Thao - Dã Ngoại'),
-(9, 'Điện Gia Dụng'),
-(10, 'Laptop'),
-(11, 'Máy Tính Bảng'),
-(12, 'Nhà Cửa'),
-(13, 'Hàng Quốc Tế'),
-(14, 'Bách Hóa'),
-(15, 'Thiết Bị Số'),
-(16, 'Phụ Kiện Số'),
-(17, 'Ô tô'),
-(18, 'Xe Máy'),
-(19, 'Xe Đạp'),
-(20, 'Điện Tử'),
-(21, 'Hoàng Sang'),
-(22, 'Dragon Nước Uống Tinh Khiết');
+(1, 'Office'),
+(2, 'Đồ Họa 2D'),
+(3, 'Đồ Họa 3D'),
+(4, 'Tối Ưu Hệ Thống'),
+(5, 'Driver'),
+(6, 'Bảo Mật'),
+(7, 'Diệt Virus'),
+(8, 'Game'),
+(9, 'Hệ Điều Hành'),
+(10, 'Chứng Khoán'),
+(11, 'Phát Triển Bản Thân'),
+(12, 'Dịch Vụ'),
+(13, 'Bổ Trợ Windows');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `photos`
+--
+
+CREATE TABLE `photos` (
+  `id` int(12) NOT NULL,
+  `idpro` int(45) NOT NULL,
+  `images` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `photos`
+--
+
+INSERT INTO `photos` (`id`, `idpro`, `images`) VALUES
+(1, 11, '17Th_Security.svg');
 
 -- --------------------------------------------------------
 
@@ -91,61 +137,58 @@ CREATE TABLE `sanpham` (
   `id` int(11) NOT NULL,
   `tenmathang` varchar(145) NOT NULL,
   `iddanhmuc` int(11) DEFAULT NULL,
-  `soluong` int(11) DEFAULT NULL,
+  `thuonghieu` varchar(45) DEFAULT NULL,
   `dongia` int(11) DEFAULT NULL,
-  `mota` varchar(2000) DEFAULT NULL
+  `mota` varchar(2000) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `keywords` varchar(500) DEFAULT NULL,
+  `motatrang` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
-INSERT INTO `sanpham` (`id`, `tenmathang`, `iddanhmuc`, `soluong`, `dongia`, `mota`) VALUES
-(7, 'Hoạt Huyết EXDEL', 5, 10, 300000, 'Hoạt huyết bổ não'),
-(8, 'Trên Đỉnh Phố Wall - Hoàng Sang', 7, 77, 200000, 'Đây là một trong những cuốn sách mà các nhà đầu tư không nên đọc'),
-(9, 'Farmers', 1, 400, 400000, NULL),
-(10, 'Organic', 1, 33, 300000, NULL),
-(11, 'FoodMap', 1, 543, 200000, NULL),
-(12, 'Hải Sản', 1, 435, 900000, NULL),
-(13, 'DTpro', 1, 343, 200000, NULL),
-(14, 'Ozzy', 1, 654, 100000, NULL),
-(15, 'Táo', 1, 654, 300000, NULL),
-(16, 'Nho', 1, 432, 220000, NULL),
-(17, 'Quýt', 1, 32, 220000, NULL),
-(18, 'Bom', 1, 543, 230000, NULL),
-(19, 'Cam', 1, 654, 650000, NULL),
-(20, 'Vsmart Joy 3', 3, 3, 450000, NULL),
-(21, 'iPhone 11 Pro', 3, 9, 990000, NULL),
-(22, 'Vsmart Active 3', 3, 9, 270000, NULL),
-(23, 'Oppo A12e', 3, 9, 150000, NULL),
-(24, 'Xiaomi Redmi 9A', 3, 9, 820000, NULL),
-(25, 'M11', 3, 9, 21000, NULL),
-(26, 'M21', 3, 9, 280000, NULL),
-(27, 'M32 SamSung 1', 3, 90, 9990000, 'Đây là 1 thế hẹ mới của sam sumg'),
-(28, 'XS Max 12', 16, 10, 55555, '124'),
-(29, 'Trên Đỉnh Phố Wall - Hoàng Sang 2020', 7, 10, 20000, 'Đây là một cuốn sách demo'),
-(93, 'Mệt Mỏi', 4, 10, 55555, ''),
-(94, 'Mệt Mỏi', 4, 10, 55555, ''),
-(95, 'Mệt Mỏi', 4, 10, 55555, ''),
-(96, 'tên Sản Phẩm', 1, 0, 0, ''),
-(97, 'tên Sản Phẩm', 1, 0, 0, ''),
-(98, 'tên Sản Phẩm', 1, 0, 0, ''),
-(99, 'tên Sản Phẩm', 1, 0, 0, ''),
-(100, 'Sony 17', 5, 0, 0, ''),
-(101, 'Sony 17', 5, 0, 0, ''),
-(102, 'Sony 17', 5, 0, 0, ''),
-(103, 'XS Max 12', 1, 0, 0, ''),
-(104, 'XS Max 12', 1, 0, 0, ''),
-(105, 'XS Max 12', 1, 4, 3, ''),
-(106, 'XS Max 12', 1, 4, 3, ''),
-(107, 'XS Max 12', 1, 4, 3, ''),
-(108, 'XS Max 12', 1, 4, 3, ''),
-(109, 'XS Max 12', 1, 4, 3, ''),
-(110, 'XS Max 12', 1, 4, 3, ''),
-(111, 'XS Max 12', 1, 4, 3, ''),
-(112, 'XS Max 12', 1, 4, 3, ''),
-(113, 'XS Max 12', 1, 4, 3, ''),
-(114, 'XS Max 12', 1, 4, 3, '');
+INSERT INTO `sanpham` (`id`, `tenmathang`, `iddanhmuc`, `thuonghieu`, `dongia`, `mota`, `title`, `keywords`, `motatrang`) VALUES
+(1, 'Word 2019', 1, 'Microsoft', 15, 'Bản quyền đến từ công ty công nghệ lớn nhất thế giới', 'Word 2019 SIT', 'download, word, 2019, sit', 'Em là nguồn cảm hứng bất tận để anh viết văn bản'),
+(3, 'Excel 2019', 1, 'Microsoft', 15, '', '', '', ''),
+(4, 'PowerPoint 2019', 1, 'Microsoft', 15, '', '', '', ''),
+(5, 'Adobe Photoshop CC 2019', 2, 'Adobe Create Cloud', 25, 'Đây là 1 sản phẩm ra mắt vào năm 2018', '', '', ''),
+(6, '7Zip', 13, '7Zip', 0, '7-Zip là phần mềm miễn phí với mã nguồn mở . Phần lớn mã là theo giấy phép GNU LGPL . Một số phần của mã nằm trong Giấy phép 3 điều khoản BSD. Ngoài ra, có giới hạn giấy phép unRAR cho một số phần của mã. Đọc thông tin Giấy phép 7-Zip .\r\n\r\nBạn có thể sử dụng 7-Zip trên bất kỳ máy tính nào, kể cả máy tính trong tổ chức thương mại. Bạn không cần phải đăng ký hoặc thanh toán cho 7-Zip.', '', '', ''),
+(8, 'OBS Studio', 13, 'OBS', 5, 'OBS  là một chương trình ghi và phát trực tuyến đa nền tảng mã nguồn mở và miễn phí được xây dựng bằng Qt và được duy trì bởi Dự án OBS. Tính đến năm 2016, phần mềm hiện được gọi là OBS Studio', 'OBS Studio SIT', '', ''),
+(9, 'One Driver', 5, 'Hoàng Sang', 5, NULL, NULL, NULL, NULL),
+(11, '17Th Security', 6, 'Hoàng Sang', 1777, 'Là một phần mềm bảo mật dành cho hệ điều hành Windows, ra đời vào năm 1999. Đến nay sản phẩm đã trở thành một thương hiệu nổi tiếng là doanh nghiệp tốt nhất Việt Nam', '17Th Security', '17Th Securrity, SIT Security', 'Phần mềm bảo mật dành cho windows'),
+(13, 'Adobe Illustrator 2019', 2, 'Hoàng Sang', 25, 'Adobe Illustrator là một chương trình thiết kế và biên tập đồ họa vector được phát triển và tiếp thị bởi Adobe Inc. Ban đầu được thiết kế cho Apple Macintosh, quá trình phát triển Adobe Illustrator bắt đầu vào năm 1985. Cùng với Creative Cloud, Illustrator CC đã được phát hành.', 'Adobe Illustrator 2019 SIT', '', ''),
+(39, 'Sữa Lỗi Mã Nguồn Website', 12, 'SIT Hoàng Sang', 30, 'Thời gian sử dụng dịch vụ là 60 phút bao gồm cả thời gian bạn mô tả mục đích của trang và lỗi gặp phải. Dịch vụ được trao đổi thông qua phần mềm TeamView.', 'Sữa Lỗi Mã Nguồn Website - SIT', 'Fix, Code, Fix Code, SIT, Hoàng Sang, Hoàng Sang Fix Code', 'Thời gian sử dụng dịch vụ là 60 phút bao gồm cả thời gian bạn mô tả mục đích của trang và lỗi gặp phải. Dịch vụ được trao đổi thông qua phần mềm TeamView.'),
+(40, 'Phạm Hoàng Sang', 11, 'HoangSang17Th', 0, 'Phạm Hoàng Sang là một chàng trai Ế đến từ Ban Mê. Năm nay Ế vừa tròn 20 năm nên muốn bán đi với giá hữu nghị. Ai mua có thể bấm nút mua ngay lập tức! Yêu cầu người mua là NỮ', '', '', ''),
+(44, 'Access 2019', 1, 'Microsoft', 15, '', '', '', ''),
+(45, 'OneNote 2019', 1, 'Microsoft', 15, '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `subcribe`
+--
+
+CREATE TABLE `subcribe` (
+  `id` int(45) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `subcribe`
+--
+
+INSERT INTO `subcribe` (`id`, `email`) VALUES
+(5, 'phsang49@gmail.com'),
+(11, 'phsang49@gmail.com'),
+(13, 'a'),
+(14, ''),
+(15, 'hello'),
+(16, 'sang492001@gmail.com'),
+(17, 'sang492001@gmail.com'),
+(18, 'admin@17team.work'),
+(19, 'dtanh.19it2@vku.udn.vn');
 
 -- --------------------------------------------------------
 
@@ -183,7 +226,9 @@ INSERT INTO `todolist` (`id`, `idm`, `mission`, `description`, `startdate`, `com
 (1, 21, 'Biết bơi', 'trở thành 1 chàng trai bơi lội:))\r\n', '2020-09-22 09:14:50', NULL),
 (1, 22, 'Tri Ana hahaha', '123', '2020-09-22 15:06:21', NULL),
 (1, 23, 'Muốn được đi thực tập', 'Nhưng mà ở đâu họ cũng cabaf có tiếng Anh giỏi cả\r\n', '2020-09-22 21:40:35', NULL),
-(2, 24, 'Tán cô  giáo chủ nhiệm', '12345', '2020-09-25 21:03:50', NULL);
+(2, 24, 'Tán cô  giáo chủ nhiệm', '12345', '2020-10-07 14:37:33', '2020-10-07 14:37:33'),
+(2, 25, 'Bài Tập', 'Hoàn thành trang sản phẩn và htaccess', '2020-10-10 19:56:08', NULL),
+(2, 26, 'Tán cô  giáo chủ nhiệm', '12321', '2020-10-13 10:58:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -207,9 +252,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `date`, `name`, `phone`, `address`) VALUES
-(1, 'user', 'user', 'phsang49@gmail.com', '2020-09-22 22:23:35', 'Hoàng Sang 2', '5595297976', '869  Vesta Drive'),
-(2, 'admin', 'admin', 'VKU@Gmail.com', '2020-09-20 19:55:11', ' Hoàng Sang', '0332148505', 'Nam Kỳ Khởi Nghĩa'),
-(12, 'tuongdeptrai', '1234567', 'phsang49@gmail.com', '2020-09-25 21:05:35', 'Hoàng Nguyễn Viết Nam', '', '');
+(1, 'user', 'user', 'phsang49@gmail.com', '2020-09-22 22:23:35', 'Hoàng Sang', '5595297976', '869  Vesta Drive'),
+(2, 'admin', 'admin', 'VKU@Gmail.com', '2020-09-20 19:55:11', 'Tuấn Anh', '0332148505', 'Nam Kỳ Khởi Nghĩa'),
+(12, 'tuongdeptrai', '1234567', 'phsang49@gmail.com', '2020-09-25 21:05:35', 'Hoàng Nguyễn Viết Nam', '', ''),
+(13, 'admin11', '123', '', '2020-09-30 22:06:04', 'Hello', '', ''),
+(15, 'admin234', '123', 'phsang49@gmail.com', '2020-10-03 09:37:53', 'Phạm Hoàng Sang', '', '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -222,15 +269,33 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`user`);
 
 --
+-- Chỉ mục cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `subcribe`
+--
+ALTER TABLE `subcribe`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -250,28 +315,46 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `photos`
+--
+ALTER TABLE `photos`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT cho bảng `subcribe`
+--
+ALTER TABLE `subcribe`
+  MODIFY `id` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `todolist`
 --
 ALTER TABLE `todolist`
-  MODIFY `idm` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idm` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
