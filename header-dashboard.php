@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="dropdown d-none d-lg-inline-block ml-1">
-                    <a href="AddSP.php">
+                    <a href="AddSP.html">
                         <button class="btn header-item noti-icon waves-effect">
                             <i class="bx bx-customize"></i>
                         </button></a>
@@ -143,7 +143,7 @@
                             <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle mr-1"></i> Doanh Thu</a>
                             <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="bx bx-wrench font-size-16 align-middle mr-1"></i> Cài Đặt</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="logout-dashboard.php"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Đăng Xuất</a>
+                            <a class="dropdown-item text-danger" href="logout-dashboard.html"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Đăng Xuất</a>
                         </div>
                     </div>
                 </div>
@@ -155,25 +155,25 @@
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li class="menu-title">Menu</li>
                         <li>
-                            <a href="index-dashboard.php" class="waves-effect">
+                            <a href="index-dashboard.html" class="waves-effect">
                                 <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right">SIT</span>
                                 <span>Trang Chủ</span>
                             </a>
                         </li>
                         <li>
-                            <a href="user-dashboard.php" class=" waves-effect">
+                            <a href="user-dashboard.html" class=" waves-effect">
                             <i class="fas fa-users"></i>
                                 <span>Users SIT</span>
                             </a>
                         </li>
                         <li>
-                            <a href="dsdanhmuc.php" class=" waves-effect">
+                            <a href="dsdanhmuc.html" class=" waves-effect">
                             <i class="fas fa-list-ol"></i>
                                 <span>Danh Mục</span>
                             </a>
                         </li>
                         <li>
-                            <a href="dssanpham.php" class=" waves-effect">
+                            <a href="dssanpham.html" class=" waves-effect">
                                 <i class="fas fa-list-ul"></i>
                                 <span>Sản Phẩm</span>
                             </a>

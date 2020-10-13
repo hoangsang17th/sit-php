@@ -6,7 +6,7 @@
     $sql = "UPDATE todolist SET completiondate= '$datecomple' WHERE idm=".$_GET['idm'];
     $ketqua = mysqli_query($conn, $sql);
     // echo "<script type='text/javascript'>alert('$message');</script>";
-    header("Location: index.php");
+    header("Location: index.html");
     // $message = "Những bước đi đầu tiên sẽ gặp phải muôn vàn khó khăn và thử thách vì thế hãy mạnh mẽ lên nhé";
     
 ?>

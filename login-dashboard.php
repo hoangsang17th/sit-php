@@ -12,7 +12,7 @@
         $rows = mysqli_num_rows($result);
             if($rows==1){ //1 là đúng (Nếu rows tồn tại 1 giá trị thì thực hiện công việc tiếp theo)
                 $_SESSION['adminname'] = $username;
-                header("Location: index-dashboard.php");
+                header("Location: index-dashboard.html");
             }
             else{
                 $LoginErr ="Sai Tài khoản hoặc Mật Khẩu!";
@@ -38,7 +38,7 @@
 </head>
 <body>
     <div class="home-btn d-none d-sm-block">
-        <a href="login.php" class="text-dark"><i class="fas fa-home h2"></i></a>
+        <a href="login.html" class="text-dark"><i class="fas fa-home h2"></i></a>
     </div>
     <div class="account-pages pt-3">
         <div class="container">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="card-body pt-0"> 
                             <div>
-                                <a href="home.php">
+                                <a href="home.html">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-dark">
                                             <img src="Logo.png" height="34">

@@ -11,6 +11,6 @@ else{
     unset($_SESSION['cart'][$id]);
     // Xóa một sản phẩm theo id
 }
-header("Location: Shop-cart.php");
+header("Location: Shop-cart.html");
 exit();
 ?>

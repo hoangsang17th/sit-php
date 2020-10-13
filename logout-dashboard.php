@@ -2,6 +2,6 @@
 session_start();
 if(session_destroy())
 {
-header("Location: login-dashboard.php");
+header("Location: login-dashboard.html");
 }
 ?>

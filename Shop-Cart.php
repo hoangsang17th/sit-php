@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
             $_SESSION['cart'][$key]=$value;
         }
     }
-    header("Location:Shop-Cart.php");
+    header("Location:Shop-Cart.html");
 }
 ?>
 <section class="d-table w-100 py-5" style="background:url('images/software/partner1.svg');">
@@ -26,8 +26,8 @@ if(isset($_POST['submit'])){
                     <div class="page-next">
                         <nav aria-label="breadcrumb" class="d-inline-block">
                             <ul class="breadcrumb bg-white rounded shadow mb-0">
-                                <li class="breadcrumb-item"><a href="Home.php">SIT</a></li>
-                                <li class="breadcrumb-item"><a href="Shop.php">Shop</a></li>
+                                <li class="breadcrumb-item"><a href="Home.html">SIT</a></li>
+                                <li class="breadcrumb-item"><a href="Shop.html">Shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Cart</li>
                             </ul>
                         </nav>
@@ -58,7 +58,7 @@ if(isset($_POST['submit'])){
         }
     }
     if($count == 1){
-        echo '<form action="Shop-Cart.php" method="POST">
+        echo '<form action="Shop-Cart.html" method="POST">
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive bg-white shadow">
@@ -85,8 +85,8 @@ if(isset($_POST['submit'])){
                         <div class='d-flex align-items-center'>
                             <img src='images/shop/product/s1.jpg' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                             <div class='mb-0 ml-3'>
-                            <h6>$row[tenmathang]</h6>
-                            <a href='DeleteCart.php?id=$row[id]'>Xóa</a>
+                            <h6><a href='$row[id]_$row[tenmathang].html'>$row[tenmathang]</a></h6>
+                            <a href='DeleteCart.html?id=$row[id]'>Xóa</a>
                             </div>
                         </div>
                         
@@ -114,7 +114,7 @@ if(isset($_POST['submit'])){
 </div>
 <div class='row'>
 <div class='col-lg-8 col-md-6 mt-4 pt-2'>
-    <a href='Shop.php' class='btn btn-primary'>Shop More</a>
+    <a href='Shop.html' class='btn btn-primary'>Shop More</a>
     <input type='submit' name='submit' value='Update Cart' class='btn btn-soft-primary ml-2'>
 </div>
 </form>
@@ -150,7 +150,7 @@ else
                     <img src='Assets/images/Noproducts.svg' class='w-100'>
                     <p class='mt-4 mb-3'>Không có sản phẩm nào trong giỏ hàng của bạn.
                     <div class='mt-4 pt-2'>
-                        <a href='Shop.php' class='btn btn-warning'>Tiếp tục mua sắm</a>
+                        <a href='Shop.html' class='btn btn-warning'>Tiếp tục mua sắm</a>
                     </div>
                 </div>
             </div>";

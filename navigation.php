@@ -8,7 +8,7 @@
         $rsname = "SELECT * FROM `users` WHERE username= '$users'";
         $resname =mysqli_query($conn, $rsname);
         $profile = mysqli_fetch_assoc($resname);
-    } 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,31 +81,31 @@
             <div class="buy-button">
                 <?php
                 if ($profile['username']==''){
-                    echo "<a href='login.php' class='btn btn-primary'>Đăng Nhập</a>";
+                    echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
                 }
                 else if($profile['name']==''){
-                    echo "<a href='Profileuser.php' class='btn btn-primary'>Hoàn Thiện</a>";
+                    echo "<a href='Profileuser.html' class='btn btn-primary'>Hoàn Thiện</a>";
                 }
-                else echo "<a href='Profileuser.php' class='btn btn-primary'>".$profile['name']."</a>"; ?>
+                else echo "<a href='Profileuser.html' class='btn btn-primary'>".$profile['name']."</a>"; ?>
             </div>
             
             <div id="navigation">
                 <ul class="navigation-menu">
-                    <li><a href="Home.php">Home</a></li>
-                    <li><a href="Shop.php">Shop</a></li>
-                    <li><a href="introtodo.php">To Do</a></li>
-                    <li><a href="aboutus.php">About Us</a></li>  
-                    <li><a href="Search.php">Search</a></li>  
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Shop.html">Shop</a></li>
+                    <li><a href="introtodo.html">To Do</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>  
+                    <li><a href="Search.html">Search</a></li>  
                 </ul>
                 <div class="buy-menu-btn d-none">
                     <?php
                         if ($profile['username']==''){
-                            echo "<a href='login.php' class='btn btn-primary'>Đăng Nhập</a>";
+                            echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
                         }
                         else if($profile['name']==''){
-                            echo "<a href='Profileuser.php' class='btn btn-primary'>Hoàn Thiện</a>";
+                            echo "<a href='Profileuser.html' class='btn btn-primary'>Hoàn Thiện</a>";
                         }
-                        else echo "<a href='Profileuser.php' class='btn btn-primary'>".$profile['name']."</a>"; ?>
+                        else echo "<a href='Profileuser.html' class='btn btn-primary'>".$profile['name']."</a>"; ?>
                 </div>
             </div>
         </div>

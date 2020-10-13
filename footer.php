@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2 brandfo">
-                <a href="Home.php" class="logo-footer">
+                <a href="Home.html" class="logo-footer">
                     <img src="Logo.png" height="50" alt="">
                 </a>
                 <p class="mt-4">Tiềm năng của bạn. Niềm đam mê của chúng tôi</p>
@@ -39,13 +39,13 @@
             <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <h4 class="text-light footer-head">VỀ SIT</h4>
                 <ul class="list-unstyled footer-list mt-4">
-                    <li><a href="aboutus.php" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Về chúng tôi</a></li>
-                    <li><a href="Shop.php" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Dịch vụ</a></li>
-                    <li><a href="introtodo.php" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Sản phẩm</a></li>
-                    <li><a href="Home.php#price" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Giá</a></li>
+                    <li><a href="aboutus.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Về chúng tôi</a></li>
+                    <li><a href="Shop.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Dịch vụ</a></li>
+                    <li><a href="introtodo.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Sản phẩm</a></li>
+                    <li><a href="Home.html#price" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Giá</a></li>
                     <li><a href="https://github.com/hoangsang17th" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> GitHub</a></li>
-                    <li><a href="register.php" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Đăng ký</a></li>
-                    <li><a href="login.php" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Đăng nhập</a></li>
+                    <li><a href="register.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Đăng ký</a></li>
+                    <li><a href="login.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Đăng nhập</a></li>
                 </ul>
             </div>
             
@@ -63,7 +63,7 @@
                 <h4 class="text-light footer-head pl-3">Bản tin</h4>
                 <p class="mt-4 pl-3">Đăng ký và nhận các thông tin mới nhất qua email.</p>
                     <div class="ro">
-                        <form action="WellcomeSIT.php" method="GET" target="_blank">
+                        <form action="WellcomeSIT.html" method="GET" target="_blank">
                         <div class="col-12">
                             <div class="foot-subscribe form-group position-relative">
                                 <label>Email của bạn <span class="text-danger">*</span></label>

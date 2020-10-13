@@ -39,7 +39,7 @@
             $query = "INSERT INTO `users` (username, password, email, name, date) VALUES ('$username', '$password', '$email', '$hovaten', '$date')";
             $result = mysqli_query($conn,$query);
             if($result){
-                header("Location: login.php");
+                header("Location: login.html");
             }
         }
     }
@@ -105,7 +105,7 @@
                     </div>
                     <div class="mt-3 text-center">
                         <div>
-                            <p>Bạn đã có tài khoản ? <a href="login.php" class="font-weight-medium text-primary"> Đăng Nhập</a> </p>
+                            <p>Bạn đã có tài khoản ? <a href="login.html" class="font-weight-medium text-primary"> Đăng Nhập</a> </p>
                             <p><script>document.write(new Date().getFullYear())</script> © SIT.</p>
                         </div>
                     </div>

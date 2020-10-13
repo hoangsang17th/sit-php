@@ -72,16 +72,16 @@ if (isset($_GET['idm'])){
                                         <?php 
                                         if ($dtodo['id']== $profile['id']){
                                             if($dtodo['completiondate']!=""){
-                                                echo '<td><a href="index.php" class="btn btn-primary mr-2 mt-2"><i class="fas fa-chevron-left"></i> Quay lại </a></td>';
+                                                echo '<td><a href="index.html" class="btn btn-primary mr-2 mt-2"><i class="fas fa-chevron-left"></i> Quay lại </a></td>';
                                                 
                                             }
                                             echo '<button type="submit" class="btn btn-warning mr-2 mt-2"><i class="far fa-edit"> </i> Lưu </button>';
                                             if($dtodo['completiondate']==""){
-                                                echo '<td><a href="CompleToDo.php?idm='.$dtodo['idm'].'" class="btn btn-success w-md mr-2 mt-2"><i class="bx bx-check-double"></i> Đánh dấu đã hoàn thành<a/></td>';
+                                                echo '<td><a href="CompleToDo.html?idm='.$dtodo['idm'].'" class="btn btn-success w-md mr-2 mt-2"><i class="bx bx-check-double"></i> Đánh dấu đã hoàn thành<a/></td>';
                                             }
-                                            echo '<td><a href="DeleteToDo.php?idm='.$dtodo['idm'].'" class="btn btn-danger mr-2 mt-2"><i class="far fa-trash-alt"></i> Xóa Nhiệm Vụ<a/></td>';
+                                            echo '<td><a href="DeleteToDo.html?idm='.$dtodo['idm'].'" class="btn btn-danger mr-2 mt-2"><i class="far fa-trash-alt"></i> Xóa Nhiệm Vụ<a/></td>';
                                         }
-                                        else echo '<a href="index.php" class="btn btn-primary mr-2 w-md mb-3"> 
+                                        else echo '<a href="index.html" class="btn btn-primary mr-2 w-md mb-3"> 
                                         <i class="fas fa-chevron-left"></i> Quay lại </a>';
                                         ?>
                                         </div>

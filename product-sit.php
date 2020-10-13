@@ -1,21 +1,13 @@
 <?php
 include("navigation.php");
+function makeUrl($string){
+    $string = trim($string);
+    $string = str_replace(' ', '_', $string);
+    $string = strtolower($string);
+    $string = preg_replace('/(à|ạ)/', 'a', $string);
+    return $string;
+}
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $("$sendcm").click(function(){
-            var url_string = window.location.href;
-            var url = new URL(url_string);
-            var idpro = url.searchParams.get("id");
-            var content = $("#comments").val();
-
-            $.POST("CommentProcess.php", {idpro: idpro, content: content}, function (result){
-    //             $(".listcomment").append("<div class='rounded shadow my-3'><div class='p-4'><div class='d-flex justify-content-between'><div class='media align-items-center'><div class='pr-3'><img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'></div><div class='commentor-detail'><h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>"+profile[name]+"</a></h6></div></div><small class='text-muted'> 12/ 10/ 2020</small></div><div class='mt-3'><p class='mb-0'>"+content+"</p></div></div></div>" );
-            });
-        });
-    });
-</script>
 <?php
     $check = 0;
     if (isset($_GET['id'])){
@@ -142,20 +134,21 @@ include("navigation.php");
                 $del = $row['dongia']*1.1*1000;
             }
             else $price =$del = 0;
+            $urlpage = str_replace(" ", "_", "$row[tenmathang]");
             echo "<div class='col-12 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='product-sit.php?id=$row[id]'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
-                    <a href='product-sit.php?id=$row[id]' class='overlay-work'>
+                    <a href='$row[id]_$urlpage.html'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
+                    <a href='$row[id]_$urlpage.html' class='overlay-work'>
                         <img src='images/shop/product/s-1.jpg' class='img-fluid' alt=''>
                     </a>
                     <ul class='list-unstyled shop-icons pr-3'>
-                        <li class='mt-2'><a href='product-sit.php?id=$row[id]' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='$row[id]_$urlpage.html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
                         <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
                     </ul>
                 </div>
                 <div class='card-body content pt-4 p-2'>
-                    <a href='product-sit.php?id=$row[id]' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <a href='$row[id]_$urlpage.html' class='text-dark product-name h6'>$row[tenmathang]</a>
                     <div class='d-flex justify-content-between mt-1'>";
                     if ($price !=0){
                         echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";
@@ -177,34 +170,44 @@ include("navigation.php");
     </div>
 </div>
 
-<div class="container my-5">
-    <h4 >KHÁCH HÀNG NHẬN XÉT</h4>
-    <!-- <form method="post" action=""> -->
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <div class="form-group position-relative">
-                <label>Comments</label>
-                    <i data-feather="message-circle" class="fea icon-sm icons"></i>
-                    <textarea name="comments" id="comments" rows="4" class="form-control pl-5" placeholder="Mời bạn để lại bình luận..."></textarea>
+<?php
+    if($check == 0){
+        echo "";
+    }
+    else{
+        if ($profile['username']!=''){
+            echo" <div class='container my-5'>
+        <h4 >KHÁCH HÀNG NHẬN XÉT</h4>
+        <!-- <form method='GET' action=''> -->
+            <div class='row mt-3'>
+                <div class='col-md-12'>
+                    <div class='form-group position-relative'>
+                    <label>Comments</label>
+                        <i data-feather='message-circle' class='fea icon-sm icons'></i>
+                        <input type='text' id='comments' class='form-control pl-5' placeholder='Mời bạn để lại bình luận...'>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-end">
-            <div class="col-5 col-sm-4 col-md-3 col-lg-2">
-                <input type="submit" id="sendcm" name="send" value="Gửi" class="btn btn-primary btn-block">
+            <div class='row justify-content-end'>
+                <div class='col-5 col-sm-4 col-md-3 col-lg-2'>
+                    <input type='submit' id='sendcm' value='Gửi bình luận' class='btn btn-primary btn-lock'>
+                </div>
             </div>
-        </div>
-    <!-- </form> -->
-</div>
-    <div class="container mb-5">
-        <div class="row mb-5">
-            <div class="col-12 mb-5" id="listcomment">
-            <?php
+        <!-- </form> -->
+    </div>";
+        }
+    echo "
+    <div class='container mb-5'>
+        <div class='row mb-5'>
+            <div class='col-12 mb-5' id='listcomment'>";
                 $sql3 = "SELECT * FROM comment WHERE idpro = $id";
                 $ketqua3 = mysqli_query($conn, $sql3);
                 $quanlity = mysqli_num_rows($ketqua3);
                 echo "<label>$quanlity Bình Luận</label>";
                 while ($row3 = mysqli_fetch_assoc($ketqua3)){
+                    $sql4 = 'SELECT * FROM users WHERE id ='.$row3['username'];
+                    $ketqua4 = mysqli_query($conn, $sql4);
+                    $row4 = mysqli_fetch_assoc($ketqua4);
                     echo "<div class='rounded shadow my-3'>
                     <div class='p-4'>
                         <div class='d-flex justify-content-between'>
@@ -213,8 +216,8 @@ include("navigation.php");
                                 <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
                             </div>
                                 <div class='commentor-detail'>
-                                    <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>$row3[username]</a></h6>
-                                    <small class='text-muted'>Chủ Tịch</small>
+                                    <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>$row4[name]</a></h6>
+                                    <small class='text-muted'>Khách Hàng</small>
                                 </div>
                             </div>
                             <small class='text-muted'>$row3[date]</small>
@@ -225,12 +228,12 @@ include("navigation.php");
                     </div>
                 </div>";
                 }
-            ?>
-                
-
-            </div>
+    echo "  </div>
         </div>
-    </div>
+    </div>";
+    }
+?>
+
 <?php
 include("footer.php");
 ?>
@@ -246,5 +249,24 @@ include("footer.php");
         if ($(this).next().val() > 1) {
             if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
         }
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#sendcm").click(function(){
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var idpro = <?php echo $_GET['id'];?>
+            // url.searchParams.get("id");
+            // var idpro = (new URL(document.location)).searchParams;
+            var txt = $("#comments").val();
+            document.getElementById("comments").value= "";
+            alert("Đăng Bình Luận Thành Công");
+            $.post("CommentProcess.php", {idpro: idpro, content: txt}, function (result) {
+                // alert(result);
+                $("#listcomment").append("<div class='rounded shadow my-3'><div class='p-4'><div class='d-flex justify-content-between'><div class='media align-items-center'><div class='pr-3'><img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>                            </div><div class='commentor-detail'><h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>Bạn</a></h6><small class='text-muted'>Khách Hàng</small></div></div><small class='text-muted'>Vừa xong</small></div><div class='mt-3'><p class='mb-0'>"+txt+"</p></div></div></div>");
+            });
+        });
     });
 </script>

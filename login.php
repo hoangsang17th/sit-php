@@ -12,7 +12,7 @@
         $rows = mysqli_num_rows($result);
             if($rows==1){
                 $_SESSION['username'] = $username;
-                header("Location: index.php");
+                header("Location: index.html");
             }
             else{
                 $LoginErr ="* Sai Tài khoản hoặc Mật Khẩu!";
@@ -39,7 +39,7 @@
 </head>
 <body>
     <div class="home-btn d-none d-sm-block">
-        <a href="home.php" class="text-dark"><i class="fas fa-home h2"></i></a>
+        <a href="home.html" class="text-dark"><i class="fas fa-home h2"></i></a>
     </div>
     <div class="account-pages pt-3">
         <div class="container">
@@ -61,7 +61,7 @@
                         </div>
                         <div class="card-body pt-0"> 
                             <div>
-                                <a href="login-dashboard.php">
+                                <a href="login-dashboard.html">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-dark">
                                             <img src="Logo.png" height="34">
@@ -101,7 +101,7 @@
                     </div>
                     <div class="mt-3 text-center">
                         <div>
-                            <p>Chưa Có Tài Khoản ? <a href="register.php" class="font-weight-medium text-primary"> Đăng Ký </a> </p>
+                            <p>Chưa Có Tài Khoản ? <a href="register.html" class="font-weight-medium text-primary"> Đăng Ký </a> </p>
                             <p><script>document.write(new Date().getFullYear())</script> © SIT.</p>
                         </div>
                     </div>

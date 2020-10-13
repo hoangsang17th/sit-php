@@ -12,7 +12,7 @@ include("header.php");
                                 <div class="card-body">
                                     <h4 class="card-title">Danh Sách Các Công Việc Đã Thực Hiện</h4>
                                     <p class="card-title-desc">SIT. Bạn thật tuyệt vời! Hãy cố gắng thêm nhé!</p>
-                                        <a href="index.php" class="btn btn-primary mr-2 w-md mb-3">
+                                        <a href="index.html" class="btn btn-primary mr-2 w-md mb-3">
                                             <i class="fas fa-chevron-left font-size-16 align-middle mr-2"></i> Quay lại </a>
                                             <div class="table-responsive">
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -35,7 +35,7 @@ include("header.php");
                                                     echo '<td>'.$stt.'</td>';
                                                     echo "<td>".$row['completiondate']."</td>";
                                                     echo "<td>".$row['mission']."</td>";
-                                                    echo '<td><a href="DetailToDo.php?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
+                                                    echo '<td><a href="DetailToDo.html?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
                                                     echo "</tr>";
                                                     $stt++;
                                                 }

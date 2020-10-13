@@ -1,9 +1,7 @@
-<IfModule mod_rewrite.c>
-
 RewriteEngine On
 
-RewriteRule ^EditSPh/([^/\.]+)/?.php$ EditSPh.php?id=$1 
+#RewriteRule ^EditSPh/([^/\.]+)/?.php$ EditSPh.php?id=$1 
 
-#RewriteRule ^EditSPh?.html$ EditSPh.php
-
-</IfModule>
+#RewriteRule ".html" ".php"
+RewriteRule "^([0-9]+)_([a-zA-Z0-9-_]+).html$" "product-sit.php?id=$1&tenmathang=$2"
+RewriteRule ^(.*)\.html$ $1.php [L]

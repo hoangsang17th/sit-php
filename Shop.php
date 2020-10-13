@@ -101,20 +101,21 @@
                 $del = $row['dongia']*1.1*1000;
             }
             else $price =$del = 0;
+            $urlpage = str_replace(" ", "_", "$row[tenmathang]");
             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='product-sit.php?id=$row[id]'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
-                    <a href='product-sit.php?id=$row[id]' class='overlay-work'>
+                    <a href='$row[id]_$row[tenmathang].html'><img src='images/shop/product/s1.jpg' class='img-fluid' alt=''></a>
+                    <a href='$row[id]_$row[tenmathang].html' class='overlay-work'>
                         <img src='images/shop/product/s-1.jpg' class='img-fluid' alt=''>
                     </a>
                     <ul class='list-unstyled shop-icons'>
-                        <li class='mt-2'><a href='product-sit.php?id=$row[id]' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='$row[id]_$urlpage.html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
                         <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
                     </ul>
                 </div>
                 <div class='card-body content pt-4 p-2'>
-                    <a href='product-sit.php?id=$row[id]' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <a href='$row[id]_$row[tenmathang].html' class='text-dark product-name h6'>$row[tenmathang]</a>
                     <div class='d-flex justify-content-between mt-1'>";
                     if ($price !=0){
                         echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";

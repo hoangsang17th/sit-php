@@ -11,7 +11,7 @@ include("navigation.php");
                         <h1 class="heading mb-3">SIT To Do</h1>
                         <p class="para-desc mx-auto text-muted">Organize it all with SIT To Do</p>
                         <div class="mt-4 pt-2">
-                            <a href="index.php" class="btn btn-primary">Start Free Trial <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="index.html" class="btn btn-primary">Start Free Trial <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
 
@@ -262,8 +262,8 @@ include("navigation.php");
                         <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary font-weight-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
                     
                         <div class="mt-4">
-                            <a href="index.php" class="btn btn-primary mt-2 mr-2">Get Started Now</a>
-                            <a href="index.php" class="btn btn-outline-primary mt-2">Free Trial</a>
+                            <a href="index.html" class="btn btn-primary mt-2 mr-2">Get Started Now</a>
+                            <a href="index.html" class="btn btn-outline-primary mt-2">Free Trial</a>
                         </div>
                     </div>
                 </div><!--end col-->

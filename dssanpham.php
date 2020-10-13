@@ -12,7 +12,7 @@ include("header-dashboard.php");
                                 <div class="card-body">
                                     <h4 class="card-title">Danh Sách Sản Phẩm</h4>
                                     <p class="card-title-desc">SIT. Bạn tài giỏi, tôi cũng vậy!</p>
-                                        <a href="AddSP.php" class="btn btn-primary mr-2 w-md mb-3">
+                                        <a href="AddSP.html" class="btn btn-primary mr-2 w-md mb-3">
                                             <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Thêm Sản Phẩm</a>
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
@@ -39,8 +39,8 @@ include("header-dashboard.php");
                                                 echo "<td>".$row['tenmathang']."</td>";
                                                 echo "<td>".$row['thuonghieu']."</td>";
                                                 echo "<td>".$row['dongia']."</td>";
-                                                echo '<td><a href="EditPro.php?id='.$row['id'].'" class="px-2"><i class="far fa-edit"></i><a/>';
-                                                echo '<a href="DeleteSP.php?id='.$row['id'].'" class="px-2"><i class="far fa-trash-alt"></i><a/></td>';
+                                                echo '<td><a href="EditPro.html?id='.$row['id'].'" class="px-2"><i class="far fa-edit"></i><a/>';
+                                                echo '<a href="DeleteSP.html?id='.$row['id'].'" class="px-2"><i class="far fa-trash-alt"></i><a/></td>';
                                                 echo "</tr>";
                                                 $stt++;
                                             }

@@ -7,7 +7,7 @@
                 $items = $_SESSION['cart'];
                 $counts = count($items);
             }
-            echo "<a href='Shop-Cart.php' class='btn btn-outline-primary'><i class='fas fa-shopping-basket'> </i> ".$counts." Sản Phẩm</a>";
+            echo "<a href='Shop-Cart.html' class='btn btn-outline-primary'><i class='fas fa-shopping-basket'> </i> ".$counts." Sản Phẩm</a>";
         ?>
         </div>
     </div>

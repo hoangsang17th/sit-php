@@ -127,8 +127,8 @@
                             <span class="d-none d-xl-inline-block ml-1"><?php echo $profile['name']; ?></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="Home.php"><img src="Logo.png" width="20px"> Trang Chủ</a>
-                            <a class="dropdown-item text-danger" href="logout.php"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+                            <a class="dropdown-item" href="Home.html"><img src="Logo.png" width="20px"> Trang Chủ</a>
+                            <a class="dropdown-item text-danger" href="logout.html"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
                         </div>
                     </div>            
                 </div>
@@ -140,13 +140,13 @@
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li class="menu-title">Tài khoản của <?php echo $profile['name'];?></li>
                         <li>
-                            <a href="index.php" class=" waves-effect">
+                            <a href="index.html" class=" waves-effect">
                             <i class="fas fa-tasks"></i>
                                 <span>To Do List</span><span class="badge badge-pill badge-info float-right">NEW</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Profileuser.php" class="waves-effect">
+                            <a href="Profileuser.html" class="waves-effect">
                                 <i class="fas fa-user-cog"></i>
                                 <span>Thông tin tài khoản</span>
                             </a>

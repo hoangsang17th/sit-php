@@ -97,7 +97,7 @@ include("header-dashboard.php");
                                     <div class="media">
                                         <div class="media-body">
                                             <p class="text-muted font-weight-medium">Sản Phẩm</p>
-                                            <h4 class="mb-0"><?php echo "<a href='dssanpham.php'>".$slsp."</a>";?></h4>
+                                            <h4 class="mb-0"><?php echo "<a href='dssanpham.html'>".$slsp."</a>";?></h4>
                                         </div>
                                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
                                             <span class="avatar-title">
@@ -114,7 +114,7 @@ include("header-dashboard.php");
                                     <div class="media">
                                         <div class="media-body">
                                             <p class="text-muted font-weight-medium">Danh Mục</p>
-                                            <h4 class="mb-0"><?php echo "<a href='dsdanhmuc.php'>".$sldm."</a>";?></h4>
+                                            <h4 class="mb-0"><?php echo "<a href='dsdanhmuc.html'>".$sldm."</a>";?></h4>
                                         </div>
                                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                                             <span class="avatar-title rounded-circle bg-primary">
@@ -131,7 +131,7 @@ include("header-dashboard.php");
                                     <div class="media">
                                         <div class="media-body">
                                             <p class="text-muted font-weight-medium">Users</p>
-                                            <h4 class="mb-0"><?php echo "<a href='user-dashboard.php'>".$slus."</a>";?></h4>
+                                            <h4 class="mb-0"><?php echo "<a href='user-dashboard.html'>".$slus."</a>";?></h4>
                                         </div>
                                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                                             <span class="avatar-title rounded-circle bg-primary">

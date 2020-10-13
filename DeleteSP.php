@@ -3,5 +3,5 @@
     include("SSAdmin.php");
     $sql = "DELETE FROM sanpham WHERE id=".$_GET['id'];
     $ketqua = mysqli_query($conn, $sql);
-    header("Location: dssanpham.php");
+    header("Location: dssanpham.html");
 ?>

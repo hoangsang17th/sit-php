@@ -12,7 +12,7 @@ include("navigation.php");
                     <p class="para-desc text-muted">Giảm 10% giá với mọi sản phẩm do chúng tôi cung cấp</p>
                     
                     <div class="subcribe-form mt-4 pt-2">
-                        <form action="WellcomeSIT.php" method="GET" target="_blank">
+                        <form action="WellcomeSIT.html" method="GET" target="_blank">
                             <div class="form-group">
                                 <input type="email" id="email" name="email" class="border bg-white rounded-pill" required placeholder="Email Address">
                                 <button type="submit" class="btn btn-pills btn-primary">Nhận Ngay</button>

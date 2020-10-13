@@ -115,7 +115,7 @@ include("navigation.php");
                         <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Xem danh sách của bạn ở mọi nơi, trên mọi thiết bị</li>
                         <li class="mb-0"><span class="text-primary h5 mr-2"><i class="uim uim-check-circle"></i></span>Thêm ghi chú cho nhiệm vụ bất kỳ</li>
                     </ul>
-                    <a href="introtodo.php" class="mt-3 h6 text-primary">Tìm Hiểu Thêm <i class="mdi mdi-chevron-right"></i></a>
+                    <a href="introtodo.html" class="mt-3 h6 text-primary">Tìm Hiểu Thêm <i class="mdi mdi-chevron-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6 order-1 order-md-2">
@@ -396,7 +396,7 @@ include("navigation.php");
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-7 col-md-10">
-                <form action="WellcomeSIT.php" method="GET">
+                <form action="WellcomeSIT.html" method="GET">
                     <div class="form-group">
                         <div class="input-group mb-3">
                             <input name="email" id="email" type="email" class="form-control" placeholder="Your email :" required="" aria-describedby="newssubscribebtn">
