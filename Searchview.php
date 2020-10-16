@@ -1,4 +1,7 @@
+         
+
 <?php
+echo '<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"> '; 
     include("Connect.php");
     $search = $_REQUEST['search'];
     mysqli_select_db($conn,"sanpham");
@@ -6,18 +9,45 @@
     $result = mysqli_query($conn,$sql);
     $quanlity=mysqli_num_rows($result);
     echo "<div class='col-12 text-center'><h3><i>Có sản ".$quanlity." phẩm khớp với từ khóa cần tìm</i></h3></div>";
+    echo "<div class='container'>
+        <div class='row'>";
 while($row = mysqli_fetch_array($result)) {
-    echo "
-    <div class='col-12 col-sm-6 col-md-4 col-lg-3 my-3'>
-        <div class='card mb-3'>
-            <img src='./assets/images/Producttest.svg' alt='' class='my-3 px-4 w-100 card-img-top'>
-            <div class='card-body'>
-                <h5 class='card-title'>".$row['tenmathang']."</h5>
-                <p class='card-text'><small class='text-muted'>".$row['dongia']."VNĐ</small></p>
+    if ($row['dongia']!=0){
+        $price = number_format($row['dongia'],3);
+        $del = $row['dongia']*1.1*1000;
+    }
+    else $price =$del = 0;
+    $urlpage = str_replace(" ", "_", "$row[tenmathang]");
+    $sql5 = "SELECT * FROM photos WHERE idpro=$row[id]";
+    $query5 = mysqli_query($conn, $sql5);
+    $row5 = mysqli_fetch_assoc($query5);
+    echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
+            <div class='card shop-list border-0 position-relative overflow-hidden'>
+                <div class='shop-image position-relative overflow-hidden rounded shadow'>
+                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row5[images]' class='img-fluid' alt=''></a>
+                    <a href='$row[id]_$urlpage.html' class='overlay-work'>
+                        <img src='images/shop/$row5[images]' class='img-fluid' alt=''>
+                    </a>
+                </div>
+                <div class='card-body content pt-4 p-2'>
+                    <a href='$row[id]_$urlpage.html' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <div class='d-flex justify-content-between mt-1'>";
+                    if ($price !=0){
+                        echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";
+                        if(rand(0,1)==0){
+                            if ($del!=0) echo "<span class='text-danger ml-1'>(".$del.")</span>";
+                        }  
+                        echo  "     </h6>";
+                    }
+                    else   echo "<h6 class=' small font-italic mb-0 mt-1 text-success'>FREE</h6>";
+                    
+            echo"   </div>
+                </div>
             </div>
-        </div>
-    </div>
-    ";
+        </div>";
 }
+echo 
+"</div>
+</div>";
 mysqli_close($conn);
 ?>

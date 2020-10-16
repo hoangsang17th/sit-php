@@ -80,10 +80,13 @@ if(isset($_POST['submit'])){
         $query = mysqli_query($conn, $sql);
         $total = 0;
         while ($row = mysqli_fetch_assoc($query)){
+            $sql5 = "SELECT * FROM photos WHERE idpro=$row[id]";
+            $query5 = mysqli_query($conn, $sql5);
+            $row5 = mysqli_fetch_assoc($query5);
             echo "<tr>";
             echo   "<td>
                         <div class='d-flex align-items-center'>
-                            <img src='images/shop/product/s1.jpg' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
+                            <img src='images/shop/$row5[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                             <div class='mb-0 ml-3'>
                             <h6><a href='$row[id]_$row[tenmathang].html'>$row[tenmathang]</a></h6>
                             <a href='DeleteCart.html?id=$row[id]'>Xóa</a>

@@ -3,6 +3,7 @@ include("navigation.php");
 ?>
 <title>Search Everything - SIT</title>
 <link rel="stylesheet" href="./assets/css/search.css">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">  
 <script>
     function showHint(str) {
         if (str.length == 0) {

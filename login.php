@@ -99,6 +99,11 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-block btn-social btn-google" id="btnGoogle" type="button"> <span class="fa fa-google"></span>Login with Google</button>
+                    </div>
+
                     <div class="mt-3 text-center">
                         <div>
                             <p>Chưa Có Tài Khoản ? <a href="register.html" class="font-weight-medium text-primary"> Đăng Ký </a> </p>
@@ -115,5 +120,68 @@
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
     <script src="assets/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+(function() {
+    console.log('Start file login with firebase');
+    // Initialize Firebase
+    var config = {
+        apiKey: "xxxxx",
+        authDomain: "xxxx.firebaseapp.com",
+        databaseURL: "xxxx.firebaseio.com",
+        projectId: "xxxx",
+        storageBucket: "xxxx.appspot.com",
+        messagingSenderId: "xxxxx"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+
+    //Google singin provider
+    var ggProvider = new firebase.auth.GoogleAuthProvider();
+    //Facebook singin provider
+    var fbProvider = new firebase.auth.FacebookAuthProvider();
+    //Login in variables
+    const btnGoogle = document.getElementById('btnGoogle');
+    const btnFaceBook = document.getElementById('btnFacebook');
+
+        //Sing in with Google
+        btnGoogle.addEventListener('click', e => {
+            firebase.auth().signInWithPopup(ggProvider).then(function(result) {
+                var token = result.credential.accessToken;
+                var user = result.user;
+                console.log('User>>Goole>>>>', user);
+                userId = user.uid;
+
+            }).catch(function(error) {
+                console.error('Error: hande error here>>>', error.code)
+            })
+        }, false)
+
+        //Sing in with Facebook
+        btnFaceBook.addEventListener('click', e => {
+            firebase.auth().signInWithPopup(fbProvider).then(function(result) {
+                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                console.log('User>>Facebook>', user);
+                // ...
+                userId = user.uid;
+            
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                console.error('Error: hande error here>Facebook>>', error.code)
+            });
+        }, false)
+        //jquery 
+}())</script>
 </body>
 </html>
