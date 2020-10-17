@@ -14,22 +14,23 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SIT To Do Giải pháp mang tính cách mạng" />
-    <meta name="og:description" content="A group of U.S. Marines, under command of..."/>
-    <meta name="keywords" content="ToDo List, Hoàng Sang, Hoang Sang 17Th, HoangSang17TH, HoangSang 17Th, Shop SoftWare,
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="og:description" content="Hiểu rõ tất cả những khía cạnh của cuộc sống là một sự trải nghiệm lớn lao. Chúng tôi tạo ra các công cụ giúp bạn hiểu rõ những mục tiêu để phấn đấu, bạn sẽ thấy mình nhỏ bé hơn, khiêm tốn hơn và đồng thời cũng vĩ đại hơn bất cứ lúc nào khác trong lịch sử đời mình."/>
+    <meta name="keywords" content="To Do List, Hoàng Sang, Hoang Sang 17Th, HoangSang17TH, HoangSang 17Th, Shop SoftWare,
     SIT, tải ứng dụng sit, cài ứng dụng sit, cai dat ung dung sit, cài đặt ứng dụng sit, cách tải ứng dụng sit, các sử dụng ứng dụng sit, cách sử dụng ứng dụng sit, software sit, ứng dụng sit, cách dùng ứng dụng sit, tải ứng dụng sit, phần mềm adobe, phần mềm văn phòng"/>
     <meta name="author" content="Hoàng Sang, phsang49@gmail.com"/>
 
     <meta name="email" content="phsang49@gmail.com" />
     <meta name="og:email" content="phsang49@gmail.com"/>
 
-    <meta name="website" content="http://www.sit.vn" />
-    <meta name="url" content="http://www.websiteaddrress.com">
-    <meta name="identifier-URL" content="http://www.websiteaddress.com">
-    <meta name="og:url" content="http://www.imdb.com/title/tt0117500/"/>
+    <meta name="website" content="http://www.sittodo.vn" />
+    <meta name="url" content="http://www.sittodo.vn">
+    <meta name="identifier-URL" content="http://www.sittodo.vn">
+    <meta name="og:url" content="http://www.sittodo.vn/"/>
 
-    <meta name="og:title" content="The Rock"/>
+    <meta name="og:title" content="SIT Shop Software - Hoàng Sang"/>
     
     <meta name="Version" content="v1.0.0" />
     <meta name="subject" content="SIT To Do, SIT Shop Software">
@@ -37,17 +38,17 @@
     <meta name="language" content="VI">
     <meta name="robots" content="home ,follow" />
     <meta name="revised" content="Saturday, October 17th, 2010, 5:15 am" />
-    <meta name="abstract" content="">
-    <meta name="topic" content="">
-    <meta name="summary" content="">
-    <meta name="Classification" content="Business">
-    <meta name="designer" content="">
-    <meta name="copyright" content="">
+    <meta name="abstract" content="Shop Software">
+    <meta name="topic" content="Information Technology ">
+    <meta name="summary" content="Hiểu rõ tất cả những khía cạnh của cuộc sống là một sự trải nghiệm lớn lao. Chúng tôi tạo ra các công cụ giúp bạn hiểu rõ những mục tiêu để phấn đấu, bạn sẽ thấy mình nhỏ bé hơn, khiêm tốn hơn và đồng thời cũng vĩ đại hơn bất cứ lúc nào khác trong lịch sử đời mình.">
+    <meta name="Classification" content="Information Technology">
+    <meta name="designer" content="Phạm Hoàng Sang">
+    <meta name="copyright" content="Phạm Hoàng Sang">
     <meta name="reply-to" content="phsang49@gmail.com">
-    <meta name="owner" content="">
+    <meta name="owner" content="Phạm Hoàng Sang">
     
     <meta name="directory" content="submission">
-    <meta name="category" content="">
+    <meta name="category" content="Shop Software">
     <meta name="coverage" content="Worldwide">
     <meta name="distribution" content="Global">
     <meta name="rating" content="General">
@@ -56,7 +57,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <!-- OpenGraph Meta Tags -->
-    <meta name="og:type" content="movie"/>
+    <meta name="og:type" content="software"/>
     <meta name="og:image" content="https://raw.githubusercontent.com/hoangsang17th/sit-php/master/Logo.png"/>
     <meta name="og:site_name" content="SIT"/>
 
