@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </form>
                                 </div>
                             </div>
-                            <!-- <div class="card">
+                            <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
                                     <form action="AddSP.php" method="post" class="dropzone" name="form2">
@@ -102,9 +102,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <h4>Drop files here or click to upload.</h4>
                                         </div>
                                     </form>
+                                    <!-- <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị"> -->
                                 </div>
                             </div>
-                            <input type="submit" class="btn btn-primary mr-1 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị"> -->
+                            
                         </div>
                     </div>
                 </div> 
