@@ -1,11 +1,13 @@
 <?php
     include("Connect.php");
     session_start();
-    $profile['username']='';
+    $profile['email']='';
+    $profile['phone']='';
+    $profile['address']='';
     $profile['name']='';
-    if(isset($_SESSION["username"])){
-        $users = $_SESSION['username'];
-        $rsname = "SELECT * FROM `users` WHERE username= '$users'";
+    if(isset($_SESSION["email"])){
+        $email = $_SESSION['email'];
+        $rsname = "SELECT * FROM `users` WHERE email= '$email'";
         $resname =mysqli_query($conn, $rsname);
         $profile = mysqli_fetch_assoc($resname);
     }
@@ -31,8 +33,7 @@
     <meta name="og:url" content="http://www.sittodo.vn/"/>
 
     <meta name="og:title" content="SIT Shop Software - Hoàng Sang"/>
-    
-    <meta name="Version" content="v1.0.0" />
+    <meta name="Version" content="v2.1.0" />
     <meta name="subject" content="SIT To Do, SIT Shop Software">
     <meta name="copyright"content="Hoàng Sang 17Th">
     <meta name="language" content="VI">
@@ -100,7 +101,6 @@
             </div>
         </div>
     </div>
-
     <header id="topnav" class="defaultscroll sticky bg-white">
         <div class="header-top-menu container-fluid">
             <div class="row">
@@ -137,15 +137,23 @@
                     </a>
                 </div>
             </div>                 
-            <div class="buy-button">
+            <div class="top-button">
                 <?php
-                if ($profile['username']==''){
+                if ($profile['email']==''){
                     echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
                 }
-                else if($profile['name']==''){
-                    echo "<a href='Profileuser.html' class='btn btn-primary'>Hoàn Thiện</a>";
-                }
-                else echo "<a href='Profileuser.html' class='btn btn-primary'>".$profile['name']."</a>"; ?>
+                else 
+                echo "<div class='btn-group dropdown-primary'>
+                        <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>".$profile['name']."</button>
+                        <div class='dropdown-menu'>
+                            <a class='dropdown-item' href='index.html'>Task</a>
+                            <a class='dropdown-item' href='Profileuser.html'>Tài Khoản</a>
+                            <a class='dropdown-item' href='Review.html'>Nhận Xét</a>
+                            <a class='dropdown-item' href='Orderhistory.html'>Đơn Hàng</a>
+                            <div class='dropdown-divider'></div>
+                            <a class='dropdown-item' href='logout.html'>Đăng Xuất</a>
+                        </div>
+                    </div>";?>
             </div>
             
             <div id="navigation">
@@ -154,17 +162,27 @@
                     <li><a href="Shop.html">Shop</a></li>
                     <li><a href="introtodo.html">To Do</a></li>
                     <li><a href="aboutus.html">About Us</a></li>  
-                    <li><a href="Search.html">Search</a></li>  
+                    <li><a href="Search.html">Search</a></li>
                 </ul>
+                
                 <div class="buy-menu-btn d-none">
                     <?php
-                        if ($profile['username']==''){
+                        if ($profile['email']==''){
                             echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
                         }
-                        else if($profile['name']==''){
-                            echo "<a href='Profileuser.html' class='btn btn-primary'>Hoàn Thiện</a>";
-                        }
-                        else echo "<a href='Profileuser.html' class='btn btn-primary'>".$profile['name']."</a>"; ?>
+                        else 
+                echo "<div class='btn-group dropdown-primary'>
+                        <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>".$profile['name']." </button>
+                        <div class='dropdown-menu'>
+                            <a class='dropdown-item' href='index.html'><i class='fas fa-tasks'></i> Task</a>
+                            <a class='dropdown-item' href='Profileuser.html'><i class='fas fa-user-cog'></i> Tài Khoản</a>
+                            <a class='dropdown-item' href='Review.html'><i class='far fa-comments'></i> Nhận Xét</a>
+                            <a class='dropdown-item' href='Orderhistory.html'><i class='fas fa-store'></i> Đơn Hàng</a>
+                            <div class='dropdown-divider'></div>
+                            <a class='dropdown-item' href='logout.html'>Đăng Xuất</a>
+                        </div>
+                    </div>"; 
+                    ?>
                 </div>
             </div>
         </div>

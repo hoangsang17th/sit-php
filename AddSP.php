@@ -83,29 +83,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-primary mr-1 waves-effect waves-light" value="Lưu và hiển thị">
-                                        <button type="sbmit" class="btn btn-danger waves-effect px-5">Hủy</button>
                                     </form>
+                                    <div class="row mt-4">
+                                        <div class="col-12">
+                                        <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
+                                            <form action="/" method="post" class="dropzone">
+                                                <div class="fallback">
+                                                    <input name="file" type="file" multiple="">
+                                                </div>
+                                                <div class="dz-message needsclick">
+                                                    <div class="mb-3">
+                                                        <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                                    </div>
+                                                    <h4>Drop files here or click to upload.</h4>
+                                                </div>
+                                                
+                                            </form>
+                                        <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị">
+                                        <a href="dssanpham.html" class="btn btn-danger mt-3 waves-effect px-5">Hủy</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
-                                    <form action="AddSP.php" method="post" class="dropzone" name="form2">
-                                        <div class="fallback">
-                                            <input name="file" type="file" multiple="">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                                            </div>
-                                            <h4>Drop files here or click to upload.</h4>
-                                        </div>
-                                    </form>
-                                    <!-- <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị"> -->
-                                </div>
-                            </div>
-                            
                         </div>
                     </div>
                 </div> 
@@ -121,6 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     </script>
     <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
+    <script src="assets/libs/summernote/summernote-bs4.min.js"></script>
+
 <?php
 include("footeradmin.php");
 ?>

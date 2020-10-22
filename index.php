@@ -37,7 +37,7 @@ include("header.php");
                                                     echo '<td>'.$stt.'</td>';
                                                     echo "<td>".$row['startdate']."</td>";
                                                     echo "<td>".$row['mission']."</td>";
-                                                    echo '<td><a href="DetailToDo.html?idm='.$row['idm'].'" class="btn btn-outline-secondary">View</a></td>';
+                                                    echo '<td><a href="DetailToDo.html?idm='.$row['idm'].'" class="">View</a></td>';
                                                     echo "</tr>";
                                                     $stt++;
                                                 }

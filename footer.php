@@ -56,6 +56,7 @@
                     <li><a href="" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Chính Sách Bảo Mật</a></li>
                     <li><a href="" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Tài Liệu To Do</a></li>
                     <li><a href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Youtube</a></li>
+                    <li><a href="Faqs.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Các câu hỏi thường gặp</a></li>
                 </ul>
             </div><!--end col-->
 

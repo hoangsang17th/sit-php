@@ -2,17 +2,18 @@
     include("Connect.php");
     session_start();
     $LoginErr ="";
-    if (isset($_POST['username'])){
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($conn,$username);
+    if (isset($_POST['email'])){
+        $email = stripslashes($_REQUEST['email']);
+        $email = mysqli_real_escape_string($conn,$email);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($conn,$password);
-        $query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
+        $query = "SELECT * FROM `users` WHERE email='$email' and password='$password'";
         $result = mysqli_query($conn,$query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
             if($rows==1){
-                $_SESSION['username'] = $username;
-                header("Location: index.html");
+                $_SESSION['email'] = $email;
+                header("Location: Home.html");
+
             }
             else{
                 $LoginErr ="* Sai Tài khoản hoặc Mật Khẩu!";
@@ -73,12 +74,12 @@
                                 <form class="form-horizontal" action="" method="post" name="login">
                                     
                                     <div class="form-group mt-1">
-                                        <label for="username">Tài Khoản</label>
-                                        <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" name="email" placeholder="Email của bạn">
                                     </div>
                                     <div class="form-group">
                                         <label for="userpassword">Mật Khẩu</label>
-                                        <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
+                                        <input type="password" class="form-control" name="password" placeholder="Mật Khẩu">
                                     
                                     </div>
                                     <div class="form-group">

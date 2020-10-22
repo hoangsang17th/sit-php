@@ -19,16 +19,14 @@
 <?php
     include("Connect.php");
     $userErr = "";
-    if (isset($_REQUEST['username'])){
+    if (isset($_REQUEST['useremail'])){
         $hovaten =  stripslashes($_REQUEST['hovaten']);
         $hovaten =  mysqli_real_escape_string($conn,$hovaten);
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($conn,$username);
         $email = stripslashes($_REQUEST['useremail']);
         $email = mysqli_real_escape_string($conn,$email);
         $password = stripslashes($_REQUEST['userpassword']);
         $password = mysqli_real_escape_string($conn,$password);
-        $atest = "SELECT username FROM users WHERE username='$username'";
+        $atest = "SELECT email FROM users WHERE email='$email'";
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date = date("Y-m-d H:i:s");
         $test = mysqli_query($conn, $atest);
@@ -36,7 +34,7 @@
             $userErr = "Tên đăng nhập đã tồn tại!";
         }
         else{
-            $query = "INSERT INTO `users` (username, password, email, name, date) VALUES ('$username', '$password', '$email', '$hovaten', '$date')";
+            $query = "INSERT INTO `users` (email, password, name, date) VALUES ('$email', '$password', '$hovaten', '$date')";
             $result = mysqli_query($conn,$query);
             if($result){
                 header("Location: login.html");
@@ -74,23 +72,17 @@
                             </div>
                             <div class="p-2">
                                 <form class="form-horizontal" action="" method="POST">
+                                <div class="form-group">
+                                        <label for="useremail">Email </label><span class="text-danger">*</span>
+                                        <input type="email" class="form-control" name="useremail" placeholder="Nhập Email" required>
+                                        <span class="text-danger "><?php echo $userErr;?></span>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="userpassword">Họ và Tên</label>
+                                        <label for="userpassword">Họ và Tên </label><span class="text-danger">*</span>
                                         <input type="text" class="form-control" name="hovaten" placeholder="Họ và Tên" required>        
                                     </div>
                                     <div class="form-group">
-                                        <label for="useremail">Email</label>
-                                        <input type="email" class="form-control" name="useremail" placeholder="Enter email" required>        
-                                    </div>
-            
-                                    <div class="form-group">
-                                        <label for="username">ID Login</label>
-                                        <input type="text" class="form-control" name="username" placeholder="Enter ID Login" required>
-                                        <span><i class="text-danger"><?php echo $userErr;?></i></span>
-                                    </div>
-            
-                                    <div class="form-group">
-                                        <label for="userpassword">Password</label>
+                                        <label for="userpassword">Password </label><span class="text-danger">*</span>
                                         <input type="password" class="form-control" name="userpassword" placeholder="Enter password" required>        
                                     </div>
                                     <div class="mt-4">

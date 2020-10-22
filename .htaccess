@@ -13,3 +13,5 @@ DirectoryIndex home.html
 #RewriteCond %{HTTPS} off
 #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #Chuyển http qua https
+
+ErrorDocument 404 http://localhost/WebVn/SIT/404.html

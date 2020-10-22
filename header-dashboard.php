@@ -134,7 +134,14 @@
                     </div>
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar.jpg" alt="Header Avatar">
+                            <?php
+                            if($profile['image']==''){
+                                echo "<img class='rounded-circle header-profile-user' src='assets/images/users/Users.png' alt='Avatar'>";
+                                //Giá trị rỗng thì hiện hình user còn khong thì hiện avatr
+                            } 
+                            else echo "<img class='rounded-circle header-profile-user' src='assets/images/users/".$profile['image']."' alt='Avatar'>";
+                            ?>
+                            
                             <span class="d-none d-xl-inline-block ml-1"><?php echo $profile['name']; ?></span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
@@ -185,14 +192,14 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="#">Đơn Hàng</a></li>
-                                <li><a href="#">Kho Hàng</a></li>
-                                <li><a href="#">Địa Chỉ</a></li>
                                 <li><a href="#">Doanh Thu</a></li>
-                                <li><a href="#">Tài Khoản</a></li>
-                                <li><a href="#">Khuyến Mãi</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Hỗ Trợ</a></li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="Shop.html" class=" waves-effect">
+                            <i class="fas fa-store"></i>
+                                <span>Cửa Hàng</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

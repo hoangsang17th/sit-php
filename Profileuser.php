@@ -4,12 +4,10 @@ include("header.php");
 <title>Thông tin cá nhân - SIT</title>
 <?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // $password =$_POST['password']; password= '$password',
-    $email =$_POST['email'];
     $name =$_POST['name'];
     $phone =$_POST['phone'];
     $address =$_POST['address'];
-    $sql = "UPDATE users SET  email= '$email', name= '$name', phone='$phone', address='$address' WHERE id=".$profile['id'];
+    $sql = "UPDATE users SET  name= '$name', phone='$phone', address='$address' WHERE id=".$profile['id'];
     $ketqua = mysqli_query($conn, $sql);
 }
 ?>
@@ -34,25 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             ?>">
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="formrow-email-input">ID Login</label>
-                                                    <input type="text" class="form-control" name="username" value="<?php
-                                                    echo $file['username']; ?>" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="formrow-email-input">Email</label>
-                                                    <input type="text" class="form-control" name="email" value="<?php
-                                                    echo $file['email'];?>">
+                                                    <input type="text" class="form-control" name ="email" value="<?php
+                                                    echo $file['email'];?>" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="formrow-email-input">Số Điện Thoại</label>
                                                     <input type="number" class="form-control" name="phone" value="<?php
-                                                    echo $file['phone']; ?>" >
+                                                    echo $file['phone']; ?>">
                                                 </div>
                                             </div>
                                         </div>

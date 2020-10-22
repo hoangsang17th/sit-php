@@ -17,9 +17,10 @@ include("header-dashboard.php");
                                         <tr>
                                             <th scope="col">STT</th>
                                             <th scope="col">Họ và Tên</th>
-                                            <th scope="col">ID Login</th>
-                                            <th scope="col">Password</th>
                                             <th scope="col">Email</th>
+                                            <th scope="col">Password</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Address</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -31,9 +32,10 @@ include("header-dashboard.php");
                                             echo "<tr>";
                                             echo '<td>'.$stt.'</td>';
                                             echo "<td>".$row['name']."</td>";
-                                            echo "<td>".$row['username']."</td>";
-                                            echo "<td>".$row['password']."</td>";
                                             echo "<td>".$row['email']."</td>";
+                                            echo "<td>".$row['password']."</td>";
+                                            echo "<td>".$row['phone']."</td>";
+                                            echo "<td>".$row['address']."</td>";
                                             echo "</tr>";
                                             $stt++;
                                         }

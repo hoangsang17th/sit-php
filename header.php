@@ -1,8 +1,8 @@
 ﻿<?php
     include("Connect.php");
     include("SSUser.php");
-    $users = $_SESSION['username'];
-    $rsname = "SELECT * FROM `users` WHERE username= '$users'";
+    $users = $_SESSION['email'];
+    $rsname = "SELECT * FROM `users` WHERE email= '$users'";
     $resname =mysqli_query($conn, $rsname);
     $profile = mysqli_fetch_assoc($resname);
 ?>
@@ -127,8 +127,10 @@
                             <span class="d-none d-xl-inline-block ml-1"><?php echo $profile['name']; ?></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="Home.html"><img src="Logo.png" width="20px"> Trang Chủ</a>
-                            <a class="dropdown-item text-danger" href="logout.html"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+                            <a class="dropdown-item" href="Home.html">Trang Chủ</a>
+                            <a class="dropdown-item" href="Shop.html">Cửa Hàng</a>
+                            <a class="dropdown-item" href="Orderhistory.html">Đơn Hàng</a>
+                            <a class="dropdown-item text-danger" href="logout.html">Đăng Xuất</a>
                         </div>
                     </div>            
                 </div>
@@ -152,32 +154,33 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class=" waves-effect">
-                            <i class="far fa-bell"></i>
-                                <span>Thông báo của tôi</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class=" waves-effect">
+                            <a href="Orderhistory.html" class=" waves-effect">
                             <i class="fas fa-archive"></i>
                                 <span>Quản lí đơn hàng</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class=" waves-effect">
-                            <i class="fas fa-map-marker-alt"></i>
-                                <span>Sổ địa chỉ</span>
-                            </a>
-                        </li><li>
-                            <a href="#" class=" waves-effect">
-                            <i class="far fa-credit-card"></i>
-                                <span>Thông tin thanh toán</span>
+                            <a href="Review.html" class=" waves-effect">
+                            <i class="far fa-comments"></i>
+                                <span>Nhận xét của tôi</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class=" waves-effect">
+                            <a href="Shop.html" class=" waves-effect">
+                            <i class="fas fa-store"></i>
+                                <span>Tiếp tục mua sắm</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Faqs.html" class=" waves-effect">
                             <i class="far fa-question-circle"></i>
                                 <span>Hỏi đáp</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-dashboard.html" class=" waves-effect">
+                            <i class="far fa-question-circle"></i>
+                                <span>Admin</span>
                             </a>
                         </li>
                     </ul>

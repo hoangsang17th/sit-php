@@ -177,7 +177,7 @@ function makeUrl($string){
         echo "";
     }
     else{
-        if ($profile['username']!=''){
+        if ($profile['email']!=''){
             echo" <div class='container my-5'>
         <h4 >KHÁCH HÀNG NHẬN XÉT</h4>
         <!-- <form method='GET' action=''> -->
