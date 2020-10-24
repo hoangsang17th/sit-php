@@ -54,27 +54,16 @@ function makeUrl($string){
         ";
     }
     else{
-        // <div class='slider slider-nav'>
-        //     <div><img src='https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p640x640/118770837_312755929805340_7987722077723780081_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=XdePOahKTacAX9PsJCi&oh=426d8971ee25a2e20f39a8c26cea1f5b&oe=5FA2116C' class='img-fluid' alt=''></div>
-        //     <div><img src='https://instagram.fdad2-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/118847575_255389815525741_8558020339629264414_n.jpg?_nc_ht=instagram.fdad2-1.fna.fbcdn.net&_nc_cat=101&_nc_ohc=9GxyEKkqUNQAX9X3Zh4&oh=e4e878701c9a170022687ea2d92452dd&oe=5FA60095' class='img-fluid' alt=''></div>
-        //     <div><img src='https://instagram.fdad2-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/119650081_186754249557859_7433573165844354493_n.jpg?_nc_ht=instagram.fdad2-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=dgKEQ0y3JMgAX_6_YAn&oh=6c689a6b0909f97429e3b9035b7cf5ae&oe=5FA5A1E8' class='img-fluid' alt=''></div>
-        //     <div><img src='https://instagram.fdad2-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/118686423_948296468983235_355637591094112665_n.jpg?_nc_ht=instagram.fdad2-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=A2MTGYxA9BMAX8JV399&_nc_tp=19&oh=0ad3a47bf166de7d850b6aff9975eabc&oe=5FA2C690' class='img-fluid' alt=''></div>
-        //     <div><img src='https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p640x640/116018845_123292089133349_4706741316114013504_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=RNYXNd6k5-wAX-XVW6b&oh=2b2a1ca2e223137c6d040fabf4ec7501&oe=5FA5C129' class='img-fluid' alt=''></div>
-        //     <div><img src='https://instagram.fdad1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p640x640/117972614_1213839532325656_268353430210084517_n.jpg?_nc_ht=instagram.fdad1-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=G12ks3yAFl0AX9vPLeU&oh=f4b1d6e70cf4afc2c115071237ce9970&oe=5FA52555' class='img-fluid' alt=''></div>
-        // </div>
         $sqlGetHangHoa = "SELECT * FROM sanpham WHERE id=".$_GET['id'];        
         $ketQuaGetHangHoa = mysqli_query($conn, $sqlGetHangHoa);
         $mathang = mysqli_fetch_assoc($ketQuaGetHangHoa);
-        $sql5 = "SELECT * FROM photos WHERE idpro=$mathang[id]";
-        $query5 = mysqli_query($conn, $sql5);
-        $row5 = mysqli_fetch_assoc($query5);
         echo "<section class='section'>";
         include("Basket.php");
         echo    "<div class='container mt-5'>
                     <div class='row align-items-center'>
                         <div class='col-md-5'>
                             <div class='slider slider-for'>
-                                <div><img src='images/shop/$row5[images]' class='img-fluid rounded' title='$mathang[tenmathang]'></div>
+                                <div><img src='images/shop/$mathang[images]' class='img-fluid rounded' title='$mathang[tenmathang]'></div>
                             </div>
                             
                         </div>
@@ -113,7 +102,6 @@ function makeUrl($string){
                         </div>
                     </div>
                 </div>";
-        // Sản phẩm tương tự
         echo "</section>";
     }
 ?>
@@ -140,9 +128,9 @@ function makeUrl($string){
             echo "<div class='col-12 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row6[images]' class='img-fluid' alt=''></a>
+                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
                     <a href='$row[id]_$urlpage.html' class='overlay-work'>
-                        <img src='images/shop/$row6[images]' class='img-fluid' alt=''>
+                        <img src='images/shop/$row[images]' class='img-fluid' alt=''>
                     </a>
                     <ul class='list-unstyled shop-icons pr-3'>
                         <li class='mt-2'><a href='$row[id]_$urlpage.html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>

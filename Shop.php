@@ -69,16 +69,16 @@
         <div class="col-12 col-md-6 col-lg-4 mt-4 pt-2">
             <div class="py-5 rounded shadow" style="background: url('images/shop/Sittodo.png') top center;background-size: cover;">
                 <div class="p-4">
-                    <h3>Fix Bug <br> HTML</h3>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
+                    <h3>Fix Bug <br> Fontend</h3>
+                    <a href="AddToShop.php?item=13" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-4 pt-2">
             <div class="py-5 rounded shadow" style="background: url('images/shop/Sittodo.png') top center;background-size: cover;">
                 <div class="p-4">
-                    <h3>Fix Bug <br> PHP</h3>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
+                    <h3>Fix Bug <br> Backend</h3>
+                    <a href="AddToShop.php?item=14" class="btn btn-sm btn-soft-primary mt-2">Mua Ngay</a>
                 </div>
             </div>
         </div>
@@ -155,9 +155,9 @@
                     <ul class='pagination mb-0 justify-content-center'>";
         if ($current_page > 1){
             if ($current_page == 2){
-                echo "<li class='page-item'><a class='page-link' href='Shop.html' aria-label='Previous'>Prev</a></li>";
+                echo "<li class='page-item'><a class='page-link' href='Shop.html' aria-label='Previous'><i class='mdi mdi-arrow-left'></i> </a></li>";
             }else
-            echo "<li class='page-item'><a class='page-link' href='Shop.html?page=".($current_page-1)."' aria-label='Previous'>Prev</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='Shop.html?page=".($current_page-1)."' aria-label='Previous'><i class='mdi mdi-arrow-left'></i> </a></li>";
         }
         
         for ($i = 1; $i <= $total_page; $i++){
@@ -171,13 +171,12 @@
             }
         }
         if ($current_page < $total_page){
-            echo "<li class='page-item'><a class='page-link' href='Shop.html?page=".($current_page+1)."' aria-label='Next'>Next</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='Shop.html?page=".($current_page+1)."' aria-label='Next'> <i class='mdi mdi-arrow-right'></i></a></li>";
         }
         echo        "</ul>
             </div>
         </div>";
     }
-    
     ?>
     <div class="container-fluid mt-100 mt-60">
         <div class="rounded py-5" style="background: url('images/shop/simple.jpg') fixed;background-size: cover;">
