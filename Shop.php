@@ -93,24 +93,35 @@
         </div>
         <div class="row">
         <?php
-        $sql2 = "SELECT * FROM sanpham";
-        $query = mysqli_query($conn, $sql2);
-        while ($row = mysqli_fetch_assoc($query)){
+        $querycou = "SELECT * FROM sanpham";
+        $resultcou = mysqli_query($conn, $querycou);
+        
+        $total_records = mysqli_num_rows($resultcou);
+        $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
+        $limit = 4;
+        $total_page = ceil($total_records / $limit);
+        if ($current_page > $total_page){
+        $current_page = $total_page;
+        }
+        else if ($current_page < 1){
+        $current_page = 1;
+        }
+        $start = ($current_page - 1) * $limit;
+        $result = mysqli_query($conn, "SELECT * FROM sanpham LIMIT $start,$limit");
+
+        while ($row = mysqli_fetch_assoc($result)){
             if ($row['dongia']!=0){
                 $price = number_format($row['dongia'],3);
                 $del = $row['dongia']*1.1*1000;
             }
             else $price =$del = 0;
             $urlpage = str_replace(" ", "_", "$row[tenmathang]");
-            $sql5 = "SELECT * FROM photos WHERE idpro=$row[id]";
-            $query5 = mysqli_query($conn, $sql5);
-            $row5 = mysqli_fetch_assoc($query5);
             echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row5[images]' class='img-fluid' alt=''></a>
+                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
                     <a href='$row[id]_$urlpage.html' class='overlay-work'>
-                        <img src='images/shop/$row5[images]' class='img-fluid' alt=''>
+                        <img src='images/shop/$row[images]' class='img-fluid' alt=''>
                     </a>
                     <ul class='list-unstyled shop-icons'>
                         <li class='mt-2'><a href='$row[id]_$urlpage.html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
@@ -137,6 +148,37 @@
         ?>
         </div>
     </div>
+    <?php
+    if ($total_page >1){
+        echo "<div class='row my-5'>
+                <div class='col-12'>
+                    <ul class='pagination mb-0 justify-content-center'>";
+        if ($current_page > 1){
+            if ($current_page == 2){
+                echo "<li class='page-item'><a class='page-link' href='Shop.html' aria-label='Previous'>Prev</a></li>";
+            }else
+            echo "<li class='page-item'><a class='page-link' href='Shop.html?page=".($current_page-1)."' aria-label='Previous'>Prev</a></li>";
+        }
+        
+        for ($i = 1; $i <= $total_page; $i++){
+            if ($i == $current_page){
+                echo "<li class='page-item active'><span class='page-link'>".$i."</span></li>";
+            } else{
+                if ($i ==1){
+                echo "<li class='page-item'><a class='page-link' href='Shop.html'>".$i."</a></li>";
+                }else 
+                echo "<li class='page-item'><a class='page-link' href='Shop.html?page=$i'>".$i."</a></li>";
+            }
+        }
+        if ($current_page < $total_page){
+            echo "<li class='page-item'><a class='page-link' href='Shop.html?page=".($current_page+1)."' aria-label='Next'>Next</a></li>";
+        }
+        echo        "</ul>
+            </div>
+        </div>";
+    }
+    
+    ?>
     <div class="container-fluid mt-100 mt-60">
         <div class="rounded py-5" style="background: url('images/shop/simple.jpg') fixed;background-size: cover;">
             <div class="container py-5">
