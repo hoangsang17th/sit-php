@@ -94,16 +94,14 @@ include("navigation.php");
                                 $query = mysqli_query($conn, $sql);
                                 $total = 0;
                                 while ($row = mysqli_fetch_assoc($query)){
-                                    $sql5 = "SELECT * FROM photos WHERE idpro=$row[id]";
-                                    $query5 = mysqli_query($conn, $sql5);
-                                    $row5 = mysqli_fetch_assoc($query5);
-                                    $urlpage = str_replace(" ", "_", "$row[tenmathang]");
+                                $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+                                include("slug-page.php");
                                     echo "<tr>";
                                     echo   "<td>
                                                 <div class='d-flex align-items-center'>
-                                                    <img src='images/shop/$row5[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
+                                                    <img src='images/shop/$row[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                                                     <div class='mb-0 ml-3'>
-                                                    <h6><b>".$_SESSION['cart'][$row['id']]."</b>x $row[tenmathang]</h6>
+                                                    <h6><b>".$_SESSION['cart'][$row['id']]."</b> x <a href='$urlpage-$row[id].html'target='_blank'>$row[tenmathang]</a></h6>
                                                     </div>
                                                 </div>
                                                 

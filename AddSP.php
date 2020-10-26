@@ -14,7 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title =$_POST['title'];
     $keywords =$_POST['keywords'];
     $motatrang =$_POST['motatrang'];
-    $sql = "INSERT INTO sanpham(tenmathang, thuonghieu, dongia, iddanhmuc, mota, title, keywords, motatrang) VALUES ('$tenmathang','$thuonghieu','$dongia','$idDanhmuc', '$mota','$title','$keywords','$motatrang')";
+
+    $filename = $_FILES["uploadfile"]["name"]; 
+	$tempname = $_FILES["uploadfile"]["tmp_name"];	 
+    $folder = "images/shop/".$filename;
+    $sql = "INSERT INTO sanpham(tenmathang, thuonghieu, dongia, iddanhmuc, mota, title, keywords, motatrang, images) VALUES ('$tenmathang','$thuonghieu','$dongia','$idDanhmuc', '$mota','$title','$keywords','$motatrang', '$filename')";
     $ketqua = mysqli_query($conn, $sql);
 }
 ?>
@@ -28,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="card-body">
                                     <h4 class="card-title">Thông tin cơ bản</h4>
                                     <p class="card-title-desc">Điền tất cả thông tin bên dưới</p>
-                                    <form action="" method="POST" name="form1" >
+                                    <form action="AddSP.php" method="POST" name="form1" >
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group">
@@ -87,9 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="row mt-4">
                                         <div class="col-12">
                                         <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
-                                            <form action="/" method="post" class="dropzone">
+                                            <form action="AddSP.php" method="post" class="dropzone" name="form2">
                                                 <div class="fallback">
-                                                    <input name="file" type="file" multiple="">
+                                                    <input name="uploadfile" type="file" multiple="">
                                                 </div>
                                                 <div class="dz-message needsclick">
                                                     <div class="mb-3">

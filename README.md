@@ -35,3 +35,4 @@ Trước khi tiếp tục, bạn có hiểu biết cơ bản về những điề
 * [Skote](https://devforum.info/skote-admin-template-p296.html) - Giao diện quản trị và người dùng
 
 ## Kết quả
+*Nhìn mà khóc thét :))*

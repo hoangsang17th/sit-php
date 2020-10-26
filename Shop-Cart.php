@@ -80,13 +80,14 @@ if(isset($_POST['submit'])){
         $query = mysqli_query($conn, $sql);
         $total = 0;
         while ($row = mysqli_fetch_assoc($query)){
-            $urlpage = str_replace(" ", "_", "$row[tenmathang]");
+            $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+            include("slug-page.php");
             echo "<tr>";
             echo   "<td>
                         <div class='d-flex align-items-center'>
                             <img src='images/shop/$row[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                             <div class='mb-0 ml-3'>
-                            <h6><a href='$row[id]_$urlpage.html'>$row[tenmathang]</a></h6>
+                            <h6><a href='$urlpage-$row[id].html'>$row[tenmathang]</a></h6>
                             <a href='DeleteCart.html?id=$row[id]'>Xóa</a>
                             </div>
                         </div>

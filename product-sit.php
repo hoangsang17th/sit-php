@@ -1,12 +1,5 @@
 <?php
 include("navigation.php");
-function makeUrl($string){
-    $string = trim($string);
-    $string = str_replace(' ', '_', $string);
-    $string = strtolower($string);
-    $string = preg_replace('/(à|ạ)/', 'a', $string);
-    return $string;
-}
 ?>
 <?php
     $check = 0;
@@ -121,24 +114,22 @@ function makeUrl($string){
                 $del = $row['dongia']*1.1*1000;
             }
             else $price =$del = 0;
-            $urlpage = str_replace(" ", "_", "$row[tenmathang]");
-            $sql6 = "SELECT * FROM photos WHERE idpro=$row[id]";
-            $query6 = mysqli_query($conn, $sql6);
-            $row6 = mysqli_fetch_assoc($query6);
+            $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+            include("slug-page.php");
             echo "<div class='col-12 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
-                    <a href='$row[id]_$urlpage.html' class='overlay-work'>
+                    <a href='$urlpage-$row[id].html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
+                    <a href='$urlpage-$row[id].html' class='overlay-work'>
                         <img src='images/shop/$row[images]' class='img-fluid' alt=''>
                     </a>
                     <ul class='list-unstyled shop-icons pr-3'>
-                        <li class='mt-2'><a href='$row[id]_$urlpage.html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='$urlpage-$row[id].html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
                         <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
                     </ul>
                 </div>
                 <div class='card-body content pt-4 p-2'>
-                    <a href='$row[id]_$urlpage.html' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <a href='$urlpage-$row[id].html' class='text-dark product-name h6'>$row[tenmathang]</a>
                     <div class='d-flex justify-content-between mt-1'>";
                     if ($price !=0){
                         echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";

@@ -12,8 +12,12 @@
         $rows = mysqli_num_rows($result);
             if($rows==1){
                 $_SESSION['email'] = $email;
-                header("Location: Home.html");
-
+                ?>
+                <script type="text/javascript">
+                    window.history.go(-2);
+                </script>
+                <?php
+                // header("Location: Home.html");
             }
             else{
                 $LoginErr ="* Sai Tài khoản hoặc Mật Khẩu!";
