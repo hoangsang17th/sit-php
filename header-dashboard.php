@@ -174,16 +174,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="dsdanhmuc.html" class=" waves-effect">
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="fas fa-list-ol"></i>
                                 <span>Danh Mục</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="AddDM.html">Thêm Mới Danh Mục</a></li>
+                                <li><a href="dsdanhmuc.html">Danh Sách Danh Mục</a></li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="dssanpham.html" class=" waves-effect">
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-list-ul"></i>
                                 <span>Sản Phẩm</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="AddSP.html">Thêm Mới Sản Phẩm</a></li>
+                                <li><a href="dssanpham.html">Danh Sách Sản Phẩm</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
