@@ -32,7 +32,7 @@ include("navigation.php");
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-5 pt-2 mt-sm-0 pt-sm-0">
                 <div class="position-relative">
-                    <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t1.0-9/p960x960/59350536_392606351338647_4337495752927346688_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=XB_tHc0_IsgAX_qtx4i&_nc_ht=scontent.fdad1-1.fna&tp=6&oh=dd84b828a4370888f5a8539265890b2e&oe=5F9A1C47" class="rounded img-fluid mx-auto d-block" alt="">
+                    <img src="assets/images/users/avatar.jpg" class="rounded img-fluid mx-auto d-block" alt="">
                     <div class="play-icon">
                         <a href="https://www.youtube.com/watch?v=kjQhtf1TfRk" class="play-btn video-play-icon">
                             <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
@@ -173,7 +173,7 @@ include("navigation.php");
                 <div class="card team text-center bg-transparent border-0">
                     <div class="card-body p-0">
                         <div class="position-relative">
-                            <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t1.0-9/p960x960/59350536_392606351338647_4337495752927346688_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=XB_tHc0_IsgAX_qtx4i&_nc_ht=scontent.fdad1-1.fna&tp=6&oh=dd84b828a4370888f5a8539265890b2e&oe=5F9A1C47" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
+                            <img src="assets/images/users/avatar.jpg" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
                             <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
                             <li class="list-inline-item"><a href="https://www.facebook.com/HoangSang17TH" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
                                 <li class="list-inline-item"><a href="https://www.instagram.com/hoangsang17th/" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
@@ -193,7 +193,7 @@ include("navigation.php");
                 <div class="card team text-center bg-transparent border-0">
                     <div class="card-body p-0">
                         <div class="position-relative">
-                            <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t1.0-9/p960x960/59350536_392606351338647_4337495752927346688_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=XB_tHc0_IsgAX_qtx4i&_nc_ht=scontent.fdad1-1.fna&tp=6&oh=dd84b828a4370888f5a8539265890b2e&oe=5F9A1C47" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
+                            <img src="assets/images/users/avatar.jpg" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
                             <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
                             <li class="list-inline-item"><a href="https://www.facebook.com/HoangSang17TH" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
                                 <li class="list-inline-item"><a href="https://www.instagram.com/hoangsang17th/" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
@@ -213,7 +213,7 @@ include("navigation.php");
                 <div class="card team text-center bg-transparent border-0">
                     <div class="card-body p-0">
                         <div class="position-relative">
-                            <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t1.0-9/p960x960/59350536_392606351338647_4337495752927346688_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=XB_tHc0_IsgAX_qtx4i&_nc_ht=scontent.fdad1-1.fna&tp=6&oh=dd84b828a4370888f5a8539265890b2e&oe=5F9A1C47" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
+                            <img src="assets/images/users/avatar.jpg" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
                             <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
                             <li class="list-inline-item"><a href="https://www.facebook.com/HoangSang17TH" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
                                 <li class="list-inline-item"><a href="https://www.instagram.com/hoangsang17th/" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
@@ -233,7 +233,7 @@ include("navigation.php");
                 <div class="card team text-center bg-transparent border-0">
                     <div class="card-body p-0">
                         <div class="position-relative">
-                            <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t1.0-9/p960x960/59350536_392606351338647_4337495752927346688_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=XB_tHc0_IsgAX_qtx4i&_nc_ht=scontent.fdad1-1.fna&tp=6&oh=dd84b828a4370888f5a8539265890b2e&oe=5F9A1C47" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
+                            <img src="assets/images/users/avatar.jpg" class="img-fluid avatar avatar-ex-large rounded-circle" alt="">
                             <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
                                 <li class="list-inline-item"><a href="https://www.facebook.com/HoangSang17TH" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
                                 <li class="list-inline-item"><a href="https://www.instagram.com/hoangsang17th/" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>

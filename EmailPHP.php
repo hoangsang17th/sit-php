@@ -5,7 +5,7 @@
 
     $from = "test@gmail.com";
     // Email gửi từ
-    $to = "startsboy@gmail.com";
+    $to = "phsang49@gmail.com";
     // Email người nhận
     $subject = "Checking PHP mail";
     // Tiêu đề email

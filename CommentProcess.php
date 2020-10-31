@@ -8,7 +8,6 @@
         $resname =mysqli_query($conn, $rsname);
         $profile = mysqli_fetch_assoc($resname);
     }
-    
     $idpro = $_POST['idpro'];
     $username = $profile['id'];
     $content = $_POST['content'];

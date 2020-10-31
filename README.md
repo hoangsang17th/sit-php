@@ -30,9 +30,65 @@ Trước khi tiếp tục, bạn có hiểu biết cơ bản về những điề
 * Trong file `Connect.php` cập nhập lại **Tên máy chủ, tên tài khoản và mật khẩu của CSDL**
 * Thay đổi logo web bằng cách thay đổi favicon.ico và Logo.png
 
+## Giới thiệu file
+* .htaccess: Định dạng Url
+* 404.php: Lỗi url
+* aboutus.php: Giới thiệu về trang
+* AddDM.php: Thêm danh mục mới
+* AddSP.php: Thêm sản phẩm mới
+* AddToDo.php: Thêm Task mới
+* AddToShop.php: Thêm sản phẩm vào giỏ hàng từ trang Shop.php
+* AddToShopNow.php: Thêm sản phẩm vào giỏ hàng từ trang chi tiết sản phẩm
+* Basket.php: Số lượng sản phẩm trong giỏ hàng
+* Check.php: Kiểm tra giỏ hàng và xác nhận thông tin trước khi thanh toán
+* CommentProcess.php: Đăng bình luận vào trang sản phẩm
+* CompleToDo.php: Đánh dấu đã hoàn thành Task
+* Connect.php: Kết nối với cơ sở dữ liệu
+* DeleteCart.php: Xóa sản phẩm trong giỏ hàng
+* DeleteSP.php: Xóa sản phẩm trên cửa hàng và Cơ sỡ dữ liệu
+* DeleteToDo.php: Xóa Task
+* DetailToDo.php: Chi tiết Task
+* dsdanhmuc.php: Danh sách danh mục
+* dssanpham.php: Danh sách sản phẩm
+* EditDM.php: Chỉnh sữa danh mục
+* EditPro.php: Chỉnh sửa sản phẩm
+* EmailPHP.php: Gửi mail tự động mỡi khi đăng ký nhận bản tin (Chưa hoàn thành)
+* Faqs.php: Các câu hỏi thường gặp
+* footer.php: Chân trang giao diện trang cửa hàng
+* footeradmin.php: Chân trang giao diện trang quản trị của admin
+* footer.php: Chân trang giao diện trang quản trị của người dùng
+* header-dashboard.php: Menu trang quản trị của admin
+* header.php: Menu trang quản trị của người dùng
+* Home.php: Trang chủ
+* index-dashboard.php: Trang chủ trang quản trị của admin
+* index.php: Trang chủ trang quản trị của người dùng
+* introtodo.php: Trang giới thiệu sản phẩm SIT To Do
+* ListCompleToDo.php: Trang danh sách các Task đã hoàn thành
+* login-dashboard.php: Trang đăng nhập với quyền quản trị viên
+* login.php: Trang đăng nhập với quyền người dùng
+* logout-dashboard.php: Đăng xuất quyền quản trị viên
+* logout.php: Đăng xuất quyeenf người dùng
+* MySQL.sql: Cơ sỡ dữ liệu của dự án
+* navigation.php: Menu trang chủ
+* Orderhistory.php: Các sản phẩm đã mua
+* product-sit.php: Chi tiết sản phẩm
+* Profileuser.php: Thông tin người dùng
+* register.php: Đăng ký trở thành người dùng
+* Review.php: Xem lại các bình luận về sản phẩm trong quá khứ
+* robots.txt:
+* Search.php: Hiển thị tìm kiếm sản phẩm
+* Searchview.php: Thực hiện truy vấn tìm kiếm và trả về kết quả cho trang Search.php
+* Shop-Cart.php: Giỏ hàng
+* Shop.php: Hiển thị sản phẩm
+* slug-page.php: Định dạng lại url trang
+* SSAdmin.php: Lưu session khi đăng nhập với quyền quản trị
+* SSUser.php: Lưu session khi đăng nhập với quyền người dùng
+* user-dashboard.php: Danh sách người dùng
+* WellcomeSIT.php: Đích đến sau khi đăng ký nhận bản tin
+
 ## Nguồn dẫn chứng
 * [Landrick](https://themeforest.net/item/landrick-responsive-saas-and-software-template/24438577) - Giao diện cửa hàng và các trang liên quan
 * [Skote](https://devforum.info/skote-admin-template-p296.html) - Giao diện quản trị và người dùng
 
 ## Kết quả
-*Nhìn mà khóc thét :))*
+* Xem sản phẩm [tại đây](bit.ly/Sub17Th)

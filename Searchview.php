@@ -1,5 +1,3 @@
-         
-
 <?php
 echo '<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"> '; 
     include("Connect.php");
@@ -17,20 +15,18 @@ while($row = mysqli_fetch_array($result)) {
         $del = $row['dongia']*1.1*1000;
     }
     else $price =$del = 0;
-    $urlpage = str_replace(" ", "_", "$row[tenmathang]");
-    $sql5 = "SELECT * FROM photos WHERE idpro=$row[id]";
-    $query5 = mysqli_query($conn, $sql5);
-    $row5 = mysqli_fetch_assoc($query5);
+    $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+    include("slug-page.php");
     echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='$row[id]_$urlpage.html'><img src='images/shop/$row5[images]' class='img-fluid' alt=''></a>
-                    <a href='$row[id]_$urlpage.html' class='overlay-work'>
-                        <img src='images/shop/$row5[images]' class='img-fluid' alt=''>
+                    <a href='$urlpage-$row[id].html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
+                    <a href='$urlpage-$row[id].html' class='overlay-work'>
+                        <img src='images/shop/$row[images]' class='img-fluid' alt=''>
                     </a>
                 </div>
                 <div class='card-body content pt-4 p-2'>
-                    <a href='$row[id]_$urlpage.html' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <a href='$urlpage-$row[id].html' class='text-dark product-name h6'>$row[tenmathang]</a>
                     <div class='d-flex justify-content-between mt-1'>";
                     if ($price !=0){
                         echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";
