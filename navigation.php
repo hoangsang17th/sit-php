@@ -162,7 +162,7 @@
                     <li><a href="Shop.html">Shop</a></li>
                     <li><a href="introtodo.html">To Do</a></li>
                     <li><a href="aboutus.html">About Us</a></li>  
-                    <li><a href="Search.html">Search</a></li>
+                    <!-- <li><a href="Search.html">Search</a></li> -->
                 </ul>
                 
                 <div class="buy-menu-btn d-none">

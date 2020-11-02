@@ -4,6 +4,12 @@ include("header-dashboard.php");
 <title>Thêm sản phẩm mới SIT</title>
 <link href="assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css">
 <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.tiny.cloud/1/rm8h7epfc7tvhvacjxs9dfg7u4whkpmvn962dhuwiavn550n/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tenmathang = $_POST['tenmathang']; 
@@ -20,6 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $folder = "images/shop/".$filename;
     $sql = "INSERT INTO sanpham(tenmathang, thuonghieu, dongia, iddanhmuc, mota, title, keywords, motatrang, images) VALUES ('$tenmathang','$thuonghieu','$dongia','$idDanhmuc', '$mota','$title','$keywords','$motatrang', '$filename')";
     $ketqua = mysqli_query($conn, $sql);
+    if (move_uploaded_file($tempname, $folder))  { 
+        $msg = "Image uploaded successfully"; 
+    }else{ 
+        $msg = "Failed to upload image"; 
+    } 
 }
 ?>
     <div id="layout-wrapper">
@@ -32,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="card-body">
                                     <h4 class="card-title">Thông tin cơ bản</h4>
                                     <p class="card-title-desc">Điền tất cả thông tin bên dưới</p>
-                                    <form action="AddSP.php" method="POST" name="form1" >
+                                    <form action="" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group">
@@ -42,10 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <div class="form-group">
                                                     <label for="manufacturername">Thương hiệu</label>
                                                     <input name="thuonghieu" type="text" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="price">Giá Bán</label>
-                                                    <input name="dongia" type="number" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6">
@@ -63,8 +70,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label for="price">Giá Bán</label>
+                                                    <input name="dongia" type="number" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
                                                     <label for="productdesc">Mô tả sản phẩm</label>
-                                                    <textarea name="mota" class="form-control pb-2" maxlength="1000" rows="6" placeholder="Không quá 1000 ký tự"></textarea>
+                                                    <textarea name="mota" id="mytextarea" class="form-control pb-2" maxlength="1000" rows="15" placeholder="Không quá 1000 ký tự"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,26 +102,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                    <div class="row mt-4">
-                                        <div class="col-12">
-                                        <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
-                                            <form action="AddSP.php" method="post" class="dropzone" name="form2">
-                                                <div class="fallback">
-                                                    <input name="uploadfile" type="file" multiple="">
-                                                </div>
-                                                <div class="dz-message needsclick">
-                                                    <div class="mb-3">
-                                                        <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                                                    </div>
-                                                    <h4>Drop files here or click to upload.</h4>
-                                                </div>
-                                                
-                                            </form>
+                                        <div class="row mt-4">
+                                            <div class="col-12">
+                                                <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
+                                                <input name="uploadfile" type="file">
+                                            </div>
+                                        </div>
                                         <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị">
                                         <a href="dssanpham.html" class="btn btn-danger mt-3 waves-effect px-5">Hủy</a>
-                                        </div>
-                                    </div>
+                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -115,17 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
-    <script language=javascript>
-    function SubmitForm()
-    {
-        document.forms['form1'].submit();
-        document.forms['form2'].submit();
-        return true;
-    }
-    </script>
-    <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
-    <script src="assets/libs/summernote/summernote-bs4.min.js"></script>
-
 <?php
 include("footeradmin.php");
 ?>
