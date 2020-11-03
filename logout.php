@@ -1,5 +1,7 @@
 <?php
 session_start();
 unset($_SESSION['email']);
-header("Location: login.html");
 ?>
+<script type="text/javascript">
+    window.history.go(-1);
+</script>

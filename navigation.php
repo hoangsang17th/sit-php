@@ -5,6 +5,7 @@
     $profile['phone']='';
     $profile['address']='';
     $profile['name']='';
+    $profile['id']= 1;
     if(isset($_SESSION["email"])){
         $email = $_SESSION['email'];
         $rsname = "SELECT * FROM `users` WHERE email= '$email'";
