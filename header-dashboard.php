@@ -199,7 +199,7 @@
                                 <span>Hệ Thống</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="#">Đơn Hàng</a></li>
+                                <li><a href="orderlist.html">Đơn Hàng</a></li>
                                 <li><a href="#">Doanh Thu</a></li>
                             </ul>
                         </li>

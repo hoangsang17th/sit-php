@@ -7,9 +7,9 @@ include("header-dashboard.php");
 <script src="https://cdn.tiny.cloud/1/rm8h7epfc7tvhvacjxs9dfg7u4whkpmvn962dhuwiavn550n/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
-      selector: '#mytextarea'
+        selector: '#mytextarea'
     });
-  </script>
+</script>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tenmathang = $_POST['tenmathang']; 
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <input name="uploadfile" type="file">
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" onclick="return SubmitForm();" value="Lưu và hiển thị">
+                                        <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" value="Lưu và hiển thị">
                                         <a href="dssanpham.html" class="btn btn-danger mt-3 waves-effect px-5">Hủy</a>
                                     </form>
                                     

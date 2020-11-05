@@ -2,6 +2,12 @@
 include("header-dashboard.php");
 ?>
 <title>Thay đổi thông tin sản phẩm SIT</title>
+<script src="https://cdn.tiny.cloud/1/rm8h7epfc7tvhvacjxs9dfg7u4whkpmvn962dhuwiavn550n/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea'
+    });
+</script>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tenmathang = $_POST['tenmathang']; 
@@ -12,10 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title =$_POST['title'];
     $keywords =$_POST['keywords'];
     $motatrang =$_POST['motatrang'];
+
+    $filename = $_FILES["uploadfile"]["name"]; 
+	$tempname = $_FILES["uploadfile"]["tmp_name"];	 
+    $folder = "images/shop/".$filename;
     $id=$_GET['id'];
-    $sql = "UPDATE sanpham SET tenmathang='$tenmathang',iddanhmuc=$idDanhmuc,thuonghieu='$thuonghieu',dongia=$dongia, mota='$mota', title='$title', keywords='$keywords', motatrang='$motatrang' WHERE id=$id";
+    $sql = "UPDATE sanpham SET tenmathang='$tenmathang',iddanhmuc=$idDanhmuc,thuonghieu='$thuonghieu',dongia=$dongia, mota='$mota', title='$title', keywords='$keywords', motatrang='$motatrang', images='$filename' WHERE id=$id";
     $sll = "SELECT * FROM sanpham WHERE tenmathang='$tenmathang' ";
-    $ketqua = mysqli_query($conn, $sql);    
+    $ketqua = mysqli_query($conn, $sql);   
+    if (move_uploaded_file($tempname, $folder))  { 
+        $msg = "Image uploaded successfully"; 
+    }else{ 
+        $msg = "Failed to upload image"; 
+    }  
 }
 ?>
 <?php
@@ -23,6 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sqlGetHangHoa = "SELECT * FROM sanpham WHERE id=".$_GET['id'];        
         $ketQuaGetHangHoa = mysqli_query($conn, $sqlGetHangHoa);
         $mathang = mysqli_fetch_assoc($ketQuaGetHangHoa);
+        $pass= mysqli_num_rows($ketQuaGetHangHoa);
+        if($pass==0){
+            $mathang['tenmathang'] = $mathang['thuonghieu'] = $mathang['dongia']
+        = $mathang['iddanhmuc'] = $mathang['mota'] = $mathang['title']
+        = $mathang['keywords'] = $mathang['motatrang'] =
+        "Sản Phẩm Không Tồn Tại!";
+        }
     }
     else {
         $mathang['tenmathang'] = $mathang['thuonghieu'] = $mathang['dongia']
@@ -39,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">Thay đổi thông tin sản phẩm</h4>
-                            <form action="" method="POST">
+                            <form action="" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
@@ -49,10 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="form-group">
                                         <label for="manufacturername">Thương hiệu</label>
                                         <input name="thuonghieu" type="text" class="form-control"value="<?php echo $mathang['thuonghieu']; ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="price">Giá Bán</label>
-                                        <input name="dongia" type="number" class="form-control" value="<?php echo $mathang['dongia']; ?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
@@ -72,13 +90,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="productdesc">Mô tả sản phẩm</label>
-                                        <textarea name="mota" class="form-control pb-2" maxlength="1000" rows="6" placeholder="Không quá 1000 ký tự"><?php echo $mathang['mota']; ?></textarea>
+                                        <label for="price">Giá Bán</label>
+                                        <input name="dongia" type="number" class="form-control" value="<?php echo $mathang['dongia']; ?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                            <h4 class="col-12 card-title my-3">Phần SEO</h4>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="productdesc">Mô tả sản phẩm</label>
+                                        <textarea name="mota" id="mytextarea" class="form-control pb-2" maxlength="1000" rows="15" placeholder="Không quá 1000 ký tự"><?php echo $mathang['mota']; ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h4 class="col-12 card-title my-3">Phần SEO</h4>
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="metatitle">Tiêu đề trang</label>
@@ -96,8 +122,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h4 class="card-title mb-3">Ảnh về sản phẩm</h4>
+                                    <input name="uploadfile" type="file">
+                                </div>
+                            </div>
                             <div>
-                                <button type="submit" class="btn btn-primary w-md">Hoàn Thành</button>
+                                <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" value="Lưu và hiển thị">
+                                <a href="dssanpham.html" class="btn btn-danger mt-3 waves-effect px-5">Hủy</a>
                             </div>
                             </form>
                         </div>

@@ -45,7 +45,7 @@ if($counts!=0){
         $product_name = $row['tenmathang'];
         $quanlity= $_SESSION['cart'][$row['id']];
         $price = ($_SESSION['cart'][$row['id']]*$row['dongia']*1000);
-        $sqlorder= "INSERT INTO orderpro(user_id, product_id, product_name, quanlity, price, address, phone, date_order) VALUES ('$user_id', '$product_id', '$product_name', '$quanlity', '$price', '$address', '$phone', '$date_order')";
+        $sqlorder= "INSERT INTO orderpro(user_id, product_id, product_name, quanlity, price, address, phone, status, date_order) VALUES ('$user_id', '$product_id', '$product_name', '$quanlity', '$price', '$address', '$phone', 'Chưa Giải Quyết', '$date_order')";
         $queryorder = mysqli_query($conn, $sqlorder);
         echo "<tr>";
         echo   "<td>
