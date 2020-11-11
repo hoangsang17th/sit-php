@@ -26,7 +26,7 @@ include("header.php");
                             }
                             $start = ($current_page - 1) * $limit;
                             $uid= $profile['id'];
-                            $sqllimit = "SELECT * FROM orderpro WHERE user_id= $uid LIMIT $start,$limit";
+                            $sqllimit = "SELECT * FROM orderpro WHERE user_id= $uid ORDER BY id DESC LIMIT $start,$limit";
                             $result = mysqli_query($conn, $sqllimit);
                             ?>
                                 <table class="table table-centered table-nowrap">

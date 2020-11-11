@@ -1,16 +1,10 @@
 <?php
     include("Connect.php");
     include("navigation.php");
-    // include("Limitpage.php");
+    session_start();
 ?>
 <link href="assets/css/flexslider.css" rel="stylesheet" type="text/css" />
 <title>Shop SIT - Mua mọi thứ với mọi giá!</title>
-<script>
-// function showRe(str) {
-//     $url = 'Limitpage.php';
-//     $.get($url, {limit: str});
-//     }
-</script>
 <section class="main-slider">
     <ul class="slides"> 
         <li class="bg-slider slider-rtl-2 d-flex align-items-center" style="background:url('images/software/partner1.svg');">
@@ -97,7 +91,6 @@
             <div class="col-lg-3 col-md-4 col-12">
                 <div class="card border-0 sidebar sticky-bar">
                     <div class="card-body p-0">
-                        <!-- SEARCH -->
                         <div class="widget">
                             <div id="search2" class="widget-search mb-0">
                                 <form role="search" method="get" id="searchform" class="searchform">
@@ -108,18 +101,39 @@
                                 </form>
                             </div>
                         </div>
-                        <!-- SEARCH -->
-
-                        <!-- CATAGORIES -->
+                        <hr>
+                        <div class="widget mt-2">
+                            <div id="search3" class="widget-search mb-0">
+                                <form method="GET" action="Shop.html">
+                                <div class="row mb-2">
+                                    <div class="col-12 mb-2">GIÁ</div>
+                                    <div class="col-12 text-muted">Chọn khoản giá</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <input type="number" class="border rounded form-control" name="min">
+                                    </div>
+                                    <div class="mt-2">
+                                    ĐẾN
+                                    </div>
+                                    <div class="col-5 text-center">
+                                    <input type="number" class="border rounded form-control" name="max">
+                                    </div>
+                                    <div class="ml-3 mt-3 col-4 btn btn-outline-primary">
+                                    <input type="submit" value="OK">OK</div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
                         <div class="widget mt-4 pt-2">
-                            <h4 class="widget-title">DANH MỤC SẢN PHẨM</h4>
+                            <h4 class="widget-title"><a href="Shop.html">DANH MỤC SẢN PHẨM</a></h4>
                             <ul class="list-unstyled mt-4 mb-0 blog-catagories">
                                 <?php
                                 $resultdm = mysqli_query($conn, "SELECT * FROM danhmuc");
                                 while ($rowdm = mysqli_fetch_assoc($resultdm)){
                                 $resultslsp = mysqli_query($conn, "SELECT * FROM sanpham WHERE iddanhmuc=".$rowdm['id']."");
                                 $sqlslsp= mysqli_num_rows($resultslsp);
-                                echo "<li><a href='Shop.html?c=".$rowdm['id']."'>$rowdm[tendanhmuc] <span class='text-primary'>($sqlslsp)</span></a></li>";
+                                echo "<li><a href='?c=".$rowdm['id']."'>$rowdm[tendanhmuc] <span class='text-primary'>($sqlslsp)</span></a></li>";
                                 }
                                 ?>
                             </ul>
@@ -128,7 +142,12 @@
                 </div>
             </div>
             <?php
-                $limit = 10;
+                $_SESSION['limit'] =10;
+                $limit = $_SESSION['limit'];
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $custom = $_POST['limi'];
+                    $_SESSION['limit'] =  $custom;
+                }
             if (isset($_GET['c'])){
                 $c=$_GET['c'];
                 $querycou = "SELECT * FROM sanpham WHERE iddanhmuc=".$c;
@@ -148,7 +167,7 @@
             }else 
             if(isset($_GET['s'])){
                 $s =$_GET['s'];
-                $querycou = "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$s."%' OR dongia LIKE '%".$s."%'";
+                $querycou = "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$s."%'";
                 $resultcou = mysqli_query($conn, $querycou);
                 
                 $total_records = mysqli_num_rows($resultcou);
@@ -161,7 +180,7 @@
                 $current_page = 1;
                 }
                 $start = ($current_page - 1) * $limit;
-                $sqls= "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$s."%' OR dongia LIKE  '%".$s."%' LIMIT $start,$limit";
+                $sqls= "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$s."%' LIMIT $start,$limit";
                 $result = mysqli_query($conn, $sqls);
             } else {
                 $querycou = "SELECT * FROM sanpham";
@@ -185,18 +204,21 @@
                 <div class="row align-items-center">
                     <div class="col-lg-9 col-md-7">
                         <div class="section-title">
-                            <h5 class="mb-0"><?php echo "SẢN PHẨM: ".$total_records;?> Kết Quả</h5>
+                            <h5 class="mb-0">SẢN PHẨM: <?php echo $total_records;?> Kết Quả</h5>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-5 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                        <div class="form custom-form">
+                        <div class="form custom-form" >
+                            <form action="Shop.html" method="POST">
                             <div class="form-group mb-0">
-                                <select class="form-control custom-select" name="custom"  onchange="showRe(this.value)">
+                                <select class="form-control custom-select" name="limi" onchange = 'this.form.submit ()'>
+                                    <option >Số SP Mỗi Trang</option>
                                     <option value="10">10 Sản Phẩm</option>
                                     <option value="20">20 Sản Phẩm</option>
-                                    <option value="30">30 SSản Phẩm</option>
+                                    <option value="30">30 Sản Phẩm</option>
                                 </select>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
