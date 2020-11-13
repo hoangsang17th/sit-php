@@ -181,6 +181,51 @@ include("navigation.php");
     <div class='container mb-5'>
         <div class='row mb-5'>
             <div class='col-12 mb-5' id='listcomment'>";
+           echo "<div class='card shadow rounded border-0 mt-4'>
+    <div class='card-body'>
+        <h5 class='card-title mb-0'>Comments :</h5>
+
+        <ul class='media-list list-unstyled mb-0'>
+            <li class='mt-4'>
+                <div class='d-flex justify-content-between'>
+                    <div class='media align-items-center'>
+                        <a class='pr-3' href='#'>
+                            <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
+                        </a>
+                        <div class='commentor-detail'>
+                            <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>Tammy Camacho</a></h6>
+                            <small class='text-muted'>16th August, 2019 at 03:44 pm</small>
+                        </div>
+                    </div>
+                    <a href='#' class='text-muted'><i class='mdi mdi-reply'></i> Reply</a>
+                </div>
+                <div class='mt-3'>
+                    <p class='text-muted font-italic p-3 bg-light rounded'>' There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour '</p>
+                </div>
+
+                <ul class='list-unstyled pl-4 pl-md-5 sub-comment'>
+                    <li class='mt-4'>
+                        <div class='d-flex justify-content-between'>
+                            <div class='media align-items-center'>
+                                <a class='pr-3' href='#'>
+                                    <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
+                                </a>
+                                <div class='commentor-detail'>
+                                    <h6 class='mb-0'><a href='javascript:void(0)' class='text-dark media-heading'>Lorenzo Peterson</a></h6>
+                                    <small class='text-muted'>17th August, 2019 at 01:25 pm</small>
+                                </div>
+                            </div>
+                            <a href='#' class='text-muted'><i class='mdi mdi-reply'></i> Reply</a>
+                        </div>
+                        <div class='mt-3'>
+                            <p class='text-muted font-italic p-3 bg-light rounded'>' There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour '</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>";
                 $sql3 = "SELECT * FROM comment WHERE idpro = $id";
                 $ketqua3 = mysqli_query($conn, $sql3);
                 $quanlity = mysqli_num_rows($ketqua3);

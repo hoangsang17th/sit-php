@@ -24,10 +24,10 @@ include("header.php");
                     }
                     $start = ($current_page - 1) * $limit;
                     $uid= $profile['id'];
-                    $sqllimit = "SELECT * FROM comment WHERE username= $uid LIMIT $start,$limit";
+                    $sqllimit = "SELECT * FROM comment WHERE username= $uid ORDER BY id DESC LIMIT $start,$limit";
                     $result = mysqli_query($conn, $sqllimit);
                     ?>
-                        <div class="table-responsive">
+                        <div class="table-responsiv">
                             <table class="table project-list-table table-nowrap table-centered table-borderless">
                                 <tbody>
                                     <?php
@@ -38,8 +38,8 @@ include("header.php");
                                         $urlpage = str_replace(" ", "-", "$rowpro[tenmathang]");
                                         include("slug-page.php");
                                         echo "<tr>";
-                                        echo "<td><img src='images/shop/$rowpro[images]' alt='$rowpro[tenmathang]' class='border' width='70px'></td>
-                                        <td>
+                                        echo "<td class='text-left' width='10%'><img src='images/shop/$rowpro[images]' alt='$rowpro[tenmathang]' class='border' width='70px'></td>
+                                        <td class='text-left' width='90%'>
                                             <h5 class='text-truncate font-size-14'><a href='$urlpage-$rowcm[idpro].html#listcomment' class='text-dark'>$rowpro[tenmathang]</a></h5>
                                             <p class='text-muted mb-0'><i>$rowcm[date]</i></p>
                                             <p class=''>$rowcm[comment]</p>

@@ -44,15 +44,19 @@ include("header-dashboard.php");
                                             $sqlname = "SELECT * FROM users WHERE id =".$row['user_id'];
                                             $queryname = mysqli_query($conn, $sqlname);
                                             $rowname = mysqli_fetch_assoc($queryname); 
+
+                                            $sqlprice= " SELECT * FROM orderdetail WHERE idorder =".$row['id'];
+                                            $qprice= mysqli_query($conn, $sqlprice);
+                                            $rowprice = mysqli_fetch_assoc($qprice); 
                                             echo "<tr>
                                                 
-                                            <td><a href='javascript: void(0);' class='text-primary ml-3'>$row[id]</a> </td>
+                                            <td><a href='javascript: void(0);' class='text-primary ml-3'>VKU$row[id]</a> </td>
                                             <td>$row[date_order]</td>
                                             <td>
                                                 $rowname[name]
                                             </td>
                                             <td>
-                                            ".number_format($row['price'])."đ
+                                            ".number_format($rowprice['price'])."đ
                                             </td>
                                             <td>";
                                             if($row['status']=="Chưa Giải Quyết"){
@@ -112,12 +116,6 @@ include("header-dashboard.php");
     $sqlname = "SELECT * FROM users WHERE id =".$row1['user_id'];
     $queryname = mysqli_query($conn, $sqlname);
     $rowname = mysqli_fetch_assoc($queryname); 
-
-    $sqlpro = "SELECT * FROM sanpham WHERE id =".$row1['product_id'];
-    $querypro = mysqli_query($conn, $sqlpro);
-    $rowpro = mysqli_fetch_assoc($querypro);
-    $urlpage = str_replace(" ", "-", "$rowpro[tenmathang]");
-    include("slug-page.php");
     echo "<div class='modal fade Modal$row1[id]' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog modal-dialog-centered' role='document'>
                 <div class='modal-content'>
@@ -128,8 +126,8 @@ include("header-dashboard.php");
                         </button>
                     </div>
                     <div class='modal-body'>
-                        <p class='mb-2'>Mã Đơn Hàng: <span class='text-primary'>$row1[id]</span></p>
-                        <p class='mb-4'>Khách Hàng: <span class='text-primary'>$rowname[name]</span></p>
+                        <p class='mb-2'>Mã Đơn Hàng: <span class='text-primary'> VKU$row1[id]</span></p>
+                        <p class='mb-4'>Khách Hàng: <span class='text-primary'> $rowname[name]</span></p>
 
                         <div class='table-responsive'>
                             <table class='table table-centered table-nowrap'>
@@ -140,29 +138,43 @@ include("header-dashboard.php");
                                     <th scope='col'>Tổng</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope='row'>
-                                            <div>
-                                                <img src='images/shop/$rowpro[images]' class='border' width='70px'>
-                                            </div>
-                                        </th>
-                                        <td>
-                                            <div>
-                                                <h5 class='text-truncate font-size-14'>$row1[product_name]</h5>
-                                                <p class='text-muted mb-0'>".($rowpro['dongia']*1000)."đ x $row1[quanlity]</p>
-                                            </div>
-                                        </td>
-                                        <td>".number_format($row1['price'])."đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan='2'>
-                                            <h6 class='m-0 text-right'>Total:</h6>
-                                        </td>
-                                        <td>
-                                        ".number_format($row1['price'])."đ
-                                        </td>
-                                    </tr>
+                                <tbody>";
+    $sorder = "SELECT * FROM orderdetail WHERE idorder =".$row1['id'];
+    $qorder = mysqli_query($conn, $sorder);
+    $total=0;
+    while($roworder = mysqli_fetch_assoc($qorder)){
+        $sqlpro = "SELECT * FROM sanpham WHERE id =".$roworder['idpro'];
+        $querypro = mysqli_query($conn, $sqlpro);
+        $rowpro = mysqli_fetch_assoc($querypro);
+        echo "<tr>
+                <th scope='row'>
+                    <div>
+                        <img src='images/shop/$rowpro[images]' class='border' width='70px'>
+                    </div>
+                </th>
+                <td>
+                    <div>
+                        <h5 class='text-truncate font-size-14'>$rowpro[tenmathang]</h5>
+                        <p class='text-muted mb-0'>".($rowpro['dongia']*1000)."đ x $roworder[quanlity]</p>
+                    </div>
+                </td>
+                <td>".number_format($roworder['price'])."đ</td>
+            </tr>";
+            $total+= $roworder['price'];
+    }
+    
+
+    
+
+    
+                                    echo"<tr>
+                                    <td colspan='2'>
+                                        <h6 class='m-0 text-right'>Total:</h6>
+                                    </td>
+                                    <td>
+                                    ".number_format($total)."đ
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

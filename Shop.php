@@ -142,7 +142,9 @@
                 </div>
             </div>
             <?php
-                $_SESSION['limit'] =10;
+                if(!isset($_SESSION['limit'])){
+                    $_SESSION['limit'] =10;
+                }
                 $limit = $_SESSION['limit'];
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $custom = $_POST['limi'];
