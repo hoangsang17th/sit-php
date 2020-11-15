@@ -16,13 +16,13 @@ include("Connect.php");
                     <p class="para-desc mx-auto text-muted" data-aos="fade-up" data-aos-duration="1800">
                         <?php
                             if (isset($_GET['email'])){
-                                $email = $_GET["email"];
-                                $sqlx = "SELECT * FROM subcribe WHERE email= '$email'";
-                                $sqlxi = mysqli_query($conn, $sqlx);
-                                $rows = mysqli_num_rows($sqlxi);
-                                if ($rows == 0){
-                                    $sqle = "INSERT INTO `subcribe` (`id`, `email`) VALUES (NULL, '$email')";
-                                    $ketqua = mysqli_query($conn, $sqle);
+                                $Email_Subcribe = $_GET["email"];
+                                $Statement_Subcribe = "SELECT * FROM subcribe WHERE Email_Subcribe= '$Email_Subcribe'";
+                                $Query_Subcribe = mysqli_query($conn, $Statement_Subcribe);
+                                $Display_Subcribe = mysqli_num_rows($Query_Subcribe);
+                                if ($Display_Subcribe == 0){
+                                    $Statement_Insert_Subcribe = "INSERT INTO `subcribe` (`Email_Subcribe`) VALUES ('$Email_Subcribe')";
+                                    $Query_Subcribe = mysqli_query($conn, $Statement_Insert_Subcribe);
                                     echo "Đăng ký nhận bản tin thành công";
                                 }
                                 else echo "Đăng ký nhận bản tin thất bại";
@@ -31,9 +31,9 @@ include("Connect.php");
                         ?>
                     </p>
                 </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container--> 
+            </div>
+        </div>
+    </div>
 </section>
 <?php
 include("footer.php");

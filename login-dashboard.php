@@ -2,16 +2,17 @@
     include("Connect.php");
     session_start();
     $LoginErr ="";
-    if (isset($_POST['username'])){
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($conn,$username);
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($conn,$password);
-        $query = "SELECT * FROM `admin` WHERE user='$username' and password='$password'";
-        $result = mysqli_query($conn,$query) or die(mysql_error());
-        $rows = mysqli_num_rows($result);
-            if($rows==1){ //1 là đúng (Nếu rows tồn tại 1 giá trị thì thực hiện công việc tiếp theo)
-                $_SESSION['adminname'] = $username;
+    if (isset($_POST['Email_Admin'])){
+        $Email_Admin = stripslashes($_REQUEST['Email_Admin']);
+        $Email_Admin = mysqli_real_escape_string($conn,$Email_Admin);
+        $Password_Admin = stripslashes($_REQUEST['Password_Admin']);
+        $Password_Admin = mysqli_real_escape_string($conn,$Password_Admin);
+        $Statement_Admin = "SELECT * FROM `admin` WHERE Email_Admin = '$Email_Admin' AND Password_Admin = '$Password_Admin'";
+        $Query_Admin = mysqli_query($conn, $Statement_Admin);
+        $Display_Admin = mysqli_num_rows($Query_Admin);
+            if($Display_Admin==1){ 
+                //1 là đúng (Nếu Display_Admin tồn tại 1 giá trị thì thực hiện công việc tiếp theo)
+                $_SESSION['Email_Admin'] = $Email_Admin;
                 header("Location: index-dashboard.html");
             }
             else{
@@ -37,9 +38,11 @@
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
 </head>
 <body>
+<!-- Về trang đăng nhập của gnuoiwf dùng -->
     <div class="home-btn d-none d-sm-block">
         <a href="login.html" class="text-dark"><i class="fas fa-home h2"></i></a>
     </div>
+    <!-- Giao điện trang đăng nhập -->
     <div class="account-pages pt-3">
         <div class="container">
             <div class="row justify-content-center">
@@ -72,12 +75,12 @@
                                 <form class="form-horizontal" action="" method="post" name="login">
                                     <i class="text-danger mb-5"><?php echo $LoginErr;?></i>
                                     <div class="form-group mt-1">
-                                        <label for="username">Tài Khoản</label>
-                                        <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+                                        <label for="Email_Admin">Tài Khoản</label>
+                                        <input type="text" class="form-control" name="Email_Admin" id="Email_Admin" placeholder="Enter username">
                                     </div>
                                     <div class="form-group">
-                                        <label for="userpassword">Mật Khẩu</label>
-                                        <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
+                                        <label for="userPassword_Admin">Mật Khẩu</label>
+                                        <input type="password" class="form-control" name="Password_Admin" id="userpassword" placeholder="Enter password">
                                     </div>
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customControlInline">
@@ -91,6 +94,11 @@
                                         <a href="tel: 0332148505" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Bạn Quên Mật Khẩu</a>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="text-center">
+                            <?php
+                            echo $LoginErr;
+                            ?>
                             </div>
                         </div>
                     </div>

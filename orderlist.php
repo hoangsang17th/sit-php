@@ -10,63 +10,45 @@ include("header-dashboard.php");
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-centered table-nowrap">
-                                <?php
-                                $limit = 10;
-                                $sql= "SELECT * FROM orderpro";
-                                $query = mysqli_query($conn, $sql);
-                                $count= mysqli_num_rows($query);
-                                $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                                $total_page = ceil($count / $limit);
-                                if ($current_page > $total_page){
-                                $current_page = $total_page;
-                                }
-                                else if ($current_page < 1){
-                                $current_page = 1;
-                                }
-                                $start = ($current_page - 1) * $limit;
-                                $sqllimit = "SELECT * FROM orderpro LIMIT $start,$limit";
-                                $result = mysqli_query($conn, $sqllimit);
-                                ?>
+                                <table  id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead class="thead-light">
                                         <tr>
                                             <th>Mã đơn hàng</th>
                                             <th>Ngày mua</th>
                                             <th>Khách hàng</th>
-                                            <th>Tổng</th>
                                             <th>Trạng thái</th>
                                             <th>Chi Tiết</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        while ($row = mysqli_fetch_assoc($result)){
-                                            $sqlname = "SELECT * FROM users WHERE id =".$row['user_id'];
-                                            $queryname = mysqli_query($conn, $sqlname);
-                                            $rowname = mysqli_fetch_assoc($queryname); 
-
-                                            $sqlprice= " SELECT * FROM orderdetail WHERE idorder =".$row['id'];
-                                            $qprice= mysqli_query($conn, $sqlprice);
-                                            $rowprice = mysqli_fetch_assoc($qprice); 
+                                        $Statement_Order = "SELECT * FROM `order`";
+                                        $Query_Order = mysqli_query($conn, $Statement_Order);
+                                        // Từ bảng order chúng ta bắt đầu truy vấn các trường dữ liệu ở các bảng khác để bổ sung thông tin cho hóa đơn
+                                        while ($Display_Order = mysqli_fetch_assoc($Query_Order)){
+                                            // Từ ID_User lấy ra dữ liệu tên người dùng
+                                            $Statement_Users = "SELECT * FROM users WHERE ID_User =".$Display_Order['ID_User'];
+                                            $Query_Users = mysqli_query($conn, $Statement_Users);
+                                            $Display_Users = mysqli_fetch_assoc($Query_Users); 
+                                            // Từ ID_Order lấy toàn bộ dữ liệu của đơn đặt hàng
+                                            $Statement_OrderDetail = "SELECT * FROM orderdetail WHERE ID_Order =".$Display_Order['ID_Order'];
+                                            $Query_OrderDetail = mysqli_query($conn, $Statement_OrderDetail);
+                                            $Display_OrderDetail = mysqli_fetch_assoc($Query_OrderDetail); 
                                             echo "<tr>
                                                 
-                                            <td><a href='javascript: void(0);' class='text-primary ml-3'>VKU$row[id]</a> </td>
-                                            <td>$row[date_order]</td>
+                                            <td><a href='javascript: void(0);' class='text-primary ml-3'>VKU".$Display_Order['ID_Order']."</a> </td>
+                                            <td>$Display_Order[Date_Order]</td>
                                             <td>
-                                                $rowname[name]
-                                            </td>
-                                            <td>
-                                            ".number_format($rowprice['price'])."đ
+                                            $Display_Users[Name_User]
                                             </td>
                                             <td>";
-                                            if($row['status']=="Chưa Giải Quyết"){
+                                            if($Display_Order['Status_Order']=="Chưa Giải Quyết"){
                                                 echo "<span class='badge badge-pill badge-soft-danger font-size-13'>Chưa Giao</span>";
                                             }
                                             else echo "<span class='badge badge-pill badge-soft-success font-size-13'>Đã Giao</span>";
-                                                
-                                        echo    "</td>";
+                                        echo "</td>";
                                         echo "<td>
-                                                <button type='button' class='btn btn-primary btn-sm btn-rounded' data-toggle='modal' data-target='.Modal$row[id]'>
+                                                <button type='button' class='btn btn-primary btn-sm btn-rounded' data-toggle='modal' data-target='.Modal$Display_Order[ID_Order]'>
                                                     Xem
                                                 </button>
                                             </td>
@@ -76,47 +58,21 @@ include("header-dashboard.php");
                                     </tbody>
                                 </table>
                             </div>
-                            <?php
-                            if($total_page >1){
-                                    echo    "<ul class='pagination pagination-rounded justify-content-end mb-2'>";
-                                    if ($current_page > 1){
-                                        if ($current_page == 2){
-                                            echo "<li class='page-item'><a class='page-link' href='orderlist.html' aria-label='Previous'><i class='mdi mdi-arrow-left'></i> </a></li>";
-                                        }else
-                                        echo "<li class='page-item'><a class='page-link' href='orderlist.html?page=".($current_page-1)."' aria-label='Previous'><i class='mdi mdi-arrow-left'></i> </a></li>";
-                                    }
-                                    
-                                    for ($i = 1; $i <= $total_page; $i++){
-                                        if ($i == $current_page){
-                                            echo "<li class='page-item active'><span class='page-link'>".$i."</span></li>";
-                                        } else{
-                                            if ($i ==1){
-                                            echo "<li class='page-item'><a class='page-link' href='orderlist.html'>".$i."</a></li>";
-                                            }else 
-                                            echo "<li class='page-item'><a class='page-link' href='orderlist.html?page=$i'>".$i."</a></li>";
-                                        }
-                                    }
-                                    if ($current_page < $total_page){
-                                        echo "<li class='page-item'><a class='page-link' href='orderlist.html?page=".($current_page+1)."' aria-label='Next'> <i class='mdi mdi-arrow-right'></i></a></li>";
-                                    }
-                                    echo    "</ul>
-                                        ";
-                                }                
-                            ?> 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Tạo ra Modal để xem chi tiết dơn hàng voiuws nhiều sản phẩm hơn -->
     <?php
-    $sqlmodal = "SELECT * FROM orderpro";
-    $result = mysqli_query($conn, $sqlmodal);
-    while ($row1 = mysqli_fetch_assoc($result)){
-    $sqlname = "SELECT * FROM users WHERE id =".$row1['user_id'];
-    $queryname = mysqli_query($conn, $sqlname);
-    $rowname = mysqli_fetch_assoc($queryname); 
-    echo "<div class='modal fade Modal$row1[id]' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+    $Statement_Order = "SELECT * FROM `order`";
+    $Query_Order = mysqli_query($conn, $Statement_Order);
+    while ($Display_Order = mysqli_fetch_assoc($Query_Order)){
+    $Statement_Users = "SELECT * FROM users WHERE ID_User =".$Display_Order['ID_User'];
+    $Query_Users = mysqli_query($conn, $Statement_Users);
+    $Display_Users = mysqli_fetch_assoc($Query_Users); 
+    echo "<div class='modal fade Modal$Display_Order[ID_Order]' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog modal-dialog-centered' role='document'>
                 <div class='modal-content'>
                     <div class='modal-header'>
@@ -126,9 +82,10 @@ include("header-dashboard.php");
                         </button>
                     </div>
                     <div class='modal-body'>
-                        <p class='mb-2'>Mã Đơn Hàng: <span class='text-primary'> VKU$row1[id]</span></p>
-                        <p class='mb-4'>Khách Hàng: <span class='text-primary'> $rowname[name]</span></p>
-
+                        <p class='mb-2'>Mã Đơn Hàng: <span class='text-primary'> VKU$Display_Order[ID_Order]</span></p>
+                        <p class='mb-2'>Khách Hàng: <span class='text-primary'> $Display_Users[Name_User]</span></p>
+                        <p class='mb-2'>Liên Lạc: <span class='text-primary'> $Display_Order[Phone_User]</span></p>
+                        <p class='mb-4'>Địa Chỉ: <span class='text-primary'> $Display_Order[Address_User]</span></p>
                         <div class='table-responsive'>
                             <table class='table table-centered table-nowrap'>
                                 <thead>
@@ -139,40 +96,35 @@ include("header-dashboard.php");
                                     </tr>
                                 </thead>
                                 <tbody>";
-    $sorder = "SELECT * FROM orderdetail WHERE idorder =".$row1['id'];
-    $qorder = mysqli_query($conn, $sorder);
-    $total=0;
-    while($roworder = mysqli_fetch_assoc($qorder)){
-        $sqlpro = "SELECT * FROM sanpham WHERE id =".$roworder['idpro'];
-        $querypro = mysqli_query($conn, $sqlpro);
-        $rowpro = mysqli_fetch_assoc($querypro);
-        echo "<tr>
-                <th scope='row'>
-                    <div>
-                        <img src='images/shop/$rowpro[images]' class='border' width='70px'>
-                    </div>
-                </th>
-                <td>
-                    <div>
-                        <h5 class='text-truncate font-size-14'>$rowpro[tenmathang]</h5>
-                        <p class='text-muted mb-0'>".($rowpro['dongia']*1000)."đ x $roworder[quanlity]</p>
-                    </div>
-                </td>
-                <td>".number_format($roworder['price'])."đ</td>
-            </tr>";
-            $total+= $roworder['price'];
-    }
-    
-
-    
-
-    
+                $Statement_OrderDetail = "SELECT * FROM orderdetail WHERE ID_Order =".$Display_Order['ID_Order'];
+                $Query_OrderDetail = mysqli_query($conn, $Statement_OrderDetail);
+                $Total=0;
+                while($Display_OrderDetail = mysqli_fetch_assoc($Query_OrderDetail)){
+                    $Statement_Product = "SELECT * FROM product WHERE ID_Product =".$Display_OrderDetail['ID_Product'];
+                    $Query_Product = mysqli_query($conn, $Statement_Product);
+                    $Display_Product = mysqli_fetch_assoc($Query_Product);
+                    echo "<tr>
+                            <th scope='row'>
+                                <div>
+                                    <img src='images/shop/$Display_Product[Image_Product]' class='border' width='70px'>
+                                </div>
+                            </th>
+                            <td>
+                                <div>
+                                    <h5 class='text-truncate font-size-14'>$Display_Product[Name_Product]</h5>
+                                    <p class='text-muted mb-0'>".number_format($Display_Product['Price_Product'], 3)."đ x $Display_OrderDetail[Quanlity_Order]</p>
+                                </div>
+                            </td>
+                            <td>".number_format($Display_OrderDetail['Price_Order'])."đ</td>
+                        </tr>";
+                        $Total+= $Display_OrderDetail['Price_Order'];
+                }
                                     echo"<tr>
                                     <td colspan='2'>
                                         <h6 class='m-0 text-right'>Total:</h6>
                                     </td>
                                     <td>
-                                    ".number_format($total)."đ
+                                    ".number_format($Total)."đ
                                     </td>
                                 </tr>
                                 </tbody>
@@ -185,10 +137,9 @@ include("header-dashboard.php");
                 </div>
             </div>
         </div>";
-}
+    }
     ?>
 </div>
-
 <?php
 include("footeradmin.php");
 ?>

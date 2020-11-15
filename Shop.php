@@ -98,13 +98,11 @@
                                         <input type="text" class="border rounded" name="s" placeholder="Tìm Kiếm">
                                         <input type="submit" id="searchsubmit" value="Search">
                                     </div>
-                                </form>
                             </div>
                         </div>
                         <hr>
                         <div class="widget mt-2">
                             <div id="search3" class="widget-search mb-0">
-                                <form method="GET" action="Shop.html">
                                 <div class="row mb-2">
                                     <div class="col-12 mb-2">GIÁ</div>
                                     <div class="col-12 text-muted">Chọn khoản giá</div>
@@ -113,15 +111,13 @@
                                     <div class="col-5">
                                         <input type="number" class="border rounded form-control" name="min">
                                     </div>
-                                    <div class="mt-2">
-                                    ĐẾN
-                                    </div>
+                                    <div class="mt-2">ĐẾN</div>
                                     <div class="col-5 text-center">
-                                    <input type="number" class="border rounded form-control" name="max">
+                                        <input type="number" class="border rounded form-control" name="max">
                                     </div>
                                     <div class="ml-3 mt-3 col-4 btn btn-outline-primary">
-                                    <input type="submit" value="OK">OK</div>
-                                </div>
+                                        <input type="submit" value="OK">OK</div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -129,11 +125,12 @@
                             <h4 class="widget-title"><a href="Shop.html">DANH MỤC SẢN PHẨM</a></h4>
                             <ul class="list-unstyled mt-4 mb-0 blog-catagories">
                                 <?php
-                                $resultdm = mysqli_query($conn, "SELECT * FROM danhmuc");
-                                while ($rowdm = mysqli_fetch_assoc($resultdm)){
-                                $resultslsp = mysqli_query($conn, "SELECT * FROM sanpham WHERE iddanhmuc=".$rowdm['id']."");
-                                $sqlslsp= mysqli_num_rows($resultslsp);
-                                echo "<li><a href='?c=".$rowdm['id']."'>$rowdm[tendanhmuc] <span class='text-primary'>($sqlslsp)</span></a></li>";
+                                $Query_Catalog = mysqli_query($conn, "SELECT * FROM catalog");
+                                while ($Display_Catalog = mysqli_fetch_assoc($Query_Catalog)){
+                                $Statement_Product = "SELECT * FROM product WHERE ID_Catalog = ".$Display_Catalog['ID_Catalog'];
+                                $Query_Product = mysqli_query($conn, $Statement_Product);
+                                $Display_Product= mysqli_num_rows($Query_Product);
+                                echo "<li><a href='?c=".$Display_Catalog['ID_Catalog']."'>$Display_Catalog[Name_Catalog] <span class='text-primary'>($Display_Product)</span></a></li>";
                                 }
                                 ?>
                             </ul>
@@ -145,16 +142,15 @@
                 if(!isset($_SESSION['limit'])){
                     $_SESSION['limit'] =10;
                 }
-                $limit = $_SESSION['limit'];
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $custom = $_POST['limi'];
                     $_SESSION['limit'] =  $custom;
                 }
+                $limit = $_SESSION['limit'];
             if (isset($_GET['c'])){
                 $c=$_GET['c'];
-                $querycou = "SELECT * FROM sanpham WHERE iddanhmuc=".$c;
-                $resultcou = mysqli_query($conn, $querycou);
-                
+                $Statement_Product = "SELECT * FROM product WHERE ID_Catalog=".$c;
+                $resultcou = mysqli_query($conn, $Statement_Product);
                 $total_records = mysqli_num_rows($resultcou);
                 $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
                 $total_page = ceil($total_records / $limit);
@@ -165,12 +161,12 @@
                 $current_page = 1;
                 }
                 $start = ($current_page - 1) * $limit;
-                $result = mysqli_query($conn, "SELECT * FROM sanpham WHERE iddanhmuc= $c LIMIT $start,$limit");
+                $result = mysqli_query($conn, "SELECT * FROM product WHERE ID_Catalog= $c LIMIT $start,$limit");
             }else 
             if(isset($_GET['s'])){
                 $s =$_GET['s'];
-                $querycou = "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$s."%'";
-                $resultcou = mysqli_query($conn, $querycou);
+                $Statement_Product = "SELECT * FROM product WHERE LOWER(Name_Product)  LIKE '%".$s."%'" ;
+                $resultcou = mysqli_query($conn, $Statement_Product);
                 
                 $total_records = mysqli_num_rows($resultcou);
                 $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
@@ -182,12 +178,11 @@
                 $current_page = 1;
                 }
                 $start = ($current_page - 1) * $limit;
-                $sqls= "SELECT * FROM sanpham WHERE LOWER(tenmathang)  LIKE '%".$s."%' LIMIT $start,$limit";
+                $sqls= "SELECT * FROM product WHERE LOWER(Name_Product)  LIKE '%".$s."%' LIMIT $start,$limit";
                 $result = mysqli_query($conn, $sqls);
             } else {
-                $querycou = "SELECT * FROM sanpham";
-                $resultcou = mysqli_query($conn, $querycou);
-                
+                $Statement_Product = "SELECT * FROM product";
+                $resultcou = mysqli_query($conn, $Statement_Product);
                 $total_records = mysqli_num_rows($resultcou);
                 $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
                 $total_page = ceil($total_records / $limit);
@@ -198,7 +193,7 @@
                 $current_page = 1;
                 }
                 $start = ($current_page - 1) * $limit;
-                $result = mysqli_query($conn, "SELECT * FROM sanpham LIMIT $start,$limit");
+                $result = mysqli_query($conn, "SELECT * FROM product LIMIT $start,$limit");
             }
 
             ?>
@@ -228,27 +223,27 @@
                 <?php
                 if ($total_records!=0){
                     while ($row = mysqli_fetch_assoc($result)){
-                        if ($row['dongia']!=0){
-                            $price = number_format($row['dongia'],3);
-                            $del = $row['dongia']*1.1*1000;
+                        if ($row['Price_Product']!=0){
+                            $price = number_format($row['Price_Product'],3);
+                            $del = $row['Price_Product']*1.1*1000;
                         }
                         else $price =$del = 0;
-                        $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+                        $urlpage = str_replace(" ", "-", "$row[Name_Product]");
                         include("slug-page.php");
                         echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 mt-4 pt-2'>
                         <div class='card shop-list border-0 position-relative overflow-hidden'>
                             <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                                <a href='$urlpage-$row[id].html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
-                                <a href='$urlpage-$row[id].html' class='overlay-work'>
-                                    <img src='images/shop/$row[images]' class='img-fluid' alt=''>
+                                <a href='$urlpage-$row[ID_Product].html'><img src='images/shop/$row[Image_Product]' class='img-fluid' alt=''></a>
+                                <a href='$urlpage-$row[ID_Product].html' class='overlay-work'>
+                                    <img src='images/shop/$row[Image_Product]' class='img-fluid' alt=''>
                                 </a>
                                 <ul class='list-unstyled shop-icons'>
-                                    <li class='mt-2'><a href='$urlpage-$row[id].html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
-                                    <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
+                                    <li class='mt-2'><a href='$urlpage-$row[ID_Product].html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                                    <li class='mt-2'><a href='AddToShop.php?item=$row[ID_Product]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
                                 </ul>
                             </div>
                             <div class='card-body content pt-4 p-2'>
-                                <a href='$urlpage-$row[id].html' class='text-dark product-name h6'>$row[tenmathang]</a>
+                                <a href='$urlpage-$row[ID_Product].html' class='text-dark product-name h6'>$row[Name_Product]</a>
                                 <div class='d-flex justify-content-between mt-1'>";
                                 if ($price !=0){
                                     echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";

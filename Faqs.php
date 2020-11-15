@@ -95,7 +95,6 @@ include("navigation.php");
                                 </div>
                             </div>
                         </div>
-
                         <div class="card border-0 rounded">
                             <a data-toggle="collapse" href="#collapsefive2" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapsefive2">
                                 <div class="card-header border-0 bg-light p-3 pr-5" id="headingfive2">
@@ -127,7 +126,6 @@ include("navigation.php");
                                 </div>
                             </div>
                         </div>
-
                         <div class="card border-0 rounded mb-2">
                             <a data-toggle="collapse" href="#collapsesix" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapsesix">
                                 <div class="card-header border-0 bg-light p-3 pr-5" id="headingsix">
@@ -140,7 +138,6 @@ include("navigation.php");
                                 </div>
                             </div>
                         </div>
-
                         <div class="card border-0 rounded mb-2">
                             <a data-toggle="collapse" href="#collapseseven" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapseseven">
                                 <div class="card-header border-0 bg-light p-3 pr-5" id="headingseven">
@@ -167,11 +164,9 @@ include("navigation.php");
                         </div>
                     </div>
                 </div>
-
                 <div class="section-title mt-5" id="payment">
                     <h4>Thanh Toán</h4>
                 </div>
-
                 <div class="faq-content mt-4 pt-3">
                     <div class="accordion" id="accordionExamplethree">
                         <div class="card border-0 rounded mb-2">
@@ -186,7 +181,6 @@ include("navigation.php");
                                 </div>
                             </div>
                         </div>
-
                         <div class="card border-0 rounded mb-2">
                             <a data-toggle="collapse" href="#collapseeleven" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapseeleven">
                                 <div class="card-header border-0 bg-light p-3 pr-5" id="headingeleven">
@@ -199,7 +193,6 @@ include("navigation.php");
                                 </div>
                             </div>
                         </div>
-
                         <div class="card border-0 rounded mb-2">
                             <a data-toggle="collapse" href="#collapsetwelve" class="faq position-relative collapsed" aria-expanded="false" aria-controls="collapsetwelve">
                                 <div class="card-header border-0 bg-light p-3 pr-5" id="headingtwelve">

@@ -19,24 +19,24 @@
 <?php
     include("Connect.php");
     $userErr = "";
-    if (isset($_REQUEST['useremail'])){
-        $hovaten =  stripslashes($_REQUEST['hovaten']);
-        $hovaten =  mysqli_real_escape_string($conn,$hovaten);
-        $email = stripslashes($_REQUEST['useremail']);
-        $email = mysqli_real_escape_string($conn,$email);
-        $password = stripslashes($_REQUEST['userpassword']);
-        $password = mysqli_real_escape_string($conn,$password);
-        $atest = "SELECT email FROM users WHERE email='$email'";
+    if (isset($_REQUEST['Email_User'])){
+        $Name_User =  stripslashes($_REQUEST['Name_User']);
+        $Name_User =  mysqli_real_escape_string($conn,$Name_User);
+        $Email_User = stripslashes($_REQUEST['Email_User']);
+        $Email_User = mysqli_real_escape_string($conn,$Email_User);
+        $Password_User = stripslashes($_REQUEST['Password_User']);
+        $Password_User = mysqli_real_escape_string($conn,$Password_User);
+        $Statement_Users = "SELECT Email_User FROM users WHERE Email_User='$Email_User'";
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date = date("Y-m-d H:i:s");
-        $test = mysqli_query($conn, $atest);
-        if (mysqli_num_rows($test) > 0){
+        $Query_Users = mysqli_query($conn, $Statement_Users);
+        if (mysqli_num_rows($Query_Users) > 0){
             $userErr = "Tên đăng nhập đã tồn tại!";
         }
         else{
-            $query = "INSERT INTO `users` (email, password, name, date) VALUES ('$email', '$password', '$hovaten', '$date')";
-            $result = mysqli_query($conn,$query);
-            if($result){
+            $Statement_Users = "INSERT INTO `users` (Email_User, Password_User, Name_User, Date_Join_User) VALUES ('$Email_User', '$Password_User', '$Name_User', '$date')";
+            $Query_Users = mysqli_query($conn,$Statement_Users);
+            if($Query_Users){
                 header("Location: login.html");
             }
         }
@@ -73,17 +73,17 @@
                             <div class="p-2">
                                 <form class="form-horizontal" action="" method="POST">
                                 <div class="form-group">
-                                        <label for="useremail">Email </label><span class="text-danger">*</span>
-                                        <input type="email" class="form-control" name="useremail" placeholder="Nhập Email" required>
+                                        <label for="Email_User">Email </label><span class="text-danger">*</span>
+                                        <input type="email" class="form-control" name="Email_User" placeholder="Nhập Email" required>
                                         <span class="text-danger "><?php echo $userErr;?></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="userpassword">Họ và Tên </label><span class="text-danger">*</span>
-                                        <input type="text" class="form-control" name="hovaten" placeholder="Họ và Tên" required>        
+                                        <label for="Password_User">Họ và Tên </label><span class="text-danger">*</span>
+                                        <input type="text" class="form-control" name="Name_User" placeholder="Họ và Tên" required>        
                                     </div>
                                     <div class="form-group">
-                                        <label for="userpassword">Password </label><span class="text-danger">*</span>
-                                        <input type="password" class="form-control" name="userpassword" placeholder="Enter password" required>        
+                                        <label for="Password_User">Password </label><span class="text-danger">*</span>
+                                        <input type="password" class="form-control" name="Password_User" placeholder="Enter password" required>        
                                     </div>
                                     <div class="mt-4">
                                         <button class="btn btn-primary btn-block waves-effect waves-light" type="submit"> Đăng Ký </button>
@@ -105,7 +105,6 @@
             </div>
         </div>
     </div>
-    <!-- JAVASCRIPT -->
     <script src="assets\libs\jquery\jquery.min.js"></script>
     <script src="assets\libs\bootstrap\js\bootstrap.bundle.min.js"></script>
     <script src="assets\libs\metismenu\metisMenu.min.js"></script>

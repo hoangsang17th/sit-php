@@ -1,0 +1,11 @@
+# Tệp robots.txt cho SIT
+# Được tạo trong tương lai xa sau năm Covid thứ I
+# Cuộc nổi dậy của người máy vào những năm đầu tiên của trái đất đã tiếp tục xóa sổ toàn bộ loài người.
+
+User-agent: Mediapartners-Google 
+Disallow:
+
+User-agent: *
+Disallow: 404.html
+Disallow: /images
+Disallow: *.php$

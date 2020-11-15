@@ -1,10 +1,10 @@
 ﻿<?php
     include("Connect.php");
     include("SSUser.php");
-    $users = $_SESSION['email'];
-    $rsname = "SELECT * FROM `users` WHERE email= '$users'";
-    $resname =mysqli_query($conn, $rsname);
-    $profile = mysqli_fetch_assoc($resname);
+    $Email_User = $_SESSION['Email_User'];
+    $Statement_Users = "SELECT * FROM `users` WHERE Email_User= '$Email_User'";
+    $Query_Users =mysqli_query($conn, $Statement_Users);
+    $profile = mysqli_fetch_assoc($Query_Users);
 ?>
 <!doctype html>
 <html lang="en">
@@ -124,7 +124,7 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user" src="assets/images/users/avatar.jpg" alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ml-1"><?php echo $profile['name']; ?></span>
+                            <span class="d-none d-xl-inline-block ml-1"><?php echo $profile['Name_User']; ?></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="Home.html">Trang Chủ</a>
@@ -140,7 +140,7 @@
             <div data-simplebar="" class="h-100">
                 <div id="sidebar-menu">
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Tài khoản của <?php echo $profile['name'];?></li>
+                        <li class="menu-title">Tài khoản của <?php echo $profile['Name_User'];?></li>
                         <li>
                             <a href="index.html" class=" waves-effect">
                             <i class="fas fa-tasks"></i>

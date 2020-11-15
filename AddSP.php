@@ -12,20 +12,19 @@ include("header-dashboard.php");
 </script>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tenmathang = $_POST['tenmathang']; 
-    $thuonghieu = $_POST['thuonghieu'];
-    $dongia = $_POST['dongia']; 
-    $idDanhmuc = $_POST['iddanhmuc'];
-    $mota =$_POST['mota'];
-    $title =$_POST['title'];
-    $keywords =$_POST['keywords'];
-    $motatrang =$_POST['motatrang'];
-
-    $filename = $_FILES["uploadfile"]["name"]; 
+    $Name_Product = $_POST['Name_Product']; 
+    $Brand_Product = $_POST['Brand_Product'];
+    $Price_Product = $_POST['Price_Product'];
+    $ID_Catalog = $_POST['ID_Catalog'];
+    $Des_Product =$_POST['Des_Product'];
+    $Title_Product =$_POST['Title_Product'];
+    $Keywords_Product =$_POST['Keywords_Product'];
+    $Des_Page =$_POST['Des_Page'];
+    $Image_Product = $_FILES["uploadfile"]["name"]; 
 	$tempname = $_FILES["uploadfile"]["tmp_name"];	 
-    $folder = "images/shop/".$filename;
-    $sql = "INSERT INTO sanpham(tenmathang, thuonghieu, dongia, iddanhmuc, mota, title, keywords, motatrang, images) VALUES ('$tenmathang','$thuonghieu','$dongia','$idDanhmuc', '$mota','$title','$keywords','$motatrang', '$filename')";
-    $ketqua = mysqli_query($conn, $sql);
+    $folder = "images/shop/".$Image_Product;
+    $Statement_Add_Product = "INSERT INTO product(Name_Product, Brand_Product, Price_Product, ID_Catalog, Des_Product, Title_Product, Keywords_Product, Des_Page, Image_Product) VALUES ('$Name_Product','$Brand_Product','$Price_Product','$ID_Catalog', '$Des_Product','$Title_Product','$Keywords_Product','$Des_Page', '$Image_Product')";
+    $ketqua = mysqli_query($conn, $Statement_Add_Product);
     if (move_uploaded_file($tempname, $folder))  { 
         $msg = "Image uploaded successfully"; 
     }else{ 
@@ -48,30 +47,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="formrow-firstname-input">Tên sản phẩm</label>
-                                                    <input type="text" class="form-control" name="tenmathang">
+                                                    <input type="text" class="form-control" name="Name_Product">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="manufacturername">Thương hiệu</label>
-                                                    <input name="thuonghieu" type="text" class="form-control">
+                                                    <input name="Brand_Product" type="text" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group">
                                                 <label class="control-label">Danh Mục</label>
-                                                    <select name="iddanhmuc" class="form-control select">
+                                                    <select name="ID_Catalog" class="form-control select">
                                                     <?php
-                                                        $sql = "SELECT * FROM danhmuc";
-                                                        
-                                                        $ketqua =mysqli_query($conn, $sql);
-                                                        while ($row = mysqli_fetch_assoc($ketqua)) {
-                                                            echo '<option value="'.$row['id'].'">'.$row['tendanhmuc'].'</option>';
+                                                        $Statement_Catalog = "SELECT * FROM catalog ORDER BY Name_Catalog ASC";
+                                                        $Query_Catalog =mysqli_query($conn, $Statement_Catalog);
+                                                        while ($Display_Catalog = mysqli_fetch_assoc($Query_Catalog)) {
+                                                            echo '<option value="'.$Display_Catalog['ID_Catalog'].'">'.$Display_Catalog['Name_Catalog'].'</option>';
                                                         }
                                                     ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="price">Giá Bán</label>
-                                                    <input name="dongia" type="number" class="form-control">
+                                                    <input name="Price_Product" type="number" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -79,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="productdesc">Mô tả sản phẩm</label>
-                                                    <textarea name="mota" id="mytextarea" class="form-control pb-2" maxlength="1000" rows="15" placeholder="Không quá 1000 ký tự"></textarea>
+                                                    <textarea name="Des_Product" id="mytextarea" class="form-control pb-2" maxlength="1000" rows="15" placeholder="Không quá 1000 ký tự"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,17 +86,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="metatitle">Tiêu đề trang</label>
-                                                    <input id="metatitle" name="title" type="text" class="form-control">
+                                                    <input id="metatitle" name="Title_Product" type="text" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="metakeywords">Keywords của trang</label>
-                                                    <input id="metakeywords" name="keywords" type="text" class="form-control" placeholder="Ngăn cách các từ khóa bằng dấu phẩy">
+                                                    <input id="metakeywords" name="Keywords_Product" type="text" class="form-control" placeholder="Ngăn cách các từ khóa bằng dấu phẩy">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="metadescription">Mô tả trang</label>
-                                                    <textarea class="form-control" name="motatrang" rows="5" placeholder="Em là nguồn cảm hứng đằng sau tất cả những gì anh làm, là nguồn gốc của những điều tốt lành trong cuộc sống của anh. Mãi yêu Code"></textarea>
+                                                    <textarea class="form-control" name="Des_Page" rows="5" placeholder="Em là nguồn cảm hứng đằng sau tất cả những gì anh làm, là nguồn gốc của những điều tốt lành trong cuộc sống của anh. Mãi yêu Code"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input type="submit" class="btn btn-primary mr-1 mt-3 waves-effect waves-light" value="Lưu và hiển thị">
                                         <a href="dssanpham.html" class="btn btn-danger mt-3 waves-effect px-5">Hủy</a>
                                     </form>
-                                    
                                 </div>
                             </div>
                         </div>

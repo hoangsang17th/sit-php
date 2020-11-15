@@ -1,7 +1,7 @@
 <?php 
 include("header.php");
 ?>
-<title>Thông tin cá nhân - SIT</title>
+<title>Các bình luận của bạn về sản phẩm - SIT</title>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -10,12 +10,12 @@ include("header.php");
                     <div class="">
                     <?php
                     $limit =5;
-                    $sqlcm = "SELECT * FROM comment WHERE username=" .$profile['id'] ;
-                    $querycm = mysqli_query($conn, $sqlcm);
-                    $countcm = mysqli_num_rows($querycm);
-                    echo "<h4 class='mb-0 font-size-18'>Nhận xét của tôi ($countcm)</h4>";
+                    $Statement_Comment = "SELECT * FROM comment WHERE ID_User=" .$profile['ID_User'] ;
+                    $Query_Comment = mysqli_query($conn, $Statement_Comment);
+                    $Count_Comment = mysqli_num_rows($Query_Comment);
+                    echo "<h4 class='mb-0 font-size-18'>Nhận xét của tôi ($Count_Comment)</h4>";
                     $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                    $total_page = ceil($countcm / $limit);
+                    $total_page = ceil($Count_Comment / $limit);
                     if ($current_page > $total_page){
                     $current_page = $total_page;
                     }
@@ -23,26 +23,26 @@ include("header.php");
                     $current_page = 1;
                     }
                     $start = ($current_page - 1) * $limit;
-                    $uid= $profile['id'];
-                    $sqllimit = "SELECT * FROM comment WHERE username= $uid ORDER BY id DESC LIMIT $start,$limit";
-                    $result = mysqli_query($conn, $sqllimit);
+                    $UID= $profile['ID_User'];
+                    $Statement_Comment = "SELECT * FROM comment WHERE ID_User= $UID ORDER BY ID_Comment DESC LIMIT $start,$limit";
+                    $Query_Comment = mysqli_query($conn, $Statement_Comment);
                     ?>
                         <div class="table-responsiv">
                             <table class="table project-list-table table-nowrap table-centered table-borderless">
                                 <tbody>
                                     <?php
-                                    while ($rowcm = mysqli_fetch_assoc($result)){
-                                        $sqlpro = "SELECT * FROM sanpham WHERE id =".$rowcm['idpro'];
-                                        $querypro = mysqli_query($conn, $sqlpro);
-                                        $rowpro = mysqli_fetch_assoc($querypro);
-                                        $urlpage = str_replace(" ", "-", "$rowpro[tenmathang]");
+                                    while ($Display_Comment = mysqli_fetch_assoc($Query_Comment)){
+                                        $Statement_Product = "SELECT * FROM product WHERE ID_Product =".$Display_Comment['ID_Product'];
+                                        $Query_Product = mysqli_query($conn, $Statement_Product);
+                                        $Display_Product = mysqli_fetch_assoc($Query_Product);
+                                        $urlpage = str_replace(" ", "-", "$Display_Product[Name_Product]");
                                         include("slug-page.php");
                                         echo "<tr>";
-                                        echo "<td class='text-left' width='10%'><img src='images/shop/$rowpro[images]' alt='$rowpro[tenmathang]' class='border' width='70px'></td>
+                                        echo "<td class='text-left' width='10%'><img src='images/shop/$Display_Product[Image_Product]' alt='$Display_Product[Name_Product]' class='border' width='70px'></td>
                                         <td class='text-left' width='90%'>
-                                            <h5 class='text-truncate font-size-14'><a href='$urlpage-$rowcm[idpro].html#listcomment' class='text-dark'>$rowpro[tenmathang]</a></h5>
-                                            <p class='text-muted mb-0'><i>$rowcm[date]</i></p>
-                                            <p class=''>$rowcm[comment]</p>
+                                            <h5 class='text-truncate font-size-14'><a href='$urlpage-$Display_Comment[ID_Product].html#listcomment' class='text-dark'>$Display_Product[Name_Product]</a></h5>
+                                            <p class='text-muted mb-0'><i>$Display_Comment[Date_Comment]</i></p>
+                                            <p class=''>$Display_Comment[Comment]</p>
                                         </td>";
                                         echo "</tr>";
                                     }

@@ -14,13 +14,12 @@ include("navigation.php");
                             <a href="index.html" class="btn btn-primary">Start Free Trial <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
-
                     <div class="home-dashboard">
                         <img src="images/saas/home.png" alt="" class="img-fluid">
                     </div>
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container--> 
+                </div>
+            </div>
+        </div>
     </section>
     <section class="section bg-light mt-0 mt-md-5">
         <div class="container">
@@ -30,35 +29,8 @@ include("navigation.php");
                         <h4 class="title mb-4">Free up your mental space</h4>
                         <p class="text-muted para-desc mx-auto mb-0">Regain clarity and calmness by getting all those tasks out of your head and onto your to-do list (no matter where you are or what device you use).</p>
                     </div>
-                </div><!--end col-->
-            </div><!--end row-->
-
-            <div class="row justify-content-center">
-                <div class="col-lg-2 col-md-2 col-6 text-center mt-4 pt-2">
-                    <img src="images/client/amazon.svg" class="avatar avatar-ex-sm" alt="">
-                </div><!--end col-->
-
-                <div class="col-lg-2 col-md-2 col-6 text-center mt-4 pt-2">
-                    <img src="images/client/google.svg" class="avatar avatar-ex-sm" alt="">
-                </div><!--end col-->
-                
-                <div class="col-lg-2 col-md-2 col-6 text-center mt-4 pt-2">
-                    <img src="images/client/lenovo.svg" class="avatar avatar-ex-sm" alt="">
-                </div><!--end col-->
-                
-                <div class="col-lg-2 col-md-2 col-6 text-center mt-4 pt-2">
-                    <img src="images/client/paypal.svg" class="avatar avatar-ex-sm" alt="">
-                </div><!--end col-->
-                
-                <div class="col-lg-2 col-md-2 col-6 text-center mt-4 pt-2">
-                    <img src="images/client/shopify.svg" class="avatar avatar-ex-sm" alt="">
-                </div><!--end col-->
-                
-                <div class="col-lg-2 col-md-2 col-6 text-center mt-4 pt-2">
-                    <img src="images/client/spotify.svg" class="avatar avatar-ex-sm" alt="">
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
+                </div>
+            </div>
     </section>
     <section class="section">
         <div class="container">
@@ -268,7 +240,7 @@ include("navigation.php");
                     </div>
                 </div><!--end col-->
             </div><!--end row-->
-        </div><!--end container-->
+        </div>
     </section>
     <div class="position-relative">
         <div class="shape overflow-hidden text-footer">

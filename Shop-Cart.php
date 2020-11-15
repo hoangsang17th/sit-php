@@ -76,37 +76,37 @@ if(isset($_POST['submit'])){
             $item[]=$key;
         }
         $str=implode(",",$item);
-        $sql = "SELECT * FROM sanpham WHERE id IN ($str)";
-        $query = mysqli_query($conn, $sql);
+        $Statement_Product = "SELECT * FROM product WHERE ID_Product IN ($str)";
+        $Query_Product = mysqli_query($conn, $Statement_Product);
         $total = 0;
-        while ($row = mysqli_fetch_assoc($query)){
-            $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+        while ($Display_Product = mysqli_fetch_assoc($Query_Product)){
+            $urlpage = str_replace(" ", "-", "$Display_Product[Name_Product]");
             include("slug-page.php");
             echo "<tr>";
             echo   "<td>
                         <div class='d-flex align-items-center'>
-                            <img src='images/shop/$row[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
+                            <img src='images/shop/$Display_Product[Image_Product]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                             <div class='mb-0 ml-3'>
-                            <h6><a href='$urlpage-$row[id].html'>$row[tenmathang]</a></h6>
-                            <a href='DeleteCart.html?id=$row[id]'>Xóa</a>
+                            <h6><a href='$urlpage-$Display_Product[ID_Product].html'>$Display_Product[Name_Product]</a></h6>
+                            <a href='DeleteCart.html?id=$Display_Product[ID_Product]'>Xóa</a>
                             </div>
                         </div>
                         
                     </td>";
-            if ($row['dongia']==0){
+            if ($Display_Product['Price_Product']==0){
                 echo    "<td class='text-center'><i class='text-success'>FREE</i></td>";
             }
             else {
-                echo    "<td class='text-center'>".number_format($row['dongia'],3)."VNĐ</td>";
+                echo    "<td class='text-center'>".number_format($Display_Product['Price_Product'],3)."VNĐ</td>";
             }
             echo    "<td class='text-center'>
                         <input type='button' value='-' class='minus btn btn-icon btn-soft-primary font-weight-bold'>
-                        <input type='text' step='1' min='1' name='qty[$row[id]]' value='{$_SESSION['cart'][$row['id']]}' title='Qty' class='btn btn-icon btn-soft-primary font-weight-bold'>
+                        <input type='text' step='1' min='1' name='qty[$Display_Product[ID_Product]]' value='{$_SESSION['cart'][$Display_Product['ID_Product']]}' title='Qty' class='btn btn-icon btn-soft-primary font-weight-bold'>
                         <input type='button' value='+' class='plus btn btn-icon btn-soft-primary font-weight-bold'>
                     </td>";
-            echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$row['id']]*$row['dongia'],3)." VND</td>";
+            echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product'],3)." VND</td>";
             echo "</tr>";
-            $total += $_SESSION['cart'][$row['id']]*$row['dongia'];
+            $total += $_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product'];
         }
         $totals = $total + ($total/10);
         echo    "</tbody>

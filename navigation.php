@@ -1,16 +1,16 @@
 <?php
     include("Connect.php");
     session_start();
-    $profile['email']='';
-    $profile['phone']='';
-    $profile['address']='';
-    $profile['name']='';
-    $profile['id']= 1;
-    if(isset($_SESSION["email"])){
-        $email = $_SESSION['email'];
-        $rsname = "SELECT * FROM `users` WHERE email= '$email'";
-        $resname =mysqli_query($conn, $rsname);
-        $profile = mysqli_fetch_assoc($resname);
+    $profile['Email_User']='';
+    $profile['Phone_User']='';
+    $profile['Address_User']='';
+    $profile['Name_User']='';
+    $profile['ID_User']= 1;
+    if(isset($_SESSION["Email_User"])){
+        $Email_User = $_SESSION['Email_User'];
+        $Statement_Users = "SELECT * FROM `users` WHERE Email_User= '$Email_User'";
+        $Query_Users =mysqli_query($conn, $Statement_Users);
+        $profile = mysqli_fetch_assoc($Query_Users);
     }
 ?>
 <!DOCTYPE html>
@@ -24,15 +24,12 @@
     <meta name="keywords" content="To Do List, Hoàng Sang, Hoang Sang 17Th, HoangSang17TH, HoangSang 17Th, Shop SoftWare,
     SIT, tải ứng dụng sit, cài ứng dụng sit, cai dat ung dung sit, cài đặt ứng dụng sit, cách tải ứng dụng sit, các sử dụng ứng dụng sit, cách sử dụng ứng dụng sit, software sit, ứng dụng sit, cách dùng ứng dụng sit, tải ứng dụng sit, phần mềm adobe, phần mềm văn phòng"/>
     <meta name="author" content="Hoàng Sang, phsang49@gmail.com"/>
-
     <meta name="email" content="phsang49@gmail.com" />
     <meta name="og:email" content="phsang49@gmail.com"/>
-
     <meta name="website" content="http://www.sittodo.vn" />
     <meta name="url" content="http://www.sittodo.vn">
     <meta name="identifier-URL" content="http://www.sittodo.vn">
     <meta name="og:url" content="http://www.sittodo.vn/"/>
-
     <meta name="og:title" content="SIT Shop Software - Hoàng Sang"/>
     <meta name="Version" content="v2.1.0" />
     <meta name="subject" content="SIT To Do, SIT Shop Software">
@@ -48,7 +45,6 @@
     <meta name="copyright" content="Phạm Hoàng Sang">
     <meta name="reply-to" content="phsang49@gmail.com">
     <meta name="owner" content="Phạm Hoàng Sang">
-    
     <meta name="directory" content="submission">
     <meta name="category" content="Shop Software">
     <meta name="coverage" content="Worldwide">
@@ -58,14 +54,11 @@
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
-    <!-- OpenGraph Meta Tags -->
     <meta name="og:type" content="software"/>
     <meta name="og:image" content="https://raw.githubusercontent.com/hoangsang17th/sit-php/master/Logo.png"/>
     <meta name="og:site_name" content="SIT"/>
-
     <meta name="fb:profile_id" content="100017678553549" />
     <meta name="og:phone_number" content="0332148505"/>
-
     <meta name="og:latitude" content="15.973075498752186"/>
     <meta name="og:longitude" content="108.25172162379636"/>
     <meta name="og:street-address" content="Nam Kỳ Khởi Nghĩa"/>
@@ -73,15 +66,11 @@
     <meta name="og:region" content="Đà Nẵng"/>
     <meta name="og:postal-code" content="550000"/>
     <meta name="og:country-name" content="Việt Nam"/>
-
     <meta property="og:video" content="https://www.youtube.com/watch?v=kjQhtf1TfRk" />
     <meta property="og:video:height" content="1920" />
     <meta property="og:video:width" content="1080" />
     <meta property="og:video:type" content="Short Video" />
     <meta property="og:video:type" content="video/mp4" />
-
-    <!-- End OpenGraph Meta Tags -->
-
     <link rel="shortcut icon" href="favicon.ico">
     <link href="assets/css/bootstrap.home.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
@@ -94,103 +83,97 @@
     <link href="assets/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
+<div id="preloader">
+    <div id="status">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+</div>
+<header id="topnav" class="defaultscroll sticky bg-white">
+    <div class="header-top-menu container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="data-time">
+                    <span id="Time"></span>
+                </div>
+            </div>
+            <div class="col text-right social">
+                <div class="social">
+                    <a target="_blank" href="https://www.facebook.com/HoangSang17TH" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/hoangsang17th/" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="mailto: phsang49@gmail.com" data-toggle="tooltip" data-placement="bottom" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a target="_blank" href="https://twitter.com/HoangSang17Th" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
     </div>
-    <header id="topnav" class="defaultscroll sticky bg-white">
-        <div class="header-top-menu container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="data-time">
-                        <span id="Time"></span>
-                    </div>
-                </div>
-                <div class="col text-right social">
-                    <div class="social">
-                        <a target="_blank" href="https://www.facebook.com/HoangSang17TH" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/hoangsang17th/" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="mailto: phsang49@gmail.com" data-toggle="tooltip" data-placement="bottom" title="Email"><i class="fas fa-envelope"></i></a>
-                        <a target="_blank" href="https://twitter.com/HoangSang17Th" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div>
+            <a class="logo" href="index.html">
+                <img src="Logo.png" height="50" alt="">
+            </a>
         </div>
-        <div class="container">
-            <div>
-                <a class="logo" href="index.html">
-                    <img src="Logo.png" height="50" alt="">
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </a>
             </div>
-            <div class="menu-extras">
-                <div class="menu-item">
-                    <a class="navbar-toggle">
-                        <div class="lines">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </a>
-                </div>
-            </div>                 
-            <div class="top-button">
-                <?php
-                if ($profile['email']==''){
-                    echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
-                }
-                else 
-                echo "<div class='btn-group dropdown-primary'>
-                        <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>".$profile['name']."</button>
-                        <div class='dropdown-menu'>
-                            <a class='dropdown-item' href='index.html'>Task</a>
-                            <a class='dropdown-item' href='Profileuser.html'>Tài Khoản</a>
-                            <a class='dropdown-item' href='Review.html'>Nhận Xét</a>
-                            <a class='dropdown-item' href='Orderhistory.html'>Đơn Hàng</a>
-                            <div class='dropdown-divider'></div>
-                            <a class='dropdown-item' href='logout.html'>Đăng Xuất</a>
-                        </div>
-                    </div>";?>
-            </div>
+        </div>                 
+        <div class="top-button">
+            <?php
+            if ($profile['Email_User']==''){
+                echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
+            }
+            else 
+            echo "<div class='btn-group dropdown-primary'>
+                    <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>".$profile['Name_User']."</button>
+                    <div class='dropdown-menu'>
+                        <a class='dropdown-item' href='index.html'>Task</a>
+                        <a class='dropdown-item' href='Profileuser.html'>Tài Khoản</a>
+                        <a class='dropdown-item' href='Review.html'>Nhận Xét</a>
+                        <a class='dropdown-item' href='Orderhistory.html'>Đơn Hàng</a>
+                        <div class='dropdown-divider'></div>
+                        <a class='dropdown-item' href='logout.html'>Đăng Xuất</a>
+                    </div>
+                </div>";?>
+        </div>
+        
+        <div id="navigation">
+            <ul class="navigation-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="introtodo.html">To Do</a></li>
+                <li><a href="aboutus.html">About Us</a></li>  
+                <!-- <li><a href="Search.html">Search</a></li> -->
+            </ul>
             
-            <div id="navigation">
-                <ul class="navigation-menu">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Shop.html">Shop</a></li>
-                    <li><a href="introtodo.html">To Do</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>  
-                    <!-- <li><a href="Search.html">Search</a></li> -->
-                </ul>
-                
-                <div class="buy-menu-btn d-none">
-                    <?php
-                        if ($profile['email']==''){
-                            echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
-                        }
-                        else 
-                echo "<div class='btn-group dropdown-primary'>
-                        <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>".$profile['name']." </button>
-                        <div class='dropdown-menu'>
-                            <a class='dropdown-item' href='index.html'><i class='fas fa-tasks'></i> Task</a>
-                            <a class='dropdown-item' href='Profileuser.html'><i class='fas fa-user-cog'></i> Tài Khoản</a>
-                            <a class='dropdown-item' href='Review.html'><i class='far fa-comments'></i> Nhận Xét</a>
-                            <a class='dropdown-item' href='Orderhistory.html'><i class='fas fa-store'></i> Đơn Hàng</a>
-                            <div class='dropdown-divider'></div>
-                            <a class='dropdown-item' href='logout.html'>Đăng Xuất</a>
-                        </div>
-                    </div>"; 
-                    ?>
-                </div>
+            <div class="buy-menu-btn d-none">
+                <?php
+                    if ($profile['Email_User']==''){
+                        echo "<a href='login.html' class='btn btn-primary'>Đăng Nhập</a>";
+                    }
+                    else 
+            echo "<div class='btn-group dropdown-primary'>
+                    <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>".$profile['name']." </button>
+                    <div class='dropdown-menu'>
+                        <a class='dropdown-item' href='index.html'><i class='fas fa-tasks'></i> Task</a>
+                        <a class='dropdown-item' href='Profileuser.html'><i class='fas fa-user-cog'></i> Tài Khoản</a>
+                        <a class='dropdown-item' href='Review.html'><i class='far fa-comments'></i> Nhận Xét</a>
+                        <a class='dropdown-item' href='Orderhistory.html'><i class='fas fa-store'></i> Đơn Hàng</a>
+                        <div class='dropdown-divider'></div>
+                        <a class='dropdown-item' href='logout.html'>Đăng Xuất</a>
+                    </div>
+                </div>"; 
+                ?>
             </div>
         </div>
-    </header>
-    
-<!-- <script src="/__/firebase/7.24.0/firebase-app.js"></script>
-
-<script src="/__/firebase/7.24.0/firebase-analytics.js"></script>
-
-<script src="/__/firebase/init.js"></script> -->
+    </div>
+</header>

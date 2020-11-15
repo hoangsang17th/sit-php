@@ -4,17 +4,17 @@ include("header-dashboard.php");
 <title>Thay đổi thông tin danh mục | SIT Admin Dashboard</title>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tendanhmuc = $_POST['tendanhmuc'];
-    $id=$_GET['id'];
-    $sql = "UPDATE danhmuc SET tendanhmuc='$tendanhmuc' WHERE id=$id";
-    $ketqua = mysqli_query($conn, $sql);
+    $Name_Catalog = $_POST['Name_Catalog'];
+    $ID_Catalog=$_GET['id'];
+    $Statement_Update_Catalog = "UPDATE catalog SET Name_Catalog='$Name_Catalog' WHERE ID_Catalog=$ID_Catalog";
+    $Query_Update_Catalog = mysqli_query($conn, $Statement_Update_Catalog);
 }
 ?>
 <?php
     if (isset($_GET['id'])){
-        $sqlGetDanhMuc = "SELECT * FROM danhmuc WHERE id=".$_GET['id'];        
-        $ketQuaGetDanhMuc = mysqli_query($conn, $sqlGetDanhMuc);
-        $tendanhmuc = mysqli_fetch_assoc($ketQuaGetDanhMuc);
+        $Statement_Catalog = "SELECT * FROM catalog WHERE ID_Catalog=".$_GET['id'];        
+        $Query_Catalog = mysqli_query($conn, $Statement_Catalog);
+        $Display_Catalog = mysqli_fetch_assoc($Query_Catalog);
     }
 ?>
     <div id="layout-wrapper">
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <form action="" method="POST">
                                         <div class="form-group">
                                             <label for="formrow-firstname-input">Tên Danh Mục</label>
-                                            <input type="text" class="form-control" name="tendanhmuc"value="<?php echo $tendanhmuc['tendanhmuc']; ?>">
+                                            <input type="text" class="form-control" name="Name_Catalog"value="<?php echo $Display_Catalog['Name_Catalog']; ?>">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-primary w-md">Hoàn Thành</button>

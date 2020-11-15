@@ -27,22 +27,22 @@ include("header-dashboard.php");
                                         <tbody>
                                         <?php
                                             if (isset($_GET['iddanhmuc'])) {
-                                                $sql = "SELECT * FROM sanpham WHERE iddanhmuc=" .$_GET['iddanhmuc'];
+                                                $Statement_Product = "SELECT * FROM product WHERE iddanhmuc=" .$_GET['iddanhmuc'];
                                             } else {                
-                                                $sql = "SELECT * FROM sanpham";
+                                                $Statement_Product = "SELECT * FROM product";
                                             }
-                                            $ketqua =mysqli_query($conn, $sql);
-                                            $stt= 1;
-                                            while ($row = mysqli_fetch_assoc($ketqua)){
+                                            $Query_Product =mysqli_query($conn, $Statement_Product);
+                                            $Stt= 1;
+                                            while ($Display_Product = mysqli_fetch_assoc($Query_Product)){
                                                 echo "<tr>";
-                                                echo '<td>'.$stt.'</td>';
-                                                echo "<td>".$row['tenmathang']."</td>";
-                                                echo "<td>".$row['thuonghieu']."</td>";
-                                                echo "<td>".$row['dongia']."</td>";
-                                                echo '<td><a href="EditPro.html?id='.$row['id'].'" class="px-2"><i class="far fa-edit"></i><a/>';
-                                                echo '<a href="DeleteSP.html?id='.$row['id'].'" class="px-2"><i class="far fa-trash-alt"></i><a/></td>';
+                                                echo '<td>'.$Stt.'</td>';
+                                                echo "<td>".$Display_Product['Name_Product']."</td>";
+                                                echo "<td>".$Display_Product['Brand_Product']."</td>";
+                                                echo "<td>".$Display_Product['Price_Product']."</td>";
+                                                echo '<td><a href="EditPro.html?id='.$Display_Product['ID_Product'].'" class="px-2"><i class="far fa-edit"></i><a/>';
+                                                echo '<a href="DeleteSP.html?id='.$Display_Product['ID_Product'].'" class="px-2"><i class="far fa-trash-alt"></i><a/></td>';
                                                 echo "</tr>";
-                                                $stt++;
+                                                $Stt++;
                                             }
                                         ?>
                                         </tbody>

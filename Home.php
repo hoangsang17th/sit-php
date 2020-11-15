@@ -247,7 +247,6 @@ include("navigation.php");
                     </div>
                 </div>
             </div>
-            
             <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                 <div class="card pricing-rates business-rate shadow bg-white border-0 rounded">
                     <div class="card-body">

@@ -16,18 +16,18 @@ if($counts!=0){
         $item[]=$key;
     }
     $str=implode(",",$item);
-    $sql = "SELECT * FROM sanpham WHERE id IN ($str)";
-    $query = mysqli_query($conn, $sql);
+    $Statement_Product = "SELECT * FROM product WHERE ID_Product IN ($str)";
+    $Query_Product = mysqli_query($conn, $Statement_Product);
     $total = 0;
-    $user_id= $profile['id'];
+    $ID_User= $profile['ID_User'];
     date_default_timezone_set('Asia/Ho_Chi_Minh');
-    $date_order= date("H:i:s d/m/Y");
-    $address = $_GET['address'];
-    $phone = $_GET['numberphone'];
-    $name= $profile['name'];
+    $Date_Order= date("H:i:s d/m/Y");
+    $Address_User = $_GET['address'];
+    $Phone_User = $_GET['numberphone'];
+    $Name_User= $profile['Name_User'];
     $stt=0;
-    $sqlorder= "INSERT INTO orderpro(user_id, address, phone, status, date_order) VALUES ('$user_id', '$address', '$phone', 'Chưa Giải Quyết', '$date_order')";
-    $queryorder = mysqli_query($conn, $sqlorder);
+    $Statement_Order= "INSERT INTO `order`(ID_User, Address_User, Phone_User, Status_Order, Date_Order) VALUES ('$ID_User', '$Address_User', '$Phone_User', 'Chưa Giải Quyết', '$Date_Order')";
+    $Query_Order = mysqli_query($conn, $Statement_Order);
     $last_id = mysqli_insert_id($conn);
     echo "<section class='bg-invoice bg-light'>
     <div class='container'>
@@ -72,20 +72,20 @@ if($counts!=0){
                                         <dd class='col-md-9 col-7 text-muted'>VKU$last_id</dd>
                                         
                                         <dt class='col-md-3 col-5 font-weight-normal'>Họ và Tên :</dt>
-                                        <dd class='col-md-9 col-7 text-muted'> $name</dd>
+                                        <dd class='col-md-9 col-7 text-muted'> $Name_User</dd>
                                         
                                         <dt class='col-md-3 col-5 font-weight-normal'>Địa Chỉ :</dt>
                                         <dd class='col-md-9 col-7 text-muted'>
-                                            <p class='mb-0'> $address</p>
+                                            <p class='mb-0'> $Address_User</p>
                                         </dd>
                                         <dt class='col-md-3 col-5 font-weight-normal'>Số điện thoại :</dt>
-                                        <dd class='col-md-9 col-7 text-muted'>$phone</dd>
+                                        <dd class='col-md-9 col-7 text-muted'>$Phone_User</dd>
                                     </dl>
                                 </div>
                                 <div class='col-md-4 order-md-2 order-1 mt-2 mt-sm-0'>
                                     <dl class='row mb-0'>
                                         <dt class='col-md-4 col-5 font-weight-normal'>Ngày :</dt>
-                                        <dd class='col-md-8 col-7 text-muted'>$date_order</dd>
+                                        <dd class='col-md-8 col-7 text-muted'>$Date_Order</dd>
                                     </dl>
                                 </div>
                             </div>
@@ -103,34 +103,33 @@ if($counts!=0){
                                     </thead>
                                     <tbody>";
                                     
-                                    while ($row = mysqli_fetch_assoc($query)){
+                                    while ($Display_Product = mysqli_fetch_assoc($Query_Product)){
                                         $stt++;
-                                        $product_id = $row['id'];
-                                        $product_name = $row['tenmathang'];
-                                        $quanlity= $_SESSION['cart'][$row['id']];
-                                        $price = ($_SESSION['cart'][$row['id']]*$row['dongia']*1000);
-                                        $sqlorderde= "INSERT INTO orderdetail(idorder, idpro, quanlity, price) VALUES ('$last_id', '$product_id', '$quanlity', '$price')";
-                                        $queryorderde = mysqli_query($conn, $sqlorderde);
+                                        $ID_Product = $Display_Product['ID_Product'];
+                                        $Quanlity_Order= $_SESSION['cart'][$Display_Product['ID_Product']];
+                                        $Price_Order = ($_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product']*1000);
+                                        $Statement_OrderDetail= "INSERT INTO orderdetail(ID_Order, ID_Product, Quanlity_Order, Price_Order) VALUES ('$last_id', '$ID_Product', '$Quanlity_Order', '$Price_Order')";
+                                        $Query_OrderDetail = mysqli_query($conn, $Statement_OrderDetail);
                                         echo "<tr>";
                                         echo   "
                                         <th scope='row' class='text-center'>$stt</th>
                                         <td class='text-left'>
                                         <div class='d-flex align-items-center'>
-                                            <img src='images/shop/$row[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
+                                            <img src='images/shop/$Display_Product[Image_Product]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                                             <div class='mb-0 ml-3'>
-                                                <h6>".$row['tenmathang']."</h6>
+                                                <h6>".$Display_Product['Name_Product']."</h6>
                                             </div>
                                         </div>
                                         </td>
-                                        <td class='text-center'>".$_SESSION['cart'][$row['id']]."</td>";
-                                        if ($row['dongia']==0){
+                                        <td class='text-center'>".$_SESSION['cart'][$Display_Product['ID_Product']]."</td>";
+                                        if ($Display_Product['Price_Product']==0){
                                             echo    "<td class='text-center'><i class='text-success'>FREE</i></td>";
                                         }
                                         else {
-                                            echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$row['id']]*$row['dongia'],3)." VND</td>";
+                                            echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product'],3)." VND</td>";
                                         }
                                         echo "</tr>";
-                                        $total += $_SESSION['cart'][$row['id']]*$row['dongia'];
+                                        $total += $_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product'];
                                         $total1= number_format($total,3);
                                     }
                                     echo "        </tbody>  </table>

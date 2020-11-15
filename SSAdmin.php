@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION["adminname"])){
-header("Location: login-dashboard.php");
+// Kiểm tra $_SESSION["Email_Admin"] nếu chưa có thì điều hướng về trang đăng nhập
+if(!isset($_SESSION["Email_Admin"])){
+header("Location: login-dashboard.html");
 exit(); 
 }
 ?>

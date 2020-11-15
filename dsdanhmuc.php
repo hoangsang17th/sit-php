@@ -23,17 +23,17 @@ include("header-dashboard.php");
                                     </thead>
                                     <tbody>
                                     <?php
-                                        $stt= 1;
-                                        $rsdanhmuc = "SELECT * FROM danhmuc";
-                                        $ketqua =mysqli_query($conn, $rsdanhmuc);
-                                        $slsp=0;
-                                        while ($row = mysqli_fetch_assoc($ketqua)){
+                                        $Stt= 1;
+                                        $Statement_Catalog = "SELECT * FROM catalog";
+                                        $Query_Catalog =mysqli_query($conn, $Statement_Catalog);
+                                        $Quanlity_Catalog=0;
+                                        while ($Display_Catalog = mysqli_fetch_assoc($Query_Catalog)){
                                             echo "<tr>";
-                                            echo '<td>'.$stt.'</td>';
-                                            echo '<td><a href="dssanpham.html?iddanhmuc='.$row['id'].'">'.$row['tendanhmuc'].'<a/></td>';
-                                            echo '<td><a href="EditDM.html?id='.$row['id'].'"><i class="far fa-edit"></i><a/></td>';
+                                            echo '<td>'.$Stt.'</td>';
+                                            echo '<td><a href="dssanpham.html?iddanhmuc='.$Display_Catalog['ID_Catalog'].'">'.$Display_Catalog['Name_Catalog'].'<a/></td>';
+                                            echo '<td><a href="EditDM.html?id='.$Display_Catalog['ID_Catalog'].'"><i class="far fa-edit"></i><a/></td>';
                                             echo "</tr>";
-                                            $stt++;
+                                            $Stt++;
                                         }
                                     ?>
                                     </tbody>

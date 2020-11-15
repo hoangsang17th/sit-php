@@ -1,8 +1,15 @@
 <?php 
 include("header.php");
 ?>
-
 <title>Quản lí đơn hàng - SIT</title>
+<style>
+.text_product_hidden{
+    white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+</style>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -11,87 +18,43 @@ include("header.php");
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                            <?php
-                            $limit = 10;
-                            $sql= "SELECT * FROM orderpro WHERE user_id =" .$profile['id'];
-                            $query = mysqli_query($conn, $sql);
-                            $count= mysqli_num_rows($query);
-                            $current_page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                            $total_page = ceil($count / $limit);
-                            if ($current_page > $total_page){
-                            $current_page = $total_page;
-                            }
-                            else if ($current_page < 1){
-                            $current_page = 1;
-                            }
-                            $start = ($current_page - 1) * $limit;
-                            $uid= $profile['id'];
-                            $sqllimit = "SELECT * FROM orderpro WHERE user_id= $uid ORDER BY id DESC LIMIT $start,$limit";
-                            $result = mysqli_query($conn, $sqllimit);
-                            ?>
-                                <table class="table table-centered table-nowrap">
+                                <table  id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead class="thead-light">
                                         <tr>
                                             <th>Mã đơn hàng</th>
                                             <th>Ngày mua</th>
                                             <th>Sản phẩm</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Trạng thái đơn hàng</th>
+                                            <th>Chi Tiết</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    while ($row = mysqli_fetch_assoc($result)){
+                                    $UID= $profile['ID_User'];
+                                    $Statement_Order = "SELECT * FROM `order` WHERE ID_User= $UID";
+                                    $Query_Order = mysqli_query($conn, $Statement_Order);
+                                    while ($Display_Order = mysqli_fetch_assoc($Query_Order)){
+                                        $Statement_OrderDetail = "SELECT * FROM orderdetail WHERE ID_Order =".$Display_Order['ID_Order'];
+                                        $Query_OrderDetail = mysqli_query($conn, $Statement_OrderDetail);
                                         echo "<tr>
-                                            
-                                        <td><a href='javascript: void(0);' class='text-primary ml-3'>$row[id]</a> </td>
-                                        <td>$row[date_order]</td>
-                                        <td>
-                                            $row[product_name]
-                                        </td>
-                                        <td>
-                                        ".number_format($row['price'])."đ
-                                        </td>
-                                        <td>";
-                                        if($row['status']=="Chưa Giải Quyết"){
-                                            echo "<span class='badge badge-pill badge-soft-danger font-size-13'>Chưa Giải Quyết</span>";
+                                        <td><a href='javascript: void(0);' class='text-primary ml-3'>VKU$Display_Order[ID_Order]</a> </td>
+                                        <td>$Display_Order[Date_Order]</td>
+                                        <td class='text_product_hidden'>";
+                                        while($Display_OrderDetail = mysqli_fetch_assoc($Query_OrderDetail)){
+                                            $Statement_Product = "SELECT * FROM product WHERE ID_Product =".$Display_OrderDetail['ID_Product'];
+                                            $Query_Product = mysqli_query($conn, $Statement_Product);
+                                            $Display_Product = mysqli_fetch_assoc($Query_Product);
+                                            echo "$Display_Product[Name_Product], ";
                                         }
-                                        else echo "<span class='badge badge-pill badge-soft-success font-size-13'>Giao Hàng Thành Công</span>";
-                                            
-                                    echo    "</td>
+                                        echo "</td><td>
+                                                <button type='button' class='btn btn-primary btn-sm btn-rounded' data-toggle='modal' data-target='.Modal$Display_Order[ID_Order]'>Xem</button>
+                                        </td>";
+                                    echo    "
                                     </tr>";
                                     }
                                     ?>
                                     </tbody>
                                 </table>
                             </div>
-                            <?php
-                            if($total_page >1){
-                                    echo    "<ul class='pagination pagination-rounded justify-content-end mb-2'>";
-                                    if ($current_page > 1){
-                                        if ($current_page == 2){
-                                            echo "<li class='page-item'><a class='page-link' href='Orderhistory.html' aria-label='Previous'><i class='mdi mdi-arrow-left'></i> </a></li>";
-                                        }else
-                                        echo "<li class='page-item'><a class='page-link' href='Orderhistory.html?page=".($current_page-1)."' aria-label='Previous'><i class='mdi mdi-arrow-left'></i> </a></li>";
-                                    }
-                                    
-                                    for ($i = 1; $i <= $total_page; $i++){
-                                        if ($i == $current_page){
-                                            echo "<li class='page-item active'><span class='page-link'>".$i."</span></li>";
-                                        } else{
-                                            if ($i ==1){
-                                            echo "<li class='page-item'><a class='page-link' href='Orderhistory.html'>".$i."</a></li>";
-                                            }else 
-                                            echo "<li class='page-item'><a class='page-link' href='Orderhistory.html?page=$i'>".$i."</a></li>";
-                                        }
-                                    }
-                                    if ($current_page < $total_page){
-                                        echo "<li class='page-item'><a class='page-link' href='Orderhistory.html?page=".($current_page+1)."' aria-label='Next'> <i class='mdi mdi-arrow-right'></i></a></li>";
-                                    }
-                                    echo    "</ul>
-                                        ";
-                                }                
-                            ?> 
                         </div>
                     </div>
                 </div>
@@ -99,6 +62,84 @@ include("header.php");
         </div> 
     </div>
 </div>
+<?php
+    $Statement_Order = "SELECT * FROM `order`";
+    $Query_Order = mysqli_query($conn, $Statement_Order);
+    while ($Display_Order = mysqli_fetch_assoc($Query_Order)){
+    $Statement_Users = "SELECT * FROM users WHERE ID_User =".$Display_Order['ID_User'];
+    $Query_Users = mysqli_query($conn, $Statement_Users);
+    $Display_Users = mysqli_fetch_assoc($Query_Users); 
+    echo "<div class='modal fade Modal$Display_Order[ID_Order]' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog modal-dialog-centered' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title' id='exampleModalLabel'>Chi Tiết Đơn Hàng</h5>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='modal-body'>
+                        <p class='mb-1'>Mã Đơn Hàng: <span class='text-primary'> VKU$Display_Order[ID_Order]</span></p>
+                        <p class='mb-1'>Liên Lạc: <span class='text-primary'> $Display_Order[Phone_User]</span></p>
+                        <p class='mb-2'>Địa Chỉ: <span class='text-primary'> $Display_Order[Address_User]</span></p>";
+                        if($Display_Order['Status_Order']=="Chưa Giải Quyết"){
+                                echo "<p class='mb-2'>Chưa Giải Quyết</p>";
+                            }
+                            else echo "<p class='mb-2'>Giao Hàng Thành Công</p>";
+                 echo"       <div class='table-responsive'>
+                            <table class='table table-centered table-nowrap'>
+                                <thead>
+                                    <tr>
+                                    <th scope='col'>Hình Ảnh</th>
+                                    <th scope='col'>Tên Sản Phẩm</th>
+                                    <th scope='col'>Tổng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+                $Statement_OrderDetail = "SELECT * FROM orderdetail WHERE ID_Order =".$Display_Order['ID_Order'];
+                $Query_OrderDetail = mysqli_query($conn, $Statement_OrderDetail);
+                $Total=0;
+                while($Display_OrderDetail = mysqli_fetch_assoc($Query_OrderDetail)){
+                    $Statement_Product = "SELECT * FROM product WHERE ID_Product =".$Display_OrderDetail['ID_Product'];
+                    $Query_Product = mysqli_query($conn, $Statement_Product);
+                    $Display_Product = mysqli_fetch_assoc($Query_Product);
+                    echo "<tr>
+                            <th scope='row'>
+                                <div>
+                                    <img src='images/shop/$Display_Product[Image_Product]' class='border' width='70px'>
+                                </div>
+                            </th>
+                            <td>
+                                <div>
+                                    <h5 class='text-truncate font-size-14'>$Display_Product[Name_Product]</h5>
+                                    <p class='text-muted mb-0'>".number_format($Display_Product['Price_Product'], 3)."đ x $Display_OrderDetail[Quanlity_Order]</p>
+                                </div>
+                            </td>
+                            <td>".number_format($Display_OrderDetail['Price_Order'])."đ</td>
+                        </tr>";
+                        $Total+= $Display_OrderDetail['Price_Order'];
+                }
+                                    echo"<tr>
+                                    <td colspan='2'>
+                                        <h6 class='m-0 text-right'>Total:</h6>
+                                    </td>
+                                    <td>
+                                    ".number_format($Total)."đ
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>";
+    }
+    ?>
+
 <?php
 include("footeruser.php");
 ?>

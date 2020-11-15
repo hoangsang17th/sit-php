@@ -58,25 +58,24 @@
                     <li><a href="https://www.youtube.com/channel/UCFovmhE6wmj-6doJKKURaiA" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Youtube</a></li>
                     <li><a href="Faqs.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Các câu hỏi thường gặp</a></li>
                 </ul>
-            </div><!--end col-->
-
+            </div>
             <div class="col-lg-3 col-md-4 col-sm-12 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <h4 class="text-light footer-head pl-3">Bản tin</h4>
                 <p class="mt-4 pl-3">Đăng ký và nhận các thông tin mới nhất qua email.</p>
-                    <div class="ro">
-                        <form action="WellcomeSIT.html" method="GET" target="_blank">
-                        <div class="col-12">
-                            <div class="foot-subscribe form-group position-relative">
-                                <label>Email của bạn <span class="text-danger">*</span></label>
-                                <i data-feather="mail" class="fea icon-sm icons"></i>
-                                <input type="email" name="email"  class="form-control pl-5 rounded" placeholder="Địa chỉ email của bạn: " required>
-                            </div>
+                <div class="ro">
+                    <form action="WellcomeSIT.html" method="GET" target="_blank">
+                    <div class="col-12">
+                        <div class="foot-subscribe form-group position-relative">
+                            <label>Email của bạn <span class="text-danger">*</span></label>
+                            <i data-feather="mail" class="fea icon-sm icons"></i>
+                            <input type="email" name="email"  class="form-control pl-5 rounded" placeholder="Địa chỉ email của bạn: " required>
                         </div>
-                        <div class="col-12">
-                            <input type="submit" class="btn btn-soft-primary btn-block" value="Đăng Ký">
-                        </div>
-                        </form>
                     </div>
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-soft-primary btn-block" value="Đăng Ký">
+                    </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -88,8 +87,7 @@
                 <div class="text-sm-left">
                     <p class="mb-0">© 2016 - Bản quyền của Công Ty Cổ Phần <a href="mailto: phsang49@gmail.com" target="_blank" class="text-reset">Hoàng Sang</a>.</p>
                 </div>
-            </div><!--end col-->
-
+            </div>
             <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <ul class="list-unstyled text-sm-right mb-0">
                     <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/american-ex.png" class="avatar avatar-ex-sm" title="American Express" alt=""></a></li>
@@ -98,17 +96,11 @@
                     <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/paypal.png" class="avatar avatar-ex-sm" title="Paypal" alt=""></a></li>
                     <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/visa.png" class="avatar avatar-ex-sm" title="Visa" alt=""></a></li>
                 </ul>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
-</footer><!--end footer-->
-<!-- Footer End -->
-
-<!-- Back to top -->
+            </div>
+        </div>
+    </div>
+</footer>
 <a href="#" class="btn btn-icon btn-soft-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
-<!-- Back to top -->
-
-<!-- javascript -->
 <script src="assets/js/jquery-3.5.1.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/jquery.easing.min.js"></script>

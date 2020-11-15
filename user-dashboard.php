@@ -25,19 +25,19 @@ include("header-dashboard.php");
                                     </thead>
                                     <tbody>
                                     <?php
-                                        $sql = "SELECT * FROM users";
-                                        $ketqua =mysqli_query($conn, $sql);
-                                        $stt= 1;
-                                        while ($row = mysqli_fetch_assoc($ketqua)){
+                                        $Statement_Users = "SELECT * FROM users";
+                                        $Query_Users =mysqli_query($conn, $Statement_Users);
+                                        $Stt= 1;
+                                        while ($Display_Users = mysqli_fetch_assoc($Query_Users)){
                                             echo "<tr>";
-                                            echo '<td>'.$stt.'</td>';
-                                            echo "<td>".$row['name']."</td>";
-                                            echo "<td>".$row['email']."</td>";
-                                            echo "<td>".$row['password']."</td>";
-                                            echo "<td>".$row['phone']."</td>";
-                                            echo "<td>".$row['address']."</td>";
+                                            echo '<td>'.$Stt.'</td>';
+                                            echo "<td>".$Display_Users['Name_User']."</td>";
+                                            echo "<td>".$Display_Users['Email_User']."</td>";
+                                            echo "<td>".$Display_Users['Password_User']."</td>";
+                                            echo "<td>".$Display_Users['Phone_User']."</td>";
+                                            echo "<td>".$Display_Users['Address_User']."</td>";
                                             echo "</tr>";
-                                            $stt++;
+                                            $Stt++;
                                         }
                                     ?>
                                     </tbody>

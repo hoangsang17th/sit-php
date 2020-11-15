@@ -28,18 +28,18 @@ include("header.php");
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $sql = "SELECT * FROM todolist WHERE id =".$profile['id'];
-                                            $ketqua =mysqli_query($conn, $sql);
-                                            $stt= 1;
-                                            while ($row = mysqli_fetch_assoc($ketqua)){
-                                                if ($row['completiondate']==''){
+                                            $Statement_ToDo = "SELECT * FROM todolist WHERE ID_User =".$profile['ID_User'];
+                                            $Query_ToDo =mysqli_query($conn, $Statement_ToDo);
+                                            $Stt= 1;
+                                            while ($Display_ToDo = mysqli_fetch_assoc($Query_ToDo)){
+                                                if ($Display_ToDo['Completion_Date']==''){
                                                     echo "<tr>";
-                                                    echo '<td>'.$stt.'</td>';
-                                                    echo "<td>".$row['startdate']."</td>";
-                                                    echo "<td>".$row['mission']."</td>";
-                                                    echo '<td><a href="DetailToDo.html?idm='.$row['idm'].'" class="">View</a></td>';
+                                                    echo '<td>'.$Stt.'</td>';   
+                                                    echo "<td>".$Display_ToDo['Start_Date']."</td>";
+                                                    echo "<td>".$Display_ToDo['Mission_ToDo']."</td>";
+                                                    echo '<td><a href="DetailToDo.html?id='.$Display_ToDo['ID_ToDo'].'" class="">View</a></td>';
                                                     echo "</tr>";
-                                                    $stt++;
+                                                    $Stt++;
                                                 }
                                             }
                                         ?>

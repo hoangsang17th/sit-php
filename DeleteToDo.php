@@ -1,7 +1,7 @@
 <?php
     include("Connect.php");    
     include("SSUser.php");
-    $sql = "DELETE FROM todolist WHERE idm=".$_GET['idm'];
-    $ketqua = mysqli_query($conn, $sql);
+    $Statement_ToDo = "DELETE FROM todolist WHERE ID_ToDo=".$_GET['id'];
+    $Query_ToDo = mysqli_query($conn, $Statement_ToDo);
     header("Location: index.html");
 ?>

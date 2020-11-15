@@ -32,7 +32,7 @@ include("navigation.php");
     <div class="container">
         <div class="row">
             <?php
-            if($profile['name']==''){
+            if($profile['Email_User']==''){
                 echo "<div class='col-lg-7 col-md-6' id='nav-tabs'>
                         <div class='component-wrapper rounded shadow sticky-bar'>
                             <div class='p-4'>
@@ -80,25 +80,25 @@ include("navigation.php");
                             <div class='col-12'>
                                 <div class='form-group position-relative'>
                                     <label>Họ và Tên <span class='text-danger'>*</span></label>
-                                    <input name='name' id='fullname' type='text' class='form-control' placeholder='Nhập họ và tên' value='".$profile['name']."' required disabled>
+                                    <input name='name' id='fullname' type='text' class='form-control' placeholder='Nhập họ và tên' value='".$profile['Name_User']."' required disabled>
                                 </div>
                             </div>
                             <div class='col-12'>
                                 <div class='form-group position-relative'>
                                     <label>Điện thoại di động <span class='text-danger'>*</span></label>
-                                    <input name='numberphone' type='text' class='form-control' placeholder='Nhập số di động' value='".$profile['phone']."' required>
+                                    <input name='numberphone' type='text' class='form-control' placeholder='Nhập số di động' value='".$profile['Phone_User']."' required>
                                 </div>
                             </div>
                             <div class='col-12'>
                                 <div class='form-group position-relative'>
                                     <label>Email <span class='text-danger'>*</span></label>
-                                    <input name='email' id='email' type='email' class='form-control' placeholder='Email của bạn' value='".$profile['email']."' required disabled>
+                                    <input name='email' id='email' type='email' class='form-control' placeholder='Email của bạn' value='".$profile['Email_User']."' required disabled>
                                 </div> 
                             </div>
                             <div class='col-12'>
                                 <div class='form-group position-relative'>
                                     <label>Địa chỉ <span class='text-danger'>*</span></label>
-                                    <input name='address' type='text' class='form-control' placeholder='Địa chỉ của bạn' value='".$profile['address']."' required>
+                                    <input name='address' type='text' class='form-control' placeholder='Địa chỉ của bạn' value='".$profile['Address_User']."' required>
                                 </div> 
                             </div>
                         </div>
@@ -107,7 +107,6 @@ include("navigation.php");
             </div>";
             }
             ?>
-
             <div class="col-lg-5 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <div class="rounded shadow-lg p-4">
                     <div class="d-flex mb-4 justify-content-between">
@@ -133,30 +132,30 @@ include("navigation.php");
                                     $item[]=$key;
                                 }
                                 $str=implode(",",$item);
-                                $sql = "SELECT * FROM sanpham WHERE id IN ($str)";
-                                $query = mysqli_query($conn, $sql);
+                                $Statement_Product = "SELECT * FROM product WHERE ID_Product IN ($str)";
+                                $Query_Product = mysqli_query($conn, $Statement_Product);
                                 $total = 0;
-                                while ($row = mysqli_fetch_assoc($query)){
-                                $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+                                while ($Display_Product = mysqli_fetch_assoc($Query_Product)){
+                                $urlpage = str_replace(" ", "-", "$Display_Product[Name_Product]");
                                 include("slug-page.php");
                                     echo "<tr>";
                                     echo   "<td>
                                                 <div class='d-flex align-items-center'>
-                                                    <img src='images/shop/$row[images]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
+                                                    <img src='images/shop/$Display_Product[Image_Product]' class='img-fluid avatar avatar-small rounded shadow' style='height:auto;'>
                                                     <div class='mb-0 ml-3'>
-                                                    <h6><b>".$_SESSION['cart'][$row['id']]."</b> x <a href='$urlpage-$row[id].html'target='_blank'>$row[tenmathang]</a></h6>
+                                                    <h6><b>".$_SESSION['cart'][$Display_Product['ID_Product']]."</b> x <a href='$urlpage-$Display_Product[ID_Product].html'target='_blank'>$Display_Product[Name_Product]</a></h6>
                                                     </div>
                                                 </div>
                                                 
                                             </td>";
-                                    if ($row['dongia']==0){
+                                    if ($Display_Product['Price_Product']==0){
                                         echo    "<td class='text-center'><i class='text-success'>FREE</i></td>";
                                     }
                                     else {
-                                        echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$row['id']]*$row['dongia'],3)." VND</td>";
+                                        echo    "<td class='text-center font-weight-bold'>".number_format($_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product'],3)." VND</td>";
                                     }
                                     echo "</tr>";
-                                    $total += $_SESSION['cart'][$row['id']]*$row['dongia'];
+                                    $total += $_SESSION['cart'][$Display_Product['ID_Product']]*$Display_Product['Price_Product'];
                                 }
                             }
                                 ?>

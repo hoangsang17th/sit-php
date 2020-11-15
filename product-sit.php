@@ -4,12 +4,12 @@ include("navigation.php");
 <?php
     $check = 0;
     if (isset($_GET['id'])){
-        $id = $_GET['id'];
-        $filter = "SELECT * FROM sanpham WHERE id=".$_GET['id'];      
-        $refilter = mysqli_query($conn, $filter);
-        $qafilter = mysqli_num_rows($refilter);
-        $mathang = mysqli_fetch_assoc($refilter);
-        if($qafilter==1){
+        $ID = $_GET['id'];
+        $Statement_Product = "SELECT * FROM product WHERE ID_Product= $ID";      
+        $Query_Product = mysqli_query($conn, $Statement_Product);
+        $Quanlity_Product = mysqli_num_rows($Query_Product);
+        $Display_Product = mysqli_fetch_assoc($Query_Product);
+        if($Quanlity_Product == 1){
             $check = 1;
         }
         else{        
@@ -19,10 +19,10 @@ include("navigation.php");
 ?>
 <?php
     if($check == 1){
-        if ($mathang['title'] ==''){
-            echo "<title>".$mathang['tenmathang']." - SIT</title>";
+        if ($Display_Product['Title_Product'] ==''){
+            echo "<title>".$Display_Product['Name_Product']." - SIT</title>";
         }
-        else echo "<title>".$mathang['title']."</title>";
+        else echo "<title>".$Display_Product['Title_Product']."</title>";
     }
     else echo "<title>Không tìm thấy trang yêu cầu | 404 Error | SIT </title>";
 ?>
@@ -47,25 +47,25 @@ include("navigation.php");
         ";
     }
     else{
-        $sqlGetHangHoa = "SELECT * FROM sanpham WHERE id=".$_GET['id'];        
-        $ketQuaGetHangHoa = mysqli_query($conn, $sqlGetHangHoa);
-        $mathang = mysqli_fetch_assoc($ketQuaGetHangHoa);
+        $Statement_Product = "SELECT * FROM product WHERE ID_Product= ".$_GET['id'];             
+        $Query_Product = mysqli_query($conn, $Statement_Product);
+        $Display_Product = mysqli_fetch_assoc($Query_Product);
         echo "<section class='section'>";
         include("Basket.php");
         echo    "<div class='container mt-5'>
                     <div class='row align-items-center'>
                         <div class='col-md-5'>
                             <div class='slider slider-for'>
-                                <div><img src='images/shop/$mathang[images]' class='img-fluid rounded' title='$mathang[tenmathang]'></div>
+                                <div><img src='images/shop/$Display_Product[Image_Product]' class='img-fluid rounded' title='$Display_Product[Name_Product]'></div>
                             </div>
                             
                         </div>
                         <div class='col-md-7 mt-sm-0 pt-2 pt-sm-0'>
                             <div class='section-title ml-md-4'>
-                                <h4 class='title'>".$mathang['tenmathang']."</h4>";
-                                if ($mathang['dongia'] !=0){
-                                    $del = $mathang['dongia']*1.1*1000;
-                                    echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".number_format($mathang['dongia'],3)." VNĐ";
+                                <h4 class='title'>".$Display_Product['Name_Product']."</h4>";
+                                if ($Display_Product['Price_Product'] !=0){
+                                    $del = $Display_Product['Price_Product']*1.1*1000;
+                                    echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".number_format($Display_Product['Price_Product'],3)." VNĐ";
                                     if(rand(0,1)==0){
                                         if ($del!=0) echo "<span class='text-danger ml-1'>(".$del.")</span>";
                                     }  
@@ -81,15 +81,15 @@ include("navigation.php");
                                     <li class='list-inline-item'><i class='mdi mdi-star'></i></li>
                                 </ul>
                                 <h5 class='mt-4 py-2'>MÔ TẢ SẢN PHẨM:</h5>
-                                <p class='text-muted'>".$mathang['mota']."</p>
+                                <p class='text-muted'>".$Display_Product['Des_Product']."</p>
                                 <ul class='list-unstyled text-muted'>
                                     <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Miễn Phí Vận Chuyển</li>
                                     <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Cam kết chính hiệu 100%</li>
                                     <li class='mb-0'><span class='text-primary h5 mr-2'><i class='uim uim-check-circle'></i></span> Ở đâu rẻ hơn, SIT hoàn tiền</li>
                                 </ul>
                                 <div class='mt-4 pt-2'>
-                                    <a href='AddToShop.php?item=$mathang[id]' class='btn btn-soft-primary ml-2'>Thêm Vào Giỏ Hàng</a>
-                                    <a href='AddToShopNow.php?item=$mathang[id]' class='btn btn-primary'>Mua Ngay</a>
+                                    <a href='AddToShop.php?item=$Display_Product[ID_Product]' class='btn btn-soft-primary ml-2'>Thêm Vào Giỏ Hàng</a>
+                                    <a href='AddToShopNow.php?item=$Display_Product[ID_Product]' class='btn btn-primary'>Mua Ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -106,30 +106,30 @@ include("navigation.php");
         <div class='col-12 mt-4'>
             <div id='client-four' class='owl-carousel owl-theme'>
     <?php
-        $sql2 = "SELECT * FROM sanpham";
-        $query = mysqli_query($conn, $sql2);
-        while ($row = mysqli_fetch_assoc($query)){
-            if ($row['dongia']!=0){
-                $price = number_format($row['dongia'],3);
-                $del = $row['dongia']*1.1*1000;
+        $Statement_Product = "SELECT * FROM product";
+        $Query_Product = mysqli_query($conn, $Statement_Product);
+        while ($Display_Product = mysqli_fetch_assoc($Query_Product)){
+            if ($Display_Product['Price_Product']!=0){
+                $price = number_format($Display_Product['Price_Product'],3);
+                $del = $Display_Product['Price_Product']*1.1*1000;
             }
             else $price =$del = 0;
-            $urlpage = str_replace(" ", "-", "$row[tenmathang]");
+            $urlpage = str_replace(" ", "-", "$Display_Product[Name_Product]");
             include("slug-page.php");
             echo "<div class='col-12 mt-4 pt-2'>
             <div class='card shop-list border-0 position-relative overflow-hidden'>
                 <div class='shop-image position-relative overflow-hidden rounded shadow'>
-                    <a href='$urlpage-$row[id].html'><img src='images/shop/$row[images]' class='img-fluid' alt=''></a>
-                    <a href='$urlpage-$row[id].html' class='overlay-work'>
-                        <img src='images/shop/$row[images]' class='img-fluid' alt=''>
+                    <a href='$urlpage-$Display_Product[ID_Product].html'><img src='images/shop/$Display_Product[Image_Product]' class='img-fluid' alt=''></a>
+                    <a href='$urlpage-$Display_Product[ID_Product].html' class='overlay-work'>
+                        <img src='images/shop/$Display_Product[Image_Product]' class='img-fluid' alt=''>
                     </a>
                     <ul class='list-unstyled shop-icons pr-3'>
-                        <li class='mt-2'><a href='$urlpage-$row[id].html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
-                        <li class='mt-2'><a href='AddToShop.php?item=$row[id]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='$urlpage-$Display_Product[ID_Product].html' class='btn btn-icon btn-pills btn-soft-primary'><i data-feather='eye' class='icons'></i></a></li>
+                        <li class='mt-2'><a href='AddToShop.php?item=$Display_Product[ID_Product]' class='btn btn-icon btn-pills btn-soft-warning'><i data-feather='shopping-cart' class='icons'></i></a></li>
                     </ul>
                 </div>
                 <div class='card-body content pt-4 p-2'>
-                    <a href='$urlpage-$row[id].html' class='text-dark product-name h6'>$row[tenmathang]</a>
+                    <a href='$urlpage-$Display_Product[ID_Product].html' class='text-dark product-name h6'>$Display_Product[Name_Product]</a>
                     <div class='d-flex justify-content-between mt-1'>";
                     if ($price !=0){
                         echo "<h6 class='text-muted small font-italic mb-0 mt-1'>".$price." VNĐ";
@@ -156,7 +156,7 @@ include("navigation.php");
         echo "";
     }
     else{
-        if ($profile['email']!=''){
+        if ($profile['Email_User']!=''){
             echo" <div class='container my-5'>
         <h4 >KHÁCH HÀNG NHẬN XÉT</h4>
         <!-- <form method='GET' action=''> -->
@@ -181,7 +181,7 @@ include("navigation.php");
     <div class='container mb-5'>
         <div class='row mb-5'>
             <div class='col-12 mb-5' id='listcomment'>";
-           echo "<div class='card shadow rounded border-0 mt-4'>
+        echo "<div class='card shadow rounded border-0 mt-4'>
     <div class='card-body'>
         <h5 class='card-title mb-0'>Comments :</h5>
 
@@ -226,17 +226,17 @@ include("navigation.php");
         </ul>
     </div>
 </div>";
-                $sql3 = "SELECT * FROM comment WHERE idpro = $id";
-                $ketqua3 = mysqli_query($conn, $sql3);
-                $quanlity = mysqli_num_rows($ketqua3);
-                if ($quanlity !=0){
-                    echo "<label>$quanlity Bình Luận</label>";
+                $Statement_Comment = "SELECT * FROM comment WHERE ID_Product = $ID";
+                $Query_Comment = mysqli_query($conn, $Statement_Comment);
+                $Quanlity_Comment = mysqli_num_rows($Query_Comment);
+                if ($Quanlity_Comment !=0){
+                    echo "<label>$Quanlity_Comment Bình Luận</label>";
                 }
                 else echo "<label>Chưa có đánh giá nào!</label>";
-                while ($row3 = mysqli_fetch_assoc($ketqua3)){
-                    $sql4 = 'SELECT * FROM users WHERE id ='.$row3['username'];
-                    $ketqua4 = mysqli_query($conn, $sql4);
-                    $row4 = mysqli_fetch_assoc($ketqua4);
+                while ($Display_Comment = mysqli_fetch_assoc($Query_Comment)){
+                    $Statement_Users = 'SELECT * FROM users WHERE ID_User ='.$Display_Comment['ID_User'];
+                    $Query_Users = mysqli_query($conn, $Statement_Users);
+                    $Display_Users = mysqli_fetch_assoc($Query_Users);
                     echo "<div class='rounded shadow my-3'>
                     <div class='p-4'>
                         <div class='d-flex justify-content-between'>
@@ -245,14 +245,14 @@ include("navigation.php");
                                 <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
                             </div>
                                 <div class='commentor-detail'>
-                                    <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>$row4[name]</a></h6>
+                                    <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>$Display_Users[Name_User]</a></h6>
                                     <small class='text-muted'>Khách Hàng</small>
                                 </div>
                             </div>
-                            <small class='text-muted'>$row3[date]</small>
+                            <small class='text-muted'>$Display_Comment[Date_Comment]</small>
                         </div>
                         <div class='mt-3'>
-                            <p class='mb-0'>$row3[comment]</p>
+                            <p class='mb-0'>$Display_Comment[Comment]</p>
                         </div>
                     </div>
                 </div>";
@@ -286,13 +286,13 @@ include("footer.php");
         $("#sendcm").click(function(){
             var url_string = window.location.href;
             var url = new URL(url_string);
-            var idpro = <?php echo $_GET['id'];?>
+            var ID_Product = <?php echo $_GET['id'];?>
             // url.searchParams.get("id");
             // var idpro = (new URL(document.location)).searchParams;
             var txt = $("#comments").val();
             document.getElementById("comments").value= "";
             alert("Đăng Bình Luận Thành Công");
-            $.post("CommentProcess.php", {idpro: idpro, content: txt}, function (result) {
+            $.post("CommentProcess.php", {ID_Product: ID_Product, content: txt}, function (result) {
                 // alert(result);
                 $("#listcomment").append("<div class='rounded shadow my-3'><div class='p-4'><div class='d-flex justify-content-between'><div class='media align-items-center'><div class='pr-3'><img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>                            </div><div class='commentor-detail'><h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>Bạn</a></h6><small class='text-muted'>Khách Hàng</small></div></div><small class='text-muted'>Vừa xong</small></div><div class='mt-3'><p class='mb-0'>"+txt+"</p></div></div></div>");
             });
