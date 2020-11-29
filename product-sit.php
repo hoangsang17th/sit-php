@@ -180,30 +180,21 @@ include("navigation.php");
     echo "
     <div class='container mb-5'>
         <div class='row mb-5'>
-            <div class='col-12 mb-5' id='listcomment'>";
-        echo "<div class='card shadow rounded border-0 mt-4'>
-    <div class='card-body'>
-        <h5 class='card-title mb-0'>Comments :</h5>
-
-        <ul class='media-list list-unstyled mb-0'>
-            <li class='mt-4'>
-                <div class='d-flex justify-content-between'>
-                    <div class='media align-items-center'>
-                        <a class='pr-3' href='#'>
-                            <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
-                        </a>
-                        <div class='commentor-detail'>
-                            <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>Tammy Camacho</a></h6>
-                            <small class='text-muted'>16th August, 2019 at 03:44 pm</small>
-                        </div>
-                    </div>
-                    <a href='#' class='text-muted'><i class='mdi mdi-reply'></i> Reply</a>
-                </div>
-                <div class='mt-3'>
-                    <p class='text-muted font-italic p-3 bg-light rounded'>' There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour '</p>
-                </div>
-
-                <ul class='list-unstyled pl-4 pl-md-5 sub-comment'>
+            <div class='col-12 mb-5' id='listcomment'>
+            <div class='card shadow rounded border-0 mt-4'>
+    <div class='card-body'>";
+        $Statement_Comment = "SELECT * FROM comment WHERE ID_Product = $ID";
+        $Query_Comment = mysqli_query($conn, $Statement_Comment);
+        $Quanlity_Comment = mysqli_num_rows($Query_Comment);
+        if ($Quanlity_Comment !=0){
+            echo "<label>$Quanlity_Comment Bình Luận</label>";
+        }
+        else echo "<label>Chưa có đánh giá nào!</label>";
+        while ($Display_Comment = mysqli_fetch_assoc($Query_Comment)){
+            $Statement_Users = 'SELECT * FROM users WHERE ID_User ='.$Display_Comment['ID_User'];
+            $Query_Users = mysqli_query($conn, $Statement_Users);
+            $Display_Users = mysqli_fetch_assoc($Query_Users);
+            echo "<ul class='media-list list-unstyled mb-0'>
                     <li class='mt-4'>
                         <div class='d-flex justify-content-between'>
                             <div class='media align-items-center'>
@@ -211,53 +202,67 @@ include("navigation.php");
                                     <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
                                 </a>
                                 <div class='commentor-detail'>
-                                    <h6 class='mb-0'><a href='javascript:void(0)' class='text-dark media-heading'>Lorenzo Peterson</a></h6>
-                                    <small class='text-muted'>17th August, 2019 at 01:25 pm</small>
-                                </div>
-                            </div>
-                            <a href='#' class='text-muted'><i class='mdi mdi-reply'></i> Reply</a>
-                        </div>
-                        <div class='mt-3'>
-                            <p class='text-muted font-italic p-3 bg-light rounded'>' There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour '</p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>";
-                $Statement_Comment = "SELECT * FROM comment WHERE ID_Product = $ID";
-                $Query_Comment = mysqli_query($conn, $Statement_Comment);
-                $Quanlity_Comment = mysqli_num_rows($Query_Comment);
-                if ($Quanlity_Comment !=0){
-                    echo "<label>$Quanlity_Comment Bình Luận</label>";
-                }
-                else echo "<label>Chưa có đánh giá nào!</label>";
-                while ($Display_Comment = mysqli_fetch_assoc($Query_Comment)){
-                    $Statement_Users = 'SELECT * FROM users WHERE ID_User ='.$Display_Comment['ID_User'];
-                    $Query_Users = mysqli_query($conn, $Statement_Users);
-                    $Display_Users = mysqli_fetch_assoc($Query_Users);
-                    echo "<div class='rounded shadow my-3'>
-                    <div class='p-4'>
-                        <div class='d-flex justify-content-between'>
-                            <div class='media align-items-center'>
-                                <div class='pr-3'>
-                                <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
-                            </div>
-                                <div class='commentor-detail'>
                                     <h6 class='mb-0'><a href='javascript:void(0)' class='media-heading text-dark'>$Display_Users[Name_User]</a></h6>
-                                    <small class='text-muted'>Khách Hàng</small>
+                                    <small class='text-muted'>$Display_Comment[Date_Comment]</small>
                                 </div>
                             </div>
-                            <small class='text-muted'>$Display_Comment[Date_Comment]</small>
                         </div>
                         <div class='mt-3'>
-                            <p class='mb-0'>$Display_Comment[Comment]</p>
-                        </div>
-                    </div>
-                </div>";
-                }
+                            <p class='text-muted font-italic p-3 bg-light rounded'>' $Display_Comment[Comment]'</p>
+                        </div>";
+                        if (isset($_POST['btnsub-'.$Display_Comment['ID_Comment']])) {
+                            $ID_User=$profile['ID_User'];
+                            $ID_Comment = $Display_Comment['ID_Comment'];
+                            date_default_timezone_set('Asia/Ho_Chi_Minh');
+                            $date = date("Y-m-d");
+                            $ReComment = $_POST['recomment-'.$Display_Comment['ID_Comment']];
+                            $sql = "INSERT INTO recomment(ID_User, ID_Comment, ReComment, Date_ReComment) VALUES ('$ID_User','$ID_Comment','$ReComment','$date')";
+                            $ketqua = mysqli_query($conn, $sql);
+                        }
+                        echo "
+                            <form action='' method='POST'>
+                            <div class='row'>
+                            <div class='col-8 col-sm-9 col-md-10'>
+                                <input type='text' id='recomments' name='recomment-$Display_Comment[ID_Comment]' class='form-control' placeholder='Trả lời bình luận của $Display_Users[Name_User]'>
+                            </div>
+                            <div class='col-4 col-sm-3 col-md-2'>
+                                <input type='submit' id='sendrcm' value='Trả lời' name='btnsub-$Display_Comment[ID_Comment]' class='btn btn-primary btn-lock'>
+                            </div></div>
+                            </form>
+                        
+                        ";
+                        $Statement_ReComment = "SELECT * FROM recomment WHERE ID_Comment = $Display_Comment[ID_Comment]";
+                        $Query_ReComment = mysqli_query($conn, $Statement_ReComment);
+                        while ($Display_ReComment = mysqli_fetch_assoc($Query_ReComment)){
+                            $Statement_ReUsers = 'SELECT * FROM users WHERE ID_User ='.$Display_ReComment['ID_User'];
+                            $Query_ReUsers = mysqli_query($conn, $Statement_ReUsers);
+                            $Display_ReUsers = mysqli_fetch_assoc($Query_ReUsers);
+            echo"
+                        <ul class='list-unstyled pl-4 pl-md-5 sub-comment'>
+                            <li class='mt-4'>
+                                <div class='d-flex justify-content-between'>
+                                    <div class='media align-items-center'>
+                                        <a class='pr-3' href='#'>
+                                            <img src='assets/images/users/avatar.jpg' class='img-fluid avatar avatar-md-sm rounded-circle shadow' alt='img'>
+                                        </a>
+                                        <div class='commentor-detail'>
+                                            <h6 class='mb-0'><a href='javascript:void(0)' class='text-dark media-heading'>$Display_ReUsers[Name_User]</a></h6>
+                                            <small class='text-muted'>$Display_ReComment[Date_ReComment]</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='mt-3'>
+                                    <p class='text-muted font-italic p-3 bg-light rounded'>' $Display_ReComment[ReComment]'</p>
+                                </div>
+                            </li>
+                        </ul>";}
+                        echo"
+                    </li>
+                </ul><hr>";
+        }
     echo "  </div>
+    </div>
+    </div>
         </div>
     </div>";
     }
