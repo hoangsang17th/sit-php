@@ -1,7 +1,6 @@
 <?php
     include("Connect.php");
     include("navigation.php");
-    session_start();
 ?>
 <link href="assets/css/flexslider.css" rel="stylesheet" type="text/css" />
 <title>Shop SIT - Mua mọi thứ với mọi giá!</title>

@@ -25,10 +25,12 @@ if($counts!=0){
     $Address_User = $_GET['address'];
     $Phone_User = $_GET['numberphone'];
     $Name_User= $profile['Name_User'];
+    $Email_User = $profile['Email_User'];
     $stt=0;
     $Statement_Order= "INSERT INTO `order`(ID_User, Address_User, Phone_User, Status_Order, Date_Order) VALUES ('$ID_User', '$Address_User', '$Phone_User', 'Chưa Giải Quyết', '$Date_Order')";
     $Query_Order = mysqli_query($conn, $Statement_Order);
     $last_id = mysqli_insert_id($conn);
+    include('SendEmail.php');
     echo "<section class='bg-invoice bg-light'>
     <div class='container'>
         <div class='row mt-5 pt-4 pt-sm-0 justify-content-center'>
@@ -165,7 +167,8 @@ if($counts!=0){
             </div>
         </section>";
     unset($_SESSION['cart']); 
-    } else {
+} 
+else {
         echo "<section class='align-items-center my-5'>
         <div class='containermt-5 pt-5'>
             <div class='row justify-content-center'>
@@ -183,8 +186,8 @@ if($counts!=0){
             </div>
         </div>
     </section>";
-    }
-    ?>
+}
+?>
 <script>
 function goBack() {
     window.history.back();

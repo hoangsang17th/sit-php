@@ -18,10 +18,11 @@
     <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
     <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <script src="assets/js/pages/datatables.init.js"></script>    
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/js/pages/datatables.init.js"></script>
     <script src="assets/libs/select2/js/select2.min.js"></script>
     <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
     <script src="assets/js/pages/ecommerce-select2.init.js"></script>
+    <script src="assets/libs/admin-resources/rwd-table/rwd-table.min.js"></script>
+    <script src="assets/js/pages/table-responsive.init.js"></script>
 </body>
 </html>

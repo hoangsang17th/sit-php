@@ -1,15 +1,7 @@
 <?php
 include("header-dashboard.php");
 ?>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $ID_Order=$_POST['ID_Order'];
-    $Date_De = date("H:i:s Y/m/d");
-    $Statement_Update_Order = "UPDATE `order` SET Date_De='$Date_De', Status_Order = 'Giao Thành Công' WHERE ID_Order = $ID_Order";
-    $Query_Update_Order = mysqli_query($conn, $Statement_Update_Order);
-}
-?>
-<title>Quản Lí Đơn Hàng - SIT</title>
+<title>Quản Lí Đơn Hàng Thành Công - SIT</title>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -30,20 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $Statement_Order = "SELECT * FROM `order`WHERE Status_Order = 'Chưa Giải Quyết' ";
+                                        $Statement_Order = "SELECT * FROM `order`WHERE Status_Order = 'Giao Thành Công' ";
                                         $Query_Order = mysqli_query($conn, $Statement_Order);
                                         // Từ bảng order chúng ta bắt đầu truy vấn các trường dữ liệu ở các bảng khác để bổ sung thông tin cho hóa đơn
                                         while ($Display_Order = mysqli_fetch_assoc($Query_Order)){
                                             // Từ ID_User lấy ra dữ liệu tên người dùng
                                             $Statement_Users = "SELECT * FROM users WHERE ID_User =".$Display_Order['ID_User'];
                                             $Query_Users = mysqli_query($conn, $Statement_Users);
-                                            $Display_Users = mysqli_fetch_assoc($Query_Users); 
+                                            $Display_Users = mysqli_fetch_assoc($Query_Users);
                                             // Từ ID_Order lấy toàn bộ dữ liệu của đơn đặt hàng
                                             $Statement_OrderDetail = "SELECT * FROM orderdetail WHERE ID_Order =".$Display_Order['ID_Order'];
                                             $Query_OrderDetail = mysqli_query($conn, $Statement_OrderDetail);
-                                            $Display_OrderDetail = mysqli_fetch_assoc($Query_OrderDetail); 
+                                            $Display_OrderDetail = mysqli_fetch_assoc($Query_OrderDetail);
                                             echo "<tr>
-                                                
+
                                             <td><a href='javascript: void(0);' class='text-primary ml-3'>VKU".$Display_Order['ID_Order']."</a> </td>
                                             <td>$Display_Order[Date_Order]</td>
                                             <td>
@@ -79,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     while ($Display_Order = mysqli_fetch_assoc($Query_Order)){
     $Statement_Users = "SELECT * FROM users WHERE ID_User =".$Display_Order['ID_User'];
     $Query_Users = mysqli_query($conn, $Statement_Users);
-    $Display_Users = mysqli_fetch_assoc($Query_Users); 
+    $Display_Users = mysqli_fetch_assoc($Query_Users);
     echo "<div class='modal fade Modal$Display_Order[ID_Order]' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog modal-dialog-centered' role='document'>
                 <div class='modal-content'>
@@ -140,10 +132,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                     <div class='modal-footer'>
-                    <form action='' method='post'>
-                        <input type='hidden' name='ID_Order' value='".$Display_Order['ID_Order']."'>
-                        <button type='submit' class='btn btn-success'>Đã Giao</button>
-                    </form>
                         <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
                     </div>
                 </div>

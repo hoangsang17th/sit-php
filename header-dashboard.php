@@ -24,6 +24,8 @@
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="assets/libs/admin-resources/rwd-table/rwd-table.min.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <!-- Phần load của trang -->
@@ -202,7 +204,9 @@
                             <span>Hệ Thống</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="orderlist.html">Đơn Hàng</a></li>
+                            <li><a href="orderlist.html">Đơn Hàng Chưa Giao</a></li>
+                            <li><a href="ordersuccess.html">Đơn Hàng Thành Công</a></li>
+                            <li><a href="commentadmin.html">Bình Luận</a></li>
                             <li><a href="#">Doanh Thu</a></li>
                         </ul>
                     </li>
